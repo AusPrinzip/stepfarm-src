@@ -1,0 +1,323 @@
+@font-face {
+  font-family: TTOctosquares-Black;
+  src: url("font/TTOctosquares-Black.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Hurme;
+  src:  url("font/HurmeGeometricSans1 BoldOblique.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Poppins;
+  src:  url("font/Poppins-Regular.ttf") format("opentype");
+}
+
+#intro {
+  text-align: center;
+}
+
+#intro > h1 {
+  font-family: TTOctosquares-Black, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 6em;
+}
+
+#intro > h2 {
+  font-family: TTOctosquares-Black, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 2em;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+}
+
+.navbar {
+  font-family: Hurme;
+  height: 120px !important;
+  margin-bottom: 0px !important;
+}
+
+.navbar-default {
+    background-color: #37E4E5 !important;
+    border-color: #E7E7E7;
+}
+
+.navbar-brand {
+  max-width: 150px !important;
+}
+
+.navbar-collapse-vertical-aligned {
+  position: absolute;
+  left: 150px;
+  top: calc(25% - 1px) !important;
+}
+
+.navbar-nav-vertical-aligned {
+  position: absolute;
+  right: 20px;
+  top: 23px;
+}
+
+#firstblock {
+  font-family: Hurme;
+  margin-top: 5%;
+  text-align: center;
+}
+
+.statscontainer {
+  margin-top: 5%;
+  position: relative;
+  text-align: center;
+  color: black;
+}
+
+.subcontainer {
+  position: absolute;
+}
+
+.rectangles {
+  position: absolute;
+  z-index: 1;
+  right: 20%;
+}
+
+.shoe {
+  position: absolute;
+  z-index: 2;
+  left: 10%;
+  bottom: 0%;
+}
+
+.stat {
+  font-family: Hurme;
+  position: absolute;
+  z-index: 2;
+  left: 75%;
+}
+
+.distance {
+  bottom: 83%;
+}
+
+.carbon {
+  bottom: 58%;
+}
+
+.calories {
+  bottom: 31%;
+}
+
+.twitter {
+  bottom: 4%;
+}
+
+.statvalue {
+  left: 50%;
+  color: white;
+  font-size: 29px;
+}
+
+#secondblock {
+  font-family: Hurme;
+  margin-top: 5%;
+  margin-bottom: 10%;
+  text-align: center;
+}
+
+.roadmap-firstrow {
+  top: 8%;
+}
+
+.roadmap-secondrow {
+  top: 44%;
+}
+
+.roadmap-thirdrow {
+  top: 90%;
+}
+
+.roadmap-text-august {
+  font-family: Poppins;
+  font-size: 12px !important;
+  color:  gray;
+  width: 230px;
+  top: 23%;
+  left: 7% !important;
+}
+
+.roadmap-text-september {
+  font-family: Poppins;
+  font-size: 12px !important;
+  color:  gray;
+  width: 230px;
+  top: 23%;
+  left: 35% !important;
+}
+
+.roadmap-text-october {
+  font-family: Poppins;
+  font-size: 12px !important;
+  color:  gray;
+  width: 230px;
+  top: 23%;
+  left: 60% !important;
+}
+
+.roadmap-text-2023 {
+  font-family: Poppins;
+  font-size: 12px !important;
+  color:  gray;
+  width: 230px;
+  top: 62%;
+  left: 15% !important;
+}
+
+.roadmap-text-december {
+  font-family: Poppins;
+  font-size: 12px !important;
+  color:  gray;
+  width: 230px;
+  top: 62%;
+  left: 40% !important;
+}
+
+.roadmap-text-november {
+  font-family: Poppins;
+  font-size: 12px !important;
+  color:  gray;
+  width: 230px;
+  top: 62%;
+  left: 65% !important;
+}
+
+.roadmap-text-2024 {
+  font-family: Poppins;
+  font-size: 12px !important;
+  color:  gray;
+  width: 230px;
+  top: 102%;
+  left: 7% !important;
+}
+
+.roadmap-text-2025 {
+  font-family: Poppins;
+  font-size: 12px !important;
+  color:  gray;
+  width: 230px;
+  top: 102%;
+  left: 35% !important;
+}
+
+.roadmap-text-2026 {
+  font-family: Poppins;
+  font-size: 12px !important;
+  color:  gray;
+  width: 230px;
+  top: 102%;
+  left: 60% !important;
+}
+
+
+.circuitcontainer {
+  margin-top: 5%;
+  position: relative;
+  text-align: center;
+  color: black;
+  height: auto;
+}
+
+.august {
+  font-size: 20px;
+  position: absolute;
+  z-index: 1;
+  left: 15%;
+}
+
+.september {
+  font-size: 20px;
+  position: absolute;
+  z-index: 1;
+  left: 40%;
+}
+
+.october {
+  font-size: 20px;
+  position: absolute;
+  z-index: 1;
+  left: 65%;
+}
+
+.y2023 {
+  font-size: 20px;
+  position: absolute;
+  z-index: 1;
+  left: 30%;
+  color: #00E8E7;
+}
+
+.december {
+  font-size: 20px;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  color: #00E8E7;
+}
+
+.november {
+  font-size: 20px;
+  position: absolute;
+  z-index: 1;
+  left: 70%;
+  color: #00E8E7;
+}
+
+.y2024 {
+  font-size: 20px;
+  position: absolute;
+  z-index: 1;
+  left: 25%;
+  color: #00E8E7;
+}
+
+.y2025 {
+  font-size: 20px;
+  position: absolute;
+  z-index: 1;
+  left: 45%;
+  color: #00E8E7;
+}
+
+.y2026 {
+  font-size: 20px;
+  position: absolute;
+  z-index: 1;
+  left: 70%;
+  color: #00E8E7;
+}
+
+#thirdblock {
+  font-family: Hurme;
+  margin-top: 5%;
+  margin-bottom: 10%;
+  text-align: center;
+}
+
+.square {
+  width: 70% !important;
+  background-color: #00E8E7;
+  position: relative;
+  left: 16%;
+}
+
+.sideshoe {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.email-input-container {
+  margin-bottom: 20%;
+}
