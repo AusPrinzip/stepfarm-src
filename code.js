@@ -3,7 +3,8 @@ const ZEROES = '000000000000000000'
 const ADDRESS_ROUTER = '0x9a0a6763589c8bd20d8a83262af491e49f4e3efe'
 const TOKENS = {
 	USDC: '0x64544969ed7ebf5f083679233325356ebe738930',
-	USDT: '0x337610d27c682e347c9cd60bd4b3b107c9d34ddd'
+	USDT: '0x337610d27c682e347c9cd60bd4b3b107c9d34ddd',
+	TEST: '0x84c6becf034ca616bef95e669fc65aa6dc3b1e53'
 }
 const SLIPPAGE_TOLERANCE = 0.005
 let dweb3 = new Web3('https://data-seed-prebsc-1-s1.binance.org:8545/')
@@ -26,6 +27,18 @@ function onAddLiquidity () {
 	contract
 		.methods
 		.addLiquidity(TOKENS.USDC, TOKENS.USDT, "5"+ZEROES, "5"+ZEROES, "5"+ZEROES, "5"+ZEROES, selectedAccount, deadline)
+		.send({
+			from: selectedAccount
+		})
+}
+
+function onRemoveLiquidity () {
+	let web3 = new Web3(provider)
+	let contract = new web3.eth.Contract(ABI_ROUTER, ADDRESS_ROUTER)
+	let deadline = Math.round(new Date().getTime()/1000) + 3 * ONE_MINUTE
+	contract
+		.methods
+		.removeLiquidity(TOKENS.USDT, TOKENS.USDC, "3998999999999998000", "1", "1", selectedAccount, deadline)
 		.send({
 			from: selectedAccount
 		})
@@ -108,9 +121,29 @@ function onSwap () {
 		})
 }
 
+function onGetBalance() {
+	let token = prompt("Please enter token", "USDC")
+	let tokenAddress = TOKENS[token]
+	if (!tokenAddress) {
+		alert('Wrong token symbol provided')
+		return
+	}
+	let web3 = new Web3(provider)
+	let contract = new web3.eth.Contract(ABI_ERC20, tokenAddress)
+	contract
+		.methods
+		.balanceOf(selectedAccount)
+		.call()
+		.then(function(res) {
+			console.log(res)
+		})
+}
+
 window.addEventListener('load', async () => {
   init()
+	document.querySelector("#btn-getBalance").addEventListener("click", onGetBalance)
   document.querySelector("#btn-addLiquidity").addEventListener("click", onAddLiquidity)
+	document.querySelector("#btn-removeLiquidity").addEventListener("click", onRemoveLiquidity)
 	document.querySelector("#btn-approveToken").addEventListener("click", onApproveToken)
 	document.querySelector("#btn-getQuote").addEventListener("click", onGetQuote)
 	document.querySelector("#btn-swap").addEventListener("click", onSwap)
