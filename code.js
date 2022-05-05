@@ -1,11 +1,11 @@
 const ONE_MINUTE = 60
 const ZEROES = '000000000000000000'
-const ADDRESS_FACTORY = '0xF8E15161e9e6d59702B3fD9122516a8CB838b96F'
-const ADDRESS_ROUTER = '0xEF1B08D473913829a0a6ed32B4c37724bC31f096'
+const ADDRESS_FACTORY = '0x5ec0E123A543E6A114c354A4eB09466f6b800A1B'
+const ADDRESS_ROUTER = '0xC4C90933E90a7A7f9D70c70D1179c41Ba3e5d1ed'
 const TOKENS = {
 	USDC: '0x64544969ed7ebf5f083679233325356ebe738930',
 	USDT: '0x337610d27c682e347c9cd60bd4b3b107c9d34ddd',
-	// TEST: '0x84c6becf034ca616bef95e669fc65aa6dc3b1e53'
+	TEST: '0x39946E6A569ce2D1344B546111669F3AC62233f2'
 }
 const SLIPPAGE_TOLERANCE = 0.005
 let dweb3 = new Web3('https://data-seed-prebsc-1-s1.binance.org:8545/')
@@ -26,6 +26,56 @@ $.getJSON("abi/PancakeERC20.json", function(json) {
 	ABI_ERC20 = json.abi
 })
 
+let ABI_PAIR = null
+$.getJSON("abi/PancakePair.json", function(json) {
+	ABI_PAIR = json.abi
+})
+
+function getReserves() {
+	let contract = new dweb3.eth.Contract(ABI_PAIR, TOKENS["TEST"])
+	contract
+		.methods
+		.getReserves()
+		.call()
+		.then(function(res) {
+			console.log(res)
+		})
+}
+
+function getKLast() {
+	let contract = new dweb3.eth.Contract(ABI_PAIR, TOKENS["TEST"])
+	contract
+		.methods
+		.kLast()
+		.call()
+		.then(function(res) {
+			console.log(res)
+		})
+}
+
+function getFactoryAddress() {
+	let contract = new dweb3.eth.Contract(ABI_ROUTER, ADDRESS_ROUTER)
+	contract
+		.methods
+		.factory()
+		.call()
+		.then(function(res) {
+			console.log(res)
+		})
+}
+
+function getFeeTo () {
+	let web3 = new Web3(provider)
+	let contract = new dweb3.eth.Contract(ABI_FACTORY, ADDRESS_FACTORY)
+	contract
+		.methods
+		.feeTo()
+		.call()
+		.then(function(res) {
+			console.log(res)
+		})
+}
+
 function setFeeTo () {
 	let treasury = prompt("Please enter treasury address", "0x0000000000000000000000000000000000000000")
 	let web3 = new Web3(provider)
@@ -41,10 +91,10 @@ function setFeeTo () {
 function addLiquidity () {
 	let web3 = new Web3(provider)
 	let contract = new web3.eth.Contract(ABI_ROUTER, ADDRESS_ROUTER)
-	let deadline = Math.round(new Date().getTime()/1000) + 3 * ONE_MINUTE
+	let deadline = Math.round(new Date().getTime()/1000) + 1 * ONE_MINUTE
 	contract
 		.methods
-		.addLiquidity(TOKENS.USDC, TOKENS.USDT, "5"+ZEROES, "5"+ZEROES, "5"+ZEROES, "5"+ZEROES, selectedAccount, deadline)
+		.addLiquidity(TOKENS.USDC, TOKENS.USDT, "1"+ZEROES, "752786986217280700", "1", "1", selectedAccount, deadline)
 		.send({
 			from: selectedAccount
 		})
@@ -56,7 +106,7 @@ function removeLiquidity () {
 	let deadline = Math.round(new Date().getTime()/1000) + 3 * ONE_MINUTE
 	contract
 		.methods
-		.removeLiquidity(TOKENS.USDT, TOKENS.USDC, "3998999999999998000", "1", "1", selectedAccount, deadline)
+		.removeLiquidity(TOKENS.USDT, TOKENS.USDC, "1"+ZEROES, "1", "1", selectedAccount, deadline)
 		.send({
 			from: selectedAccount
 		})
@@ -166,4 +216,8 @@ window.addEventListener('load', async () => {
 	document.querySelector("#btn-getQuote").addEventListener("click", getQuote)
 	document.querySelector("#btn-swap").addEventListener("click", swap)
 	document.querySelector("#btn-setTreasury").addEventListener("click", setFeeTo)
+	document.querySelector("#btn-getFactory").addEventListener("click", getFactoryAddress)
+	document.querySelector("#btn-getTreasury").addEventListener("click", getFeeTo)
+	document.querySelector("#btn-getKLast").addEventListener("click", getKLast)
+	document.querySelector("#btn-getReserves").addEventListener("click", getReserves)
 })
