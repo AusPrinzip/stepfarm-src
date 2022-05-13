@@ -1,7 +1,16 @@
 
 #footer {
   position: relative;
-  background-color: #00AAFF;
+}
+
+#footer button {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+#footer button:hover {
+  filter: brightness(60%);
 }
 
 .twitter-container {
@@ -11,6 +20,7 @@
   bottom: 70%;
   width: 3%;
 }
+
 .discord-container {
   position: absolute;
   display: block;
