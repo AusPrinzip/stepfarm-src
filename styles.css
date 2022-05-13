@@ -1,3 +1,39 @@
+
+#footer {
+  position: relative;
+  background-color: #00AAFF;
+}
+
+.twitter-container {
+  position: absolute;
+  display: block;
+  left: 43%;
+  bottom: 70%;
+  width: 3%;
+}
+.discord-container {
+  position: absolute;
+  display: block;
+  left: 47%;
+  bottom: 70%;
+  width: 3%;
+}
+
+.telegram-container {
+  position: absolute;
+  display: block;
+  left: 51%;
+  bottom: 70%;
+  width: 3%;
+}
+.medium-container {
+  position: absolute;
+  display: block;
+  left: 55%;
+  bottom: 70%;
+  width: 3%;
+}
+
 @font-face {
   font-family: TTOctosquares-Black;
   src: url("font/TTOctosquares-Black.otf") format("opentype");
