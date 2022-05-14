@@ -1,18 +1,23 @@
+.nav img:hover {
+  transform: scale(1.1) !important;
+}
+
+#footer a:hover {
+  filter: brightness(60%) !important;
+}
 
 #footer {
   position: relative;
 }
 
-#footer button {
-  padding: 0;
-  border: none;
-  background: none;
+#footer a {
+  cursor:  pointer;
 }
 
-#footer button:hover {
+/*#footer a:hover {
   filter: brightness(60%);
 }
-
+*/
 .twitter-container {
   position: absolute;
   display: block;
