@@ -43,7 +43,7 @@ class Header extends HTMLElement {
               <li><a class="" href="#"><img src="images/nav-facebook.svg"></img></a></li>
               <li><a class="" href="#"><img src="images/nav-twitter.svg"></img></a></li>
               <li><a class="" href="#"><img src="images/nav-instagram.svg"></img></a></li>
-              <li><button id="btn-connect-2" class="connect-wallet-btn">CONNECT WALLET</button></li>
+              <li><button id="btn-connect" class="connect-wallet-btn">CONNECT WALLET</button></li>
             </ul>
 
           </div><!-- /.navbar-collapse -->
