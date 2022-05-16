@@ -5,6 +5,7 @@ html, body { // prevents horizontal scroll
 }
 
 .connect-wallet-btn {
+  margin-top: 4%;
   font-size: 12px;
   box-sizing: border-box;
   background-color: #00E8E7;
