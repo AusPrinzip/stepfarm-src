@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StepFarm.io</title>
+  <!-- Get some bootstrap default styles -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/x-icon" href="images/favicon.jpg">
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="scripts/noframework.waypoints.min.js"></script>
+  <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/web3modal@1.9.0/dist/index.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/evm-chains@0.2.0/dist/umd/index.min.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider@1.2.1/dist/umd/index.min.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/fortmatic@2.0.6/dist/fortmatic.js"></script>
+  <script src="https://unpkg.com/@toruslabs/torus-embed"></script>
+  <script src="web3modal.js"></script>
+  <script src="code.js"></script>
+  <script src="components/header.js" type="text/javascript" defer></script>
+  <script src="components/footer.js" type="text/javascript" defer></script>
+</head>
+<body>
+
+  <header-component></header-component>
+
+  <div id="swap-card">
+    <div class="swap-card-container">
+      <div class="swap-card-tag"></div>
+      <div class="swap-card-title">SWAP</div>
+      <button class="swap-card-button"><img width="33" src="images/swap/swap-settings.svg"></img></button>
+    </div>
+    <div class="swap-card-container">
+      <p style="float: right">Available: 100 BNB</p>
+    </div>
+    <div class="swap-card-container">
+      <div class="dropdown">
+        <button style="width: 90%;" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <div style="float:left;">
+            BUSD<span class="caret"></span>
+          </div>
+          <span style="float:right;" class="balance">0</span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><a href="#">SHITCOIN A</a></li>
+          <li><a href="#">SHITCOIN B</a></li>
+          <li><a href="#">SHITCOIN C</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="swap-card-container">
+      <img width="33" src="images/swap/swap-arrow.svg"></img>
+    </div>
+
+    <div class="swap-card-container">
+      <div class="dropdown">
+        <button style="width: 90%;" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <div style="float:left;">
+            USDC<span class="caret"></span>
+          </div>
+          <span style="float:right;" class="balance">0</span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><a href="#">SHITCOIN A</a></li>
+          <li><a href="#">SHITCOIN B</a></li>
+          <li><a href="#">SHITCOIN C</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="swap-card-container">
+      <div class="swap-exchange">1 BUSD = 1.0000 USDC <img src="images/swap/swap-arrow-exchange.svg"></img></div>
+    </div>
+
+    <div class="swap-card-container">
+      <button class="swap-confirm-btn"><h6>Confirm Order</h6></button>
+    </div>
+
+    <div class="swap-card-container">
+      <p>Enter an amount to see more trading details</p>
+    </div>
+
+    <center><div class="swap-divider"></div></center>
+
+    <div class="swap-card-container">
+      <p style="float:left;">Trade Mining</p>
+      <p style="float:right">Max Reward</p>
+    </div>
+
+  </div>
+
+  <footer-component></footer-component>
+</body>
+</html>

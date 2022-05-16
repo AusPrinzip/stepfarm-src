@@ -4,6 +4,116 @@ html, body { // prevents horizontal scroll
     overflow-x: hidden;
 }
 
+.dropdown-menu {
+    width: 100% !important;
+    height: 200px !important;
+}
+
+#swap-card {
+  margin: 5%;
+  position: relative;
+  width: 35%;
+  left: 28%;
+  height: auto;
+
+  background: #FCFCFC;
+
+  /* shadow */
+  box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
+  border-radius: 24px;
+}
+
+#swap-card p {
+  color: #6F767E;
+  font-family: Poppins;
+}
+
+.swap-card-container {
+  width: 100%;
+  height: 40px;
+  text-align:center;
+  padding: 1%;
+}
+
+.swap-divider {
+  width: 403px;
+  height: 1px;
+
+  background: #EFEFEF;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 6;
+  flex-grow: 0;
+}
+
+.swap-confirm-btn {
+  padding: 0;
+  border: none;
+  background: none;
+
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+  width: 90%;
+
+  background: #F4F4F4;
+  border-radius: 16px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.swap-confirm-btn h6 {
+  font-family: Poppins;
+  color: #9A9FA5;
+}
+
+.swap-confirm-btn:hover {
+  filter: brightness(60%);
+}
+
+.swap-card-title {
+  position: relative;
+  top: 8px;
+  vertical-align: middle;
+  font-size: 12px;
+  float: left;
+  font-weight: bold;
+}
+
+.swap-card-button {
+  display: inline-block;
+  float: right;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.swap-card-button:hover {
+  filter: brightness(60%);
+}
+
+
+.swap-card-tag {
+  display: inline-block;
+  float: left;
+  width: 16px;
+  height: 32px;
+
+  background: #37E4E5;
+  border-radius: 4px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+
 .nav img:hover {
   transform: scale(1.1) !important;
 }
@@ -21,10 +131,6 @@ html, body { // prevents horizontal scroll
   cursor:  pointer;
 }
 
-/*#footer a:hover {
-  filter: brightness(60%);
-}
-*/
 
 .copyright-container {
   display: flex;
