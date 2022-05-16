@@ -16,7 +16,7 @@ class Header extends HTMLElement {
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><img src="images/logo/logo.svg"></img></a>
+            <a class="navbar-brand" href="/"><img src="images/logo/logo.svg"></img></a>
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
@@ -39,13 +39,15 @@ class Header extends HTMLElement {
               </li>
             </ul>
 
-            <ul class="nav navbar-nav navbar-right">
-              <li><a class="navbar-brand navbar-nav-vertical-aligned" href="#"><img src="images/nav-facebook.svg"></img></a></li>
-              <li><a class="navbar-brand navbar-nav-vertical-aligned" href="#"><img src="images/nav-twitter.svg"></img></a></li>
-              <li><a class="navbar-brand navbar-nav-vertical-aligned" href="#"><img src="images/nav-instagram.svg"></img></a></li>
-              <li><a class="navbar-brand navbar-nav-vertical-aligned" href="#"><img src="images/download-now.svg" width="100"></img></a></li>
+            <ul class="nav navbar-nav navbar-right navbar-nav-vertical-aligned">
+              <li><a class="" href="#"><img src="images/nav-facebook.svg"></img></a></li>
+              <li><a class="" href="#"><img src="images/nav-twitter.svg"></img></a></li>
+              <li><a class="" href="#"><img src="images/nav-instagram.svg"></img></a></li>
+              <li><button id="btn-connect-2" class="connect-wallet-btn">CONNECT WALLET</button></li>
             </ul>
+
           </div><!-- /.navbar-collapse -->
+
         </div><!-- /.container-fluid -->
       </nav>
      </header>

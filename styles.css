@@ -4,6 +4,22 @@ html, body { // prevents horizontal scroll
     overflow-x: hidden;
 }
 
+.connect-wallet-btn {
+  font-size: 12px;
+  box-sizing: border-box;
+  background-color: #00E8E7;
+
+  width: 157px;
+  height: 40px;
+
+  border: 2px solid #0B0D20;
+  border-radius: 90px;
+}
+
+.connect-wallet-btn:hover {
+  filter: brightness(60%);
+}
+
 .dropdown-menu {
     width: 100% !important;
     height: 200px !important;
@@ -36,7 +52,7 @@ html, body { // prevents horizontal scroll
   padding: 1%;
 }
 
-.swap-max-reward-usd{
+.swap-max-reward-usd {
   width: 45px;
   height: 24px;
 
