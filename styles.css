@@ -13,6 +13,7 @@ html, body { // prevents horizontal scroll
   margin: 5%;
   position: relative;
   width: 35%;
+  min-width: 300px;
   left: 28%;
   height: auto;
 
@@ -90,13 +91,14 @@ html, body { // prevents horizontal scroll
   flex-grow: 0;
 }
 
-.swap-confirm-btn h6 {
+.swap-confirm-btn {
   font-family: Poppins;
   color: #9A9FA5;
 }
 
 .swap-confirm-btn:hover {
-  filter: brightness(60%);
+  background-color: #00E8E7;
+  color: black;
 }
 
 .swap-card-title {
