@@ -35,6 +35,29 @@ html, body { // prevents horizontal scroll
   padding: 1%;
 }
 
+.swap-max-reward-usd{
+  width: 45px;
+  height: 24px;
+
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+
+  /* identical to box height, or 171% */
+  text-align: right;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+
+  color: #00E8E7;
+
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
 .swap-divider {
   width: 403px;
   height: 1px;
