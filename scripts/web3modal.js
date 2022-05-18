@@ -95,7 +95,15 @@ async function fetchAccountData() {
   const chainId = await web3.eth.getChainId();
   // Load chain information over an HTTP API
   const chainData = evmChains.getChain(chainId);
-  document.querySelector("#network-name").textContent = chainData.name;
+
+  if (window.location.hash == "#swap") {
+    document.querySelector("#network-name").textContent = chainData.name;
+    document.querySelector("#selected-account").textContent = selectedAccount;
+    // Display fully loaded UI for wallet data
+    document.querySelector("#prepare").style.display = "none";
+    document.querySelector("#connected").style.display = "block";
+  }
+  
 
   // Get list of accounts of the connected wallet
   const accounts = await web3.eth.getAccounts();
@@ -103,12 +111,6 @@ async function fetchAccountData() {
   // MetaMask does not give you all accounts, only the selected account
   // console.log("Got accounts", accounts);
   selectedAccount = accounts[0];
-
-  document.querySelector("#selected-account").textContent = selectedAccount;
-
-  // Display fully loaded UI for wallet data
-  document.querySelector("#prepare").style.display = "none";
-  document.querySelector("#connected").style.display = "block";
 }
 
 
@@ -124,8 +126,10 @@ async function refreshAccountData() {
   // If any current data is displayed when
   // the user is switching acounts in the wallet
   // immediate hide this data
-  document.querySelector("#connected").style.display = "none";
-  document.querySelector("#prepare").style.display = "block";
+  if (window.location.hash == "#swap") {
+    document.querySelector("#prepare").style.display = "block";
+    document.querySelector("#connected").style.display = "none";
+  }
 
   // Disable button while UI is loading.
   // fetchAccountData() will take a while as it communicates
@@ -136,7 +140,6 @@ async function refreshAccountData() {
   document.querySelector("#btn-connect").removeAttribute("disabled")
 }
 
-
 /**
  * Connect wallet button pressed.
  */
@@ -145,6 +148,8 @@ async function onConnect() {
   // console.log("Opening a dialog", web3Modal);
   try {
     provider = await web3Modal.connect();
+    $('#btn-connect').hide();
+    $('#btn-disconnect').show();
   } catch(e) {
     // console.log("Could not get a wallet connection", e);
     return;
@@ -190,8 +195,13 @@ async function onDisconnect() {
   selectedAccount = null;
 
   // Set the UI back to the initial state
-  document.querySelector("#prepare").style.display = "block";
-  document.querySelector("#connected").style.display = "none";
+
+  if (window.location.hash == "#swap") {
+    document.querySelector("#prepare").style.display = "block";
+    document.querySelector("#connected").style.display = "none";
+  }
+  $('#btn-disconnect').hide();
+  $('#btn-connect').show();
 }
 
 

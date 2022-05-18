@@ -16,7 +16,7 @@ class Header extends HTMLElement {
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/"><img src="images/logo/logo.svg"></img></a>
+            <a class="navbar-brand" href="/#"><img src="images/logo/logo.svg"></img></a>
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
@@ -44,6 +44,7 @@ class Header extends HTMLElement {
               <li><a class="" href="#"><img src="images/nav-twitter.svg"></img></a></li>
               <li><a class="" href="#"><img src="images/nav-instagram.svg"></img></a></li>
               <li><button id="btn-connect" class="connect-wallet-btn">CONNECT WALLET</button></li>
+              <li><button style="display: none;" id="btn-disconnect" class="connect-wallet-btn">DISCONNECT WALLET</button></li>
             </ul>
 
           </div><!-- /.navbar-collapse -->
