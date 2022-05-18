@@ -1,4 +1,3 @@
-import { ONE_MINUTE, ZEROES, ADDRESS_ROUTER, ADDRESS_FACTORY, TOKENS, SLIPPAGE_TOLERANCE } from "/.constants";
 
 let dweb3 = new Web3('https://data-seed-prebsc-1-s1.binance.org:8545/')
 dweb3.eth.getChainId().then(r => console.log('chain id: '+r))
