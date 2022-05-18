@@ -170,7 +170,7 @@ html, body { // prevents horizontal scroll
 }
 
 #footer a {
-  cursor:  pointer;
+  cursor: pointer;
 }
 
 
@@ -231,6 +231,10 @@ html, body { // prevents horizontal scroll
   text-align: center;
 }
 
+#intro img {
+  width: 100%;
+}
+
 #intro > h1 {
   font-family: TTOctosquares-Black, Helvetica, sans-serif;
   font-weight: 700;
@@ -289,6 +293,9 @@ img {
   color: black;
 }
 
+.stats-rows {
+  width: 80%;
+}
 .subcontainer {
   position: absolute;
 }
@@ -300,6 +307,7 @@ img {
 }
 
 .shoe {
+  width: 30%;
   position: absolute;
   z-index: 2;
   left: 10%;

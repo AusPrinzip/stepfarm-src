@@ -18,7 +18,7 @@ class Div extends HTMLElement {
           <div class="medium-container">
             <a><img class="" src="images/icons/medium.svg"></img></a>
           </div>
-          <img class="" src="images/footer.svg"></img>
+          <center><img class="" src="images/footer.svg"></img></center>
           <div class="copyright-container">
             <h5>Copyright © 2022. All rights reserved</h5>
           </div>
