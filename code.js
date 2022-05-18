@@ -1,22 +1,5 @@
 import { ONE_MINUTE, ZEROES, ADDRESS_ROUTER, ADDRESS_FACTORY, TOKENS, SLIPPAGE_TOLERANCE } from "/.constants";
 
-window.addEventListener('load', function () {
-  const counters = 4;
-  for (let i = 1; i <= counters; i ++) {
-    const el = document.querySelector(`.counter${i}`);
-    const counterUp = window.counterUp.default;
-    new Waypoint( {
-        element: el,
-        handler: function() { 
-            counterUp( el ) 
-            this.destroy()
-        },
-        offset: 'bottom-in-view',
-    } )
-  }
-})
-
-
 let dweb3 = new Web3('https://data-seed-prebsc-1-s1.binance.org:8545/')
 dweb3.eth.getChainId().then(r => console.log('chain id: '+r))
 
