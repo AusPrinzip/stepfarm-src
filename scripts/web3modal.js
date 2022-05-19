@@ -11,6 +11,19 @@ const Fortmatic = window.Fortmatic;
 const evmChains = window.evmChains;
 const Torus = window.Torus;
 
+evmChains.chains.push({
+  chain: "TST",
+  chainId: 1337,
+  faucets: [],
+  infoURL: "http://",
+  name: "Ganache",
+  nativeCurrency: { name: "Ganache", symbol: "TEST", decimals: 18 },
+  network: "ganache",
+  networkId: 1337,
+  rpc: [],
+  shortName: "ganache"
+})
+
 // Web3modal instance
 let web3Modal
 
