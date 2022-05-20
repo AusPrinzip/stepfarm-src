@@ -33,6 +33,13 @@ const locationHandler = async () => {
     const route = routes[location] || routes["404"];
     // get the html from the template
     const html = await fetch(route.template).then((response) => response.text());
+
+    const script = document.createElement("script");
+    const scriptName = location == "/" ? "index" : location;
+    script.src = `/scripts/${scriptName}.js`;
+    document.getElementById("content").appendChild(script);
+    
+
     // set the content of the content div to the html
     document.getElementById("content").innerHTML = html;
     // set the title of the document to the title of the route

@@ -94,7 +94,7 @@
     <div class="swap-card-container">
       <div class="swap-card-tag"></div>
       <div class="swap-card-title">SWAP</div>
-      <button class="swap-card-button"><img width="33" src="images/swap/swap-settings.svg"></img></button>
+      <button id="myBtn" class="swap-card-button"><img width="33" src="images/swap/swap-settings.svg"></img></button>
     </div>
     <div class="swap-card-container">
       <p style="float: right">Available: 100 BNB</p>
@@ -155,4 +155,24 @@
     </div>
 
   </div>
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <div class="eNDJNI">
+        <span class="closeModal">&times;</span>
+        <h2>Settings</h2>
+      </div>
+      <div class="modal-body">
+        <p>Slippage Tolerance</p>
+        <div class="btn-group" role="group" aria-label="...">
+          <button type="button" class="btn btn-default">0.1%</button>
+          <button type="button" class="btn btn-default">0.5%</button>
+          <button type="button" class="btn btn-default">1%</button>
+        </div>
+        <p>Tx deadline (mins)</p>
+        <input id="deadline" type="number" default=20 class="form-control" placeholder="Deadline (min)" aria-describedby="basic-addon1">
+      </div>
+    </div>
+  </div>
+
 </html>
