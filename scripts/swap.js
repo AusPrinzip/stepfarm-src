@@ -1,5 +1,5 @@
-
-let dweb3 = new Web3('https://data-seed-prebsc-1-s1.binance.org:8545/')
+let dweb3 = new Web3('http://127.0.0.1:8545/')
+// let dweb3 = new Web3('https://data-seed-prebsc-1-s1.binance.org:8545/')
 dweb3.eth.getChainId().then(r => console.log('chain id: '+r))
 
 let ABI_FACTORY = null
@@ -23,7 +23,8 @@ $.getJSON("abi/PancakePair.json", function(json) {
 })
 
 function getReserves() {
-  let contract = new dweb3.eth.Contract(ABI_PAIR, TOKENS["TEST"])
+  let lpAddress = prompt("Please enter LP address", "0x")
+  let contract = new dweb3.eth.Contract(ABI_PAIR, lpAddress)
   contract
     .methods
     .getReserves()
@@ -34,7 +35,8 @@ function getReserves() {
 }
 
 function getKLast() {
-  let contract = new dweb3.eth.Contract(ABI_PAIR, TOKENS["TEST"])
+  let lpAddress = prompt("Please enter LP address", "0x")
+  let contract = new dweb3.eth.Contract(ABI_PAIR, lpAddress)
   contract
     .methods
     .kLast()
@@ -85,7 +87,7 @@ function addLiquidity () {
   let deadline = Math.round(new Date().getTime()/1000) + 1 * ONE_MINUTE
   contract
     .methods
-    .addLiquidity(TOKENS.USDC, TOKENS.USDT, "1"+ZEROES, "752786986217280700", "1", "1", selectedAccount, deadline)
+    .addLiquidity(TOKENS.USDC, TOKENS.USDT, "1"+ZEROES, "1"+ZEROES, "1", "1", selectedAccount, deadline)
     .send({
       from: selectedAccount
     })
@@ -198,6 +200,18 @@ function getBalance() {
     })
 }
 
+function getPair() {
+  let index = prompt("Please enter index", "0")
+  let contract = new dweb3.eth.Contract(ABI_FACTORY, ADDRESS_FACTORY)
+  contract
+    .methods
+    .allPairs(index)
+    .call()
+    .then(function(res) {
+      console.log(res)
+    })
+}
+
 window.addEventListener('load', async () => {
   init()
   document.querySelector("#btn-getBalance").addEventListener("click", getBalance)
@@ -211,4 +225,5 @@ window.addEventListener('load', async () => {
   document.querySelector("#btn-getTreasury").addEventListener("click", getFeeTo)
   document.querySelector("#btn-getKLast").addEventListener("click", getKLast)
   document.querySelector("#btn-getReserves").addEventListener("click", getReserves)
+  document.querySelector("#btn-getPair").addEventListener("click", getPair)
 })
