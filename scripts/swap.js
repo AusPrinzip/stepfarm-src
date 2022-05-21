@@ -27,10 +27,6 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
-let dweb3 = new Web3('http://127.0.0.1:8545/')
-// let dweb3 = new Web3('https://data-seed-prebsc-1-s1.binance.org:8545/')
-
-dweb3.eth.getChainId().then(r => console.log('chain id: '+r))
 
 let ABI_FACTORY = null
 $.getJSON("abi/PancakeFactory.json", function(json) {
@@ -40,11 +36,6 @@ $.getJSON("abi/PancakeFactory.json", function(json) {
 let ABI_ROUTER = null
 $.getJSON("abi/PancakeRouter.json", function(json) {
   ABI_ROUTER = json.abi
-})
-
-let ABI_ERC20 = null
-$.getJSON("abi/PancakeERC20.json", function(json) {
-  ABI_ERC20 = json.abi
 })
 
 let ABI_PAIR = null
@@ -242,18 +233,16 @@ function getPair() {
     })
 }
 
-window.addEventListener('load', async () => {
-  init()
-  document.querySelector("#btn-getBalance").addEventListener("click", getBalance)
-  document.querySelector("#btn-addLiquidity").addEventListener("click", addLiquidity)
-  document.querySelector("#btn-removeLiquidity").addEventListener("click", removeLiquidity)
-  document.querySelector("#btn-approveToken").addEventListener("click", approveToken)
-  document.querySelector("#btn-getQuote").addEventListener("click", getQuote)
-  document.querySelector("#btn-swap").addEventListener("click", swap)
-  document.querySelector("#btn-setTreasury").addEventListener("click", setFeeTo)
-  document.querySelector("#btn-getFactory").addEventListener("click", getFactoryAddress)
-  document.querySelector("#btn-getTreasury").addEventListener("click", getFeeTo)
-  document.querySelector("#btn-getKLast").addEventListener("click", getKLast)
-  document.querySelector("#btn-getReserves").addEventListener("click", getReserves)
-  document.querySelector("#btn-getPair").addEventListener("click", getPair)
-})
+
+document.querySelector("#btn-getBalance").addEventListener("click", getBalance)
+document.querySelector("#btn-addLiquidity").addEventListener("click", addLiquidity)
+document.querySelector("#btn-removeLiquidity").addEventListener("click", removeLiquidity)
+document.querySelector("#btn-approveToken").addEventListener("click", approveToken)
+document.querySelector("#btn-getQuote").addEventListener("click", getQuote)
+document.querySelector("#btn-swap").addEventListener("click", swap)
+document.querySelector("#btn-setTreasury").addEventListener("click", setFeeTo)
+document.querySelector("#btn-getFactory").addEventListener("click", getFactoryAddress)
+document.querySelector("#btn-getTreasury").addEventListener("click", getFeeTo)
+document.querySelector("#btn-getKLast").addEventListener("click", getKLast)
+document.querySelector("#btn-getReserves").addEventListener("click", getReserves)
+document.querySelector("#btn-getPair").addEventListener("click", getPair)

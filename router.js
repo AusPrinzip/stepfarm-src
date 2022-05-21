@@ -20,6 +20,11 @@ const routes = {
         title: "Contact Us",
         description: "This is the contact page",
     },
+    farm: {
+        template: "/pages/farm.html",
+        title: "Yield Farming",
+        description: "This is the yield farming page"
+    }
 };
 
 const locationHandler = async () => {
@@ -38,7 +43,6 @@ const locationHandler = async () => {
     const scriptName = location == "/" ? "index" : location;
     script.src = `/scripts/${scriptName}.js`;
     document.getElementById("content").appendChild(script);
-    
 
     // set the content of the content div to the html
     document.getElementById("content").innerHTML = html;

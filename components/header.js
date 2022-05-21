@@ -23,7 +23,7 @@ class Header extends HTMLElement {
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-collapse-vertical-aligned">
               <li><a href="/#swap">SWAP</a></li>
-              <li><a href="/#roadmap">ROADMAP</a></li>
+              <li><a href="/#farm">FARM</a></li>
               <li><a href="#">DOWNLOAD</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CLASS <span class="caret"></span></a>
