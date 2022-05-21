@@ -1,6 +1,35 @@
 
 // set default deadline (min) val to 20
-document.getElementById('deadline').value = 20;
+document.getElementById('deadline').value = DEADLINE_MIN;
+
+// slippage selectors
+$("#slippage-1").click(function () {
+  SLIPPAGE_TOLERANCE = 0.1
+  
+  $("#slippage-1").removeClass("active");
+  $("#slippage-2").removeClass("active");
+  $("#slippage-3").removeClass("active");
+  if (!CUSTOM_SLIPPAGE) $("#slippage-1").addClass("active");
+});
+
+$("#slippage-2").click(function () {
+  SLIPPAGE_TOLERANCE = 0.5
+  
+  $("#slippage-1").removeClass("active");
+  $("#slippage-2").removeClass("active");
+  $("#slippage-3").removeClass("active");
+  $("#slippage-2").addClass("active");
+});
+
+$("#slippage-3").click(function () {
+  SLIPPAGE_TOLERANCE = 1
+  
+  $("#slippage-1").removeClass("active");
+  $("#slippage-2").removeClass("active");
+  $("#slippage-3").removeClass("active");
+  $("#slippage-3").addClass("active");
+});
+
 
 // Get the modal
 var modal = document.getElementById("myModal");
