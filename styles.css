@@ -4,6 +4,14 @@ html, body { // prevents horizontal scroll
     overflow-x: hidden;
 }
 
+.token-select {
+  float:left;
+}
+
+.token-element img{
+  width: 35px;
+  margin: 5px;
+}
 /* The Modal (background) */
 .modal {
   font-family: Poppins;
@@ -34,6 +42,7 @@ html, body { // prevents horizontal scroll
   float: right;
   font-size: 28px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .close:hover,

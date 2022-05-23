@@ -1,4 +1,7 @@
 
+var changeToken = "A";
+var tokenA = "BNB";
+var tokenB = "USDC";
 // set default deadline (min) val to 20
 document.getElementById('deadline').value = DEADLINE_MIN;
 
@@ -31,29 +34,64 @@ $("#slippage-3").click(function () {
 });
 
 
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("closeModal")[0];
+// Settings Modal
 
 // When the user clicks on the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
+document.getElementById("settingsModalTrigger").onclick = function() {
+  document.getElementById("settingsModal").style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
+document.getElementById("closeSettingsModal").onclick = function() {
+  document.getElementById("settingsModal").style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+  if (event.target == document.getElementById("settingsModal")) {
+    document.getElementById("settingsModal").style.display = "none";
+  }
+}
+
+// Token select Modal
+
+// When the user clicks on the button, open the modal
+document.getElementById("token-select-A").onclick = function() {
+  document.getElementById("tokenModal").style.display = "block";
+}
+
+document.getElementById("token-select-B").onclick = function() {
+  document.getElementById("tokenModal").style.display = "block";
+}
+
+$('.token-select-A').click(function () {
+  changeToken = "A";
+});
+
+$('.token-select-B').click(function () {
+  changeToken = "B";
+});
+
+$('.token-element').click(function() {
+    if (changeToken == "A") {
+      $('#token-A').html(`<div class="token-select">${$(this).attr("value")}</div><span class="caret"></span>`);  
+      tokenA = $(this).attr("value");
+    } else {
+      $('#token-B').html(`<div class="token-select">${$(this).attr("value")}</div><span class="caret"></span>`);
+      tokenB = $(this).attr("value");
+    }
+    document.getElementById("tokenModal").style.display = "none";
+});
+
+// When the user clicks on <span> (x), close the modal
+document.getElementById("closeTokenModal").onclick = function() {
+  document.getElementById("tokenModal").style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == document.getElementById("tokenModal")) {
+    document.getElementById("tokenModal").style.display = "none";
   }
 }
 

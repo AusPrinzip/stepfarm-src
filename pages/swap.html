@@ -105,24 +105,19 @@
     <div class="swap-card-container">
       <div class="swap-card-tag"></div>
       <div class="swap-card-title">SWAP</div>
-      <button id="myBtn" class="swap-card-button"><img width="33" src="images/swap/swap-settings.svg"></img></button>
+      <button id="settingsModalTrigger" class="swap-card-button"><img width="33" src="images/swap/swap-settings.svg"></img></button>
     </div>
     <div class="swap-card-container">
       <p style="float: right">Available: 100 BNB</p>
     </div>
     <div class="swap-card-container">
       <div class="dropdown">
-        <button style="width: 90%;" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-          <div style="float:left;">
+        <button style="width: 90%;" id="token-select-A" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <div id="token-A" class="token-select">
             BUSD<span class="caret"></span>
           </div>
           <span style="float:right;" class="balance">0</span>
         </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-          <li><a href="#">SHITCOIN A</a></li>
-          <li><a href="#">SHITCOIN B</a></li>
-          <li><a href="#">SHITCOIN C</a></li>
-        </ul>
       </div>
     </div>
 
@@ -132,17 +127,12 @@
 
     <div class="swap-card-container">
       <div class="dropdown">
-        <button style="width: 90%;" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-          <div style="float:left;">
+        <button style="width: 90%;" id="token-select-B" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <div id="token-B" class="token-select">
             USDC<span class="caret"></span>
           </div>
           <span style="float:right;" class="balance">0</span>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-          <li><a href="#">SHITCOIN A</a></li>
-          <li><a href="#">SHITCOIN B</a></li>
-          <li><a href="#">SHITCOIN C</a></li>
-        </ul>
+        </button> 
       </div>
     </div>
 
@@ -167,10 +157,10 @@
 
   </div>
 
-  <div id="myModal" class="modal">
+  <div id="settingsModal" class="modal">
     <div class="modal-content">
       <div class="eNDJNI">
-        <span class="closeModal">&times;</span>
+        <span id="closeSettingsModal" class="closeModal">&times;</span>
         <h2>Settings</h2>
       </div>
       <div class="modal-body">
@@ -182,6 +172,27 @@
         </div>
         <p>Tx deadline (mins)</p>
         <input id="deadline" type="number" default=20 class="form-control" placeholder="Deadline (min)" aria-describedby="basic-addon1">
+      </div>
+    </div>
+  </div>
+
+  <div id="tokenModal" class="modal">
+    <div class="modal-content">
+      <div class="eNDJNI">
+        <span id="closeTokenModal" class="closeModal">&times;</span>
+        <h2>Select a Token</h2>
+      </div>
+      <div class="modal-body">
+        <div class="list-group">
+          <button type="button" value="BNB" class="list-group-item token-element"><img src="https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png"></img>BNB
+          </button>
+          <button type="button" value="GST" class="list-group-item token-element"><img src="https://s2.coinmarketcap.com/static/img/coins/64x64/18069.png"></img>GST
+          </button>
+          <button type="button" value="USDt" class="list-group-item token-element"><img src="https://s2.coinmarketcap.com/static/img/coins/64x64/825.png"></img>USDT
+          </button>
+          <button type="button" value="USDC" class="list-group-item token-element"><img src="https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png"></img>USDC
+          </button>
+        </div>
       </div>
     </div>
   </div>
