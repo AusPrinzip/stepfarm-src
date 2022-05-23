@@ -193,25 +193,6 @@ function removeLiquidity () {
     })
 }
 
-function approveToken () {
-  let token = prompt("Please enter token", "USDC")
-  let tokenAddress = TOKENS[token]
-  if (!tokenAddress) {
-    alert('Wrong token symbol provided')
-    return
-  }
-  let web3 = new Web3(provider)
-  let contract = new web3.eth.Contract(ABI_ERC20, tokenAddress)
-  // Max approve = 2^256 - 1
-  let amount = '115792089237316195423570985008687907853269984665640564039457584007913129639935'
-  contract
-    .methods
-    .approve(ADDRESS_ROUTER, amount)
-    .send({
-      from: selectedAccount
-    })
-}
-
 function getQuote () {
   let tokenA = $('#tokenA-select').val()
   let tokenAAddress = TOKENS[tokenA]
@@ -265,24 +246,6 @@ function swap () {
     .send({
       from: selectedAccount
     })
-    .then(function(res) {
-      console.log(res)
-    })
-}
-
-function getBalance() {
-  let token = prompt("Please enter token", "USDC")
-  let tokenAddress = TOKENS[token]
-  if (!tokenAddress) {
-    alert('Wrong token symbol provided')
-    return
-  }
-  let web3 = new Web3(provider)
-  let contract = new web3.eth.Contract(ABI_ERC20, tokenAddress)
-  contract
-    .methods
-    .balanceOf(selectedAccount)
-    .call()
     .then(function(res) {
       console.log(res)
     })
