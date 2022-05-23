@@ -58,19 +58,13 @@ window.onclick = function(event) {
 // When the user clicks on the button, open the modal
 document.getElementById("token-select-A").onclick = function() {
   document.getElementById("tokenModal").style.display = "block";
+  changeToken = "A";
 }
 
 document.getElementById("token-select-B").onclick = function() {
   document.getElementById("tokenModal").style.display = "block";
-}
-
-$('.token-select-A').click(function () {
-  changeToken = "A";
-});
-
-$('.token-select-B').click(function () {
   changeToken = "B";
-});
+}
 
 $('.token-element').click(function() {
     if (changeToken == "A") {
