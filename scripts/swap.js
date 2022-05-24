@@ -67,14 +67,13 @@ document.getElementById("token-select-B").onclick = function() {
 }
 
 $('.token-element').click(function() {
-    if (changeToken == "A") {
-      $('#token-A').html(`<div class="token-select">${$(this).attr("value")}</div><span class="caret"></span>`);  
-      tokenA = $(this).attr("value");
-    } else {
-      $('#token-B').html(`<div class="token-select">${$(this).attr("value")}</div><span class="caret"></span>`);
-      tokenB = $(this).attr("value");
-    }
-    document.getElementById("tokenModal").style.display = "none";
+  const token = $(this).attr("value");
+  if (changeToken == "A") {
+    $('#token-A').html(`<div class="token-select"><img width="20" src="/images/coins/${token}.png"></img>${token}</div><span class="caret"></span>`);  
+  } else {
+    $('#token-B').html(`<div class="token-select"><img width="20" src="/images/coins/${token}.png"></img>${token}</div><span class="caret"></span>`);
+  }
+  document.getElementById("tokenModal").style.display = "none";
 });
 
 // When the user clicks on <span> (x), close the modal
