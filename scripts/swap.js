@@ -96,7 +96,10 @@ $("#input-A").change(function() {
   getQuotev2();
 })
 
-
+// Confirm swap
+$("#confirm-swap").click(function () {
+  swapv2();
+})
 
 let ABI_FACTORY = null
 $.getJSON("abi/PancakeFactory.json", function(json) {
@@ -252,6 +255,39 @@ function swap () {
   let tokenAAmount = BigInt($('#amountTokenA').val() * 10**18)
 
   let tokenB = $('#tokenB-select').val()
+  let tokenBAddress = TOKENS[tokenB]
+  let tokenBAmount = BigInt($('#amountTokenB').val() * 10**18 * (1-SLIPPAGE_TOLERANCE))
+
+  let web3 = new Web3(provider)
+  let contract = new web3.eth.Contract(ABI_ROUTER, ADDRESS_ROUTER)
+  
+  let path = [
+    tokenAAddress, tokenBAddress
+  ]
+  let deadline = Math.round(new Date().getTime()/1000) + 3 * ONE_MINUTE
+
+  contract
+    .methods
+    .swapExactTokensForTokens(
+      tokenAAmount,
+      tokenBAmount,
+      path,
+      selectedAccount,
+      deadline)
+    .send({
+      from: selectedAccount
+    })
+    .then(function(res) {
+      console.log(res)
+    })
+}
+
+function swapv2 () {
+  // let tokenA = $('#tokenA-select').val()
+  let tokenAAddress = TOKENS[tokenA]
+  let tokenAAmount = BigInt($('#amountTokenA').val() * 10**18)
+
+  // let tokenB = $('#tokenB-select').val()
   let tokenBAddress = TOKENS[tokenB]
   let tokenBAmount = BigInt($('#amountTokenB').val() * 10**18 * (1-SLIPPAGE_TOLERANCE))
 
