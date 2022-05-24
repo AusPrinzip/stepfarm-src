@@ -1,6 +1,6 @@
 
 var changeToken = "A";
-var tokenA = "BNB";
+var tokenA = "USDT";
 var tokenB = "USDC";
 // set default deadline (min) val to 20
 document.getElementById('deadline').value = DEADLINE_MIN;
@@ -69,9 +69,11 @@ document.getElementById("token-select-B").onclick = function() {
 $('.token-element').click(function() {
   const token = $(this).attr("value");
   if (changeToken == "A") {
-    $('#token-A').html(`<div class="token-select"><img width="20" src="/images/coins/${token}.png"></img>${token}</div><span class="caret"></span>`);  
+    tokenA = token;
+    $('#display-token-A').html(`<div class="token-select"><img width="20" src="/images/coins/${token}.png"></img>${token}</div><span class="caret"></span>`);  
   } else {
-    $('#token-B').html(`<div class="token-select"><img width="20" src="/images/coins/${token}.png"></img>${token}</div><span class="caret"></span>`);
+    tokenB = token;
+    $('#display-token-B').html(`<div class="token-select"><img width="20" src="/images/coins/${token}.png"></img>${token}</div><span class="caret"></span>`);
   }
   document.getElementById("tokenModal").style.display = "none";
 });
@@ -87,6 +89,14 @@ window.onclick = function(event) {
     document.getElementById("tokenModal").style.display = "none";
   }
 }
+
+// Automatic "get quote" when user changes swap amounts in input fields
+
+$("#input-A").change(function() {
+  getQuotev2();
+})
+
+
 
 let ABI_FACTORY = null
 $.getJSON("abi/PancakeFactory.json", function(json) {
@@ -208,6 +218,31 @@ function getQuote () {
       let tokenBAmount = BigInt(res[1]).toString()
       tokenBAmount /= 10**18
       $('#amountTokenB').val(tokenBAmount)
+    })
+}
+
+function getQuotev2 () {
+  console.log(tokenA, tokenB)
+  let tokenAAddress = TOKENS[tokenA]
+  let tokenAAmount = BigInt($('#input-A').val() * 10**18)
+
+  // let tokenB = $('#tokenB-select').val()
+  let tokenBAddress = TOKENS[tokenB]
+
+  let contract = new dweb3.eth.Contract(ABI_ROUTER, ADDRESS_ROUTER)
+  
+  let path = [
+    tokenAAddress, tokenBAddress
+  ]
+
+  contract
+    .methods
+    .getAmountsOut(tokenAAmount, path)
+    .call()
+    .then(function(res) {
+      let tokenBAmount = BigInt(res[1]).toString()
+      tokenBAmount /= 10**18
+      $('#input-B').val(tokenBAmount)
     })
 }
 
