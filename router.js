@@ -39,11 +39,6 @@ const locationHandler = async () => {
     // get the html from the template
     const html = await fetch(route.template).then((response) => response.text());
 
-    const script = document.createElement("script");
-    const scriptName = location == "/" ? "index" : location;
-    script.src = `/scripts/${scriptName}.js`;
-    document.getElementById("content").appendChild(script);
-
     // set the content of the content div to the html
     document.getElementById("content").innerHTML = html;
     // set the title of the document to the title of the route
@@ -52,6 +47,20 @@ const locationHandler = async () => {
     document
         .querySelector('meta[name="description"]')
         .setAttribute("content", route.description);
+
+    // trigger functions for each page
+    switch (location) {
+        case '/':
+            break;
+        case 'swap':
+            swapInit()
+            break;
+        case 'farm':
+            farmInit()
+            break;
+        default:
+            console.log('Unknown route: '+location)
+    }
 };
 
 // create a function that watches the hash and calls the urlLocationHandler

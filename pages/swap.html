@@ -1,14 +1,8 @@
 
 <html lang="en">
   <div style="margin:5%;" class="container">
-    <div class="row">
+    <div class="row" id="swap-test">
       <div class="col-md-12">
-        <div id="prepare">
-<!--           <button class="btn btn-primary" id="btn-connect">
-            Connect wallet
-          </button> -->
-        </div>
-
         <div id="connected" style="display: none">
           <button class="btn btn-primary" id="btn-disconnect">
             Disconnect wallet
@@ -65,40 +59,6 @@
         </div>
       </div>
     </div>
-
-    <div class="row">
-
-      <div class="col-md-12">
-        <h2>DEX</h2>
-      </div>
-
-      <div class="col-md-6">
-        <input type="number" id="amountTokenA" name="amountTokenA">
-        <select name="tokenA" id="tokenA-select">
-          <option value="USDT">USDT</option>
-          <option value="USDC">USDC</option>
-        </select>
-      </div>
-
-      <div class="col-md-6">
-        <input type="number" id="amountTokenB" name="amountTokenB">
-        <select name="tokenB" id="tokenB-select">
-          <option value="USDC">USDC</option>
-          <option value="USDT">USDT</option>
-        </select>
-      </div>
-
-      <div class="col-md-12" style="margin-top: 15px">
-        <button class="btn btn-primary" id="btn-getQuote">
-          Get Quote
-        </button>
-
-        <button class="btn btn-primary" id="btn-swap">
-          Swap
-        </button>
-      </div>
-
-    </div>
   </div>
 
   <div id="swap-card">
@@ -113,7 +73,7 @@
     <div class="swap-card-container">
       <button style="width: 25%; float:left;" class="btn btn-default dropdown-toggle" type="button" id="token-select-A" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         <div id="display-token-A">
-          <img width="20" src="/images/coins/usdt.png"></img>USDT<span class="caret"></span>
+          <img width="20" src="/images/coins/usdt.png"></img> USDT<span class="caret"></span>
         </div>
       </button>
        <input id="input-A" value="0" type="number" style="float:right; width: 70%;" class="balance"></input>
@@ -127,7 +87,7 @@
       <div class="dropdown">
         <button style="width: 25%; float:left;" id="token-select-B" class="btn btn-default dropdown-toggle" type="button" id="token-select-B" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
           <div id="display-token-B">
-            <img width="20" src="/images/coins/usdc.png"></img>USDC<span class="caret"></span>
+            <img width="20" src="/images/coins/usdc.png"></img> USDC<span class="caret"></span>
           </div>
         </button> 
         <input id="input-B" value="0" type="number" style="float:right; width: 70%;" class="balance"></input>

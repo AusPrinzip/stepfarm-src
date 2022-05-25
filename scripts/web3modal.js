@@ -113,7 +113,6 @@ async function fetchAccountData() {
     document.querySelector("#network-name").textContent = chainData.name;
     document.querySelector("#selected-account").textContent = selectedAccount;
     // Display fully loaded UI for wallet data
-    document.querySelector("#prepare").style.display = "none";
     document.querySelector("#connected").style.display = "block";
   }
   
@@ -140,7 +139,6 @@ async function refreshAccountData() {
   // the user is switching acounts in the wallet
   // immediate hide this data
   if (window.location.hash == "#swap") {
-    document.querySelector("#prepare").style.display = "block";
     document.querySelector("#connected").style.display = "none";
   }
 

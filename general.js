@@ -12,6 +12,26 @@ $.getJSON("abi/PancakeERC20.json", function(json) {
   ABI_ERC20 = json.abi
 })
 
+ABI_FACTORY = null
+$.getJSON("abi/PancakeFactory.json", function(json) {
+  ABI_FACTORY = json.abi
+})
+
+ABI_ROUTER = null
+$.getJSON("abi/PancakeRouter.json", function(json) {
+  ABI_ROUTER = json.abi
+})
+
+ABI_PAIR = null
+$.getJSON("abi/PancakePair.json", function(json) {
+  ABI_PAIR = json.abi
+})
+
+ABI_MASTERCHEF = null
+$.getJSON("abi/MasterChef.json", function(json) {
+  ABI_MASTERCHEF = json.abi
+})
+
 function approveToken (tokenAddress, spender, cb) {
   let web3 = new Web3(provider)
   let contract = new web3.eth.Contract(ABI_ERC20, tokenAddress)
