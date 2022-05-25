@@ -153,44 +153,79 @@ document.querySelector("#farm-poolLength").addEventListener("click", poolLength)
 document.querySelector("#farm-poolInfo").addEventListener("click", poolInfo)
 document.querySelector("#farm-addPair").addEventListener("click", addPair)
 document.querySelector("#farm-setPair").addEventListener("click", setPair)
+
 for (let i = 0; i < POOLS.length; i++) {
   let pid = i
+  let name = POOLS[pid].name
+  let lpToken = POOLS[pid].lpToken
   setInterval(function() {
+    if (!selectedAccount) return
     userInfo(pid, function(err, userInfo) {
       let amount = formatBalance(userInfo.amount)
       $('#farm'+pid+'-staked').text(amount)
     })
   }, 3000)
 
-  document.querySelector("#farm"+pid+"-deposit").addEventListener("click", function(e) {
-    let pid = $(this).parent().data('pid')
-    if (pid == 0) {
-      enterStaking()
-    } else {
-      let lpAddress = $(this).parent().data('address')
-      deposit(lpAddress, pid)
-    }
-  })
+  let html = ''
+  $('#farmsrow')[0].innerHTML += `
+  <div class="col-md-4">
+    <div data-pid="${pid}" data-address="${lpToken}">
+      <h2>Stake: <span id="farm${pid}-title">${name}</span></h2>
+      <h3>x<span id="farm${pid}-multiplier">1</span></h3>
+      <h3>APR: <span id="farm${pid}-apr"></span>%</h3>
+      <h3>Earn: GFT</h3>
+      <h3>Earned: <span id="farm${pid}-earned">0.000</span></h3>
+      <button class="btn btn-primary" id="farm${pid}-harvest">
+        Harvest
+      </button>
+      <button class="btn btn-primary" id="farm${pid}-approve">
+        Approve ${name}
+      </button>
+      <button class="btn btn-primary" id="farm${pid}-deposit">
+        Deposit
+      </button>
+      <button class="btn btn-primary" id="farm${pid}-withdraw">
+        Withdraw
+      </button>
+      <h3>${name} staked: <span id="farm${pid}-staked">0.000</span></h3>
+      <h3>Total liquidity: <span id="farm${pid}-liquidity">0.000</span></h3>
+    </div>
+  </div>
+  `
 
-  document.querySelector("#farm"+pid+"-withdraw").addEventListener("click", function(e) {
-    let pid = $(this).parent().data('pid')
-    if (pid == 0) {
-      leaveStaking()
-    } else {
-      let lpAddress = $(this).parent().data('address')
-      withdraw(pid)
-    }
-  })
-
-  document.querySelector("#farm"+pid+"-approve").addEventListener("click", function(e) {
-    let pid = $(this).parent().data('pid')
-    approveToken(POOLS[pid].lpToken, ADDRESS_MASTERCHEF, function(err, res) {
-      console.log(err, res)
+  setTimeout(function() {
+    document.querySelector("#farm"+pid+"-deposit").addEventListener("click", function(e) {
+      let pid = $(this).parent().data('pid')
+      if (pid == 0) {
+        enterStaking()
+      } else {
+        let lpAddress = $(this).parent().data('address')
+        deposit(lpAddress, pid)
+      }
     })
-  })
-
-  getAllowance(POOLS[pid].lpToken, selectedAccount, ADDRESS_MASTERCHEF, function(err, allowance) {
-    // TODO
-    console.log(allowance)
-  })
+  
+    document.querySelector("#farm"+pid+"-withdraw").addEventListener("click", function(e) {
+      let pid = $(this).parent().data('pid')
+      if (pid == 0) {
+        leaveStaking()
+      } else {
+        let lpAddress = $(this).parent().data('address')
+        withdraw(pid)
+      }
+    })
+  
+    document.querySelector("#farm"+pid+"-approve").addEventListener("click", function(e) {
+      let pid = $(this).parent().data('pid')
+      approveToken(POOLS[pid].lpToken, ADDRESS_MASTERCHEF, function(err, res) {
+        console.log(err, res)
+      })
+    })
+  
+    if (selectedAccount)
+      getAllowance(POOLS[pid].lpToken, selectedAccount, ADDRESS_MASTERCHEF, function(err, allowance) {
+        // TODO
+        console.log(allowance)
+      })
+  }, 1000)
+  
 }

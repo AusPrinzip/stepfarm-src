@@ -1,5 +1,5 @@
-dweb3 = new Web3('http://127.0.0.1:8545/')
-// dweb3 = new Web3('https://data-seed-prebsc-1-s1.binance.org:8545/')
+// dweb3 = new Web3('http://127.0.0.1:8545/')
+dweb3 = new Web3('https://data-seed-prebsc-1-s1.binance.org:8545/')
 
 dweb3.eth.getChainId().then(r => console.log('chain id: '+r))
 
@@ -13,15 +13,6 @@ $.getJSON("abi/PancakeERC20.json", function(json) {
 })
 
 function approveToken (tokenAddress, spender, cb) {
-  if (!tokenAddress) {
-    let token = prompt("Please enter token", "USDC")
-    let tokenAddress = TOKENS[token]
-  }
-  
-  if (!tokenAddress) {
-    alert('Wrong token symbol provided')
-    return
-  }
   let web3 = new Web3(provider)
   let contract = new web3.eth.Contract(ABI_ERC20, tokenAddress)
   // Max approve = 2^256 - 1

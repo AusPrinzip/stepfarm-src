@@ -328,10 +328,22 @@ function getPair() {
 }
 
 
-document.querySelector("#btn-getBalance").addEventListener("click", getBalance)
+document.querySelector("#btn-getBalance").addEventListener("click", function() {
+  let token = prompt("Please enter token", "USDC")
+  let tokenAddress = TOKENS[token]
+  getBalance(tokenAddress, function(err, res) {
+    console.log(err, res)
+  })
+})
 document.querySelector("#btn-addLiquidity").addEventListener("click", addLiquidity)
 document.querySelector("#btn-removeLiquidity").addEventListener("click", removeLiquidity)
-document.querySelector("#btn-approveToken").addEventListener("click", approveToken)
+document.querySelector("#btn-approveToken").addEventListener("click", function() {
+  let token = prompt("Please enter token", "USDC")
+  let tokenAddress = TOKENS[token]
+  approveToken(tokenAddress, ADDRESS_ROUTER, function(err, res) {
+    console.log(err, res)
+  })
+})
 document.querySelector("#btn-getQuote").addEventListener("click", getQuote)
 document.querySelector("#btn-swap").addEventListener("click", swap)
 document.querySelector("#btn-setTreasury").addEventListener("click", setFeeTo)
