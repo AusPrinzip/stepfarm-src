@@ -72,7 +72,6 @@ function deposit(tokenAddress, pid) {
     let amount = prompt("Amount to deposit", balance)
     let web3 = new Web3(provider)
     let contract = new web3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
-    console.log(pid, amount)
     contract
       .methods
       .deposit(pid, amount)
@@ -94,6 +93,17 @@ function withdraw(pid) {
         from: selectedAccount
       })
   })
+}
+
+function harvestFarm(pid) {
+  let web3 = new Web3(provider)
+  let contract = new web3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
+  contract
+    .methods
+    .deposit(pid, 0)
+    .send({
+      from: selectedAccount
+    })
 }
 
 function enterStaking() {
@@ -122,6 +132,17 @@ function leaveStaking() {
         from: selectedAccount
       })
   })
+}
+
+function harvestStaking() {
+  let web3 = new Web3(provider)
+  let contract = new web3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
+  contract
+    .methods
+    .enterStaking(0)
+    .send({
+      from: selectedAccount
+    })
 }
 
 function poolInfo() {
@@ -194,6 +215,16 @@ for (let i = 0; i < POOLS.length; i++) {
   `
 
   setTimeout(function() {
+    document.querySelector("#farm"+pid+"-harvest").addEventListener("click", function(e) {
+      let pid = $(this).parent().data('pid')
+      if (pid == 0) {
+        harvestStaking()
+      } else {
+        let lpAddress = $(this).parent().data('address')
+        harvestFarm(pid)
+      }
+    })
+
     document.querySelector("#farm"+pid+"-deposit").addEventListener("click", function(e) {
       let pid = $(this).parent().data('pid')
       if (pid == 0) {
