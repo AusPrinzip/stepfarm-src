@@ -4,6 +4,31 @@ html, body { // prevents horizontal scroll
     overflow-x: hidden;
 }
 
+.farm-header {
+  position: relative;
+  height: 200px;
+  width: 100%;
+  background-color:  black;
+}
+
+.farm-header-title {
+  position: absolute;
+  top:  20%;
+  left: 5%;
+  color: #00E8E7;
+  font-size: 32px;
+  font-family: Hurme;
+}
+
+.farm-header-subtitle {
+  position: absolute;
+  top: 40%;
+  left: 5%;
+  color: white;
+  font-size: 18px;
+  font-family: Poppins;
+}
+
 .token-select {
   float: left;
 }
@@ -20,9 +45,9 @@ html, body { // prevents horizontal scroll
 }
     
 .balance:focus {
-     outline: none;
-     border: 1px solid #a0d18c;
-     color: #2d9fd9;
+  outline: none;
+  border: 1px solid #a0d18c;
+  color: #2d9fd9;
 }
 
 .token-element img{
