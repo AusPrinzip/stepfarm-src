@@ -17,7 +17,32 @@ function farmInit() {
               <img src="/images/icons/core.svg"></img>
               <div class="multiplier">40x</div>
             </div>
-          </div
+          </div>
+        </div>
+
+        <div class="farm-card-stats">
+          <p>APR<span style="float: right;">29.5%</span></p>
+        </div>
+
+        <div class="farm-card-stats">
+          <p>Earn<span style="float: right;">STEP + Fees</span></p>
+        </div>
+
+        <div class="farm-card-earned">
+          <div class="farm-card-earned-display"><span style="color: #00E8E7;">STEP</span> EARNED</div>
+          <div class="farm-card-earned-amount">
+            <h3>0.000</h3>
+            <button class="farm-card-harvest-btn">Harvest</button>
+          </div>
+          <div class="farm-card-staked"><span style="color: #00E8E7;">STEP-BNB LP</span> STAKED</div>
+        </div>
+
+        <div class="farm-card-connect">
+          <button class="farm-card-connect-btn">Connect Wallet</button>
+        </div>
+        <center><div class="farm-card-separator"></div></center>
+        <div class="farm-card-details">
+          <button class="farm-card-details-btn">Details<span class="caret"></span></button>
         </div>
       </div>`
     );
