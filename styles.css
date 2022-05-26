@@ -4,6 +4,69 @@ html, body { // prevents horizontal scroll
     overflow-x: hidden;
 }
 
+.multiplier {
+  display:inline-block;
+  background: #37E4E5;
+  border-radius: 30px;
+  width: 60px;
+  font-family: Poppins;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+}
+
+#farm-card-symbol {
+  float: left;
+  height: 80px;
+}
+
+#farm-card-display {
+  display:inline-block;
+}
+
+#farm-coin-A {
+  position: relative;
+  left: 0%;
+  width: 35px;
+}
+
+#farm-coin-B {
+  position: relative;
+  left: -25%;
+  top: 20%;
+  width: 50px;
+}
+.farm-card {
+  display:inline-block;
+  margin: 5%;
+  width: 357px;
+  height: 545px;
+  left: 160px;
+  top: 477px;
+
+  background: #FCFCFC;
+
+  /* shadow_2 */
+  box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
+  border-radius: 20px;
+}
+
+.farm-card-header {
+  margin: 5%;
+  font-size: 30px;
+  font-family: Poppins;
+  font-weight: bold;
+}
+
+.farm-card-block {
+  float: right;
+  width: 70%;
+}
+
+.farm-card-title {
+  display:inline-block;
+}
+
 .farm-header {
   position: relative;
   height: 200px;
@@ -13,7 +76,7 @@ html, body { // prevents horizontal scroll
 
 .farm-header-title {
   position: absolute;
-  top:  20%;
+  top: 20%;
   left: 5%;
   color: #00E8E7;
   font-size: 32px;

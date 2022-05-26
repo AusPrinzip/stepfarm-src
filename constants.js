@@ -29,4 +29,9 @@ const POOLS = [
     lpToken: "0x716ae0FdAD4d9D6930DCae12fbA670c2A6740d53",
     image: ""
   }
-]
+];
+
+// Append here more farming options for Farm page
+const FARMING_OPTIONS = [
+  ["USDT", "USDC"], ["BUSD", "BNB"], ["USDT", "BNB"]
+];

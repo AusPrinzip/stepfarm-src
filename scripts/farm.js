@@ -1,4 +1,28 @@
+
 function farmInit() {
+
+  for (let i = 0; i < FARMING_OPTIONS.length; i++) {
+    const farm = FARMING_OPTIONS[i];
+    console.log(farm);
+    $("#farm-cards").append(`    
+      <div class="farm-card">
+        <div class="farm-card-header">
+          <div id="farm-card-symbol">
+            <img id="farm-coin-A" src="/images/coins/${farm[0].toLowerCase()}.png"></img>
+            <img id="farm-coin-B" src="/images/coins/${farm[1].toLowerCase()}.png"></img>
+          </div>
+          <div class="farm-card-block">
+            <span id="farm-card-display">${farm[0]}-${farm[1]}</span>
+            <div class="farm-card-title">
+              <img src="/images/icons/core.svg"></img>
+              <div class="multiplier">40x</div>
+            </div>
+          </div
+        </div>
+      </div>`
+    );
+  }
+
   document.querySelector("#farm-getMultiplier").addEventListener("click", getMultiplier)
   document.querySelector("#farm-setMultiplier").addEventListener("click", setMultiplier)
   document.querySelector("#farm-poolLength").addEventListener("click", poolLength)
