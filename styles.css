@@ -60,10 +60,6 @@ html, body { // prevents horizontal scroll
   filter: brightness(60%);
 }
 
-.liquidity-card h3, p {
-  margin: 5%;
-}
-
 .liquidity-card img {
   display: inline-block;
 }
