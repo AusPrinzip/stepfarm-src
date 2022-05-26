@@ -1,0 +1,46 @@
+
+<html lang="en">
+  <div style="margin:5%;" class="container">
+    
+  <div id="add-card">
+    <div class="swap-card-container">
+      <div class="swap-card-tag"></div>
+      <div class="swap-card-title">Add Liquidity</div>
+      <button id="settingsModalTrigger" class="swap-card-button"><img width="33" src="images/swap/swap-settings.svg"></img></button>
+    </div>
+
+    <div class="swap-card-container">
+      <button style="width: 25%; float:left;" class="btn btn-default dropdown-toggle" type="button" id="token-select-A" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <div id="display-token-A">
+          Select Currency<span class="caret"></span>
+        </div>
+      </button>
+       <input id="input-A" value="0" type="number" style="float:right; width: 50%;" class="balance"></input>
+    </div>
+
+    <div class="swap-card-container">
+      +
+    </div>
+
+    <div class="swap-card-container">
+      <div class="dropdown">
+        <button style="width: 25%; float:left;" id="token-select-B" class="btn btn-default dropdown-toggle" type="button" id="token-select-B" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <div id="display-token-B">
+            Select Currency<span class="caret"></span>
+          </div>
+        </button> 
+        <input id="input-B" value="0" type="number" style="float:right; width: 50%;" class="balance"></input>
+      </div>
+    </div>
+
+    <div class="swap-card-container">
+      <div class="swap-exchange">1 BUSD = 1.0000 USDC <img src="images/swap/swap-arrow-exchange.svg"></img></div>
+    </div>
+
+    <div class="swap-card-container">
+      <button class="add-card-connect-btn">Connect Wallet</button> 
+    </div>
+
+  </div>
+
+</html>

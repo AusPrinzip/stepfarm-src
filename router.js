@@ -24,6 +24,16 @@ const routes = {
         template: "/pages/farm.html",
         title: "Yield Farming",
         description: "This is the yield farming page"
+    },
+    liquidity: {
+        template: "/pages/liquidity.html",
+        title: "Liquidity | Step Farm",
+        description: "This is the page where you can check your liquidity"
+    },
+    add: {
+        template: "/pages/add.html",
+        title: "Add Liquidity | Step Farm",
+        description: "This is the page where you can provide liquidity"
     }
 };
 
