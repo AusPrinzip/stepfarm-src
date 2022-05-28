@@ -112,8 +112,6 @@ async function fetchAccountData() {
   if (window.location.hash == "#swap") {
     document.querySelector("#network-name").textContent = chainData.name;
     document.querySelector("#selected-account").textContent = selectedAccount;
-    // Display fully loaded UI for wallet data
-    document.querySelector("#connected").style.display = "block";
   }
   
 
@@ -134,14 +132,6 @@ async function fetchAccountData() {
  * - User connects wallet initially
  */
 async function refreshAccountData() {
-
-  // If any current data is displayed when
-  // the user is switching acounts in the wallet
-  // immediate hide this data
-  if (window.location.hash == "#swap") {
-    document.querySelector("#connected").style.display = "none";
-  }
-
   // Disable button while UI is loading.
   // fetchAccountData() will take a while as it communicates
   // with Ethereum node via JSON-RPC and loads chain data
