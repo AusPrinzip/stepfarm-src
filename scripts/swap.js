@@ -89,13 +89,10 @@ function swapInit() {
   }
 
   // Automatic "get quote" when user changes swap amounts in input fields
-
   $("#input-A").focus(function() { $(this).select(); } );
-
   $("#input-A").change(function() {
     getQuote();
   })
-
   $("#input-A").keyup(function() {
     getQuote();
   })
@@ -129,15 +126,14 @@ function swapInit() {
   document.querySelector("#btn-getPair").addEventListener("click", getPair)  
 }
 
-function getReserves() {
-  let lpAddress = prompt("Please enter LP address", "0x")
+function getReserves(lpAddress, cb) {
   let contract = new dweb3.eth.Contract(ABI_PAIR, lpAddress)
   contract
     .methods
     .getReserves()
     .call()
     .then(function(res) {
-      console.log(res)
+      cb(null, res)
     })
 }
 
@@ -165,7 +161,6 @@ function getFactoryAddress() {
 }
 
 function getFeeTo () {
-  let web3 = new Web3(provider)
   let contract = new dweb3.eth.Contract(ABI_FACTORY, ADDRESS_FACTORY)
   contract
     .methods
@@ -188,15 +183,18 @@ function setFeeTo () {
     })
 }
 
-function addLiquidity () {
+function addLiquidity (tokenA, tokenB, amountA, amountB, cb) {
   let web3 = new Web3(provider)
   let contract = new web3.eth.Contract(ABI_ROUTER, ADDRESS_ROUTER)
   let deadline = Math.round(new Date().getTime()/1000) + 1 * ONE_MINUTE
   contract
     .methods
-    .addLiquidity(TOKENS.USDC, TOKENS.USDT, "1"+ZEROES, "1"+ZEROES, "1", "1", selectedAccount, deadline)
+    .addLiquidity(tokenA, tokenB, amountA, amountB, "1", "1", selectedAccount, deadline)
     .send({
       from: selectedAccount
+    })
+    .then(function(res){
+      cb(null, res)
     })
 }
 

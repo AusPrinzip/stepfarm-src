@@ -1,6 +1,5 @@
 
 function farmInit() {
-
   for (let i = 0; i < POOLS.length; i++) {
     let farm = POOLS[i]
     let pid = i
@@ -68,6 +67,10 @@ function farmInit() {
     );
 
     setInterval(function() {
+      getTvl(pid, function(err, tvl) {
+
+      })
+
       if (!selectedAccount) return
       userInfo(pid, function(err, userInfo) {
         let amount = formatBalance(userInfo.amount)
@@ -328,3 +331,10 @@ function userInfo(pid, cb) {
     })
 }
 
+function getTvl(pid, cb) {
+  let lpToken = POOLS[pid].lpToken
+  getBalanceOf(lpToken, ADDRESS_MASTERCHEF, function(err, bal) {
+    // console.log(bal)
+    cb(null, null)
+  })
+}

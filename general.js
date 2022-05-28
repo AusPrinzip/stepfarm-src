@@ -68,6 +68,17 @@ function getBalance(tokenAddress, cb) {
     })
 }
 
+function getBalanceOf(tokenAddress, address, cb) {
+  let contract = new dweb3.eth.Contract(ABI_ERC20, tokenAddress)
+  contract
+    .methods
+    .balanceOf(address)
+    .call()
+    .then(function(res) {
+      cb(null, res)
+    })
+}
+
 function getAllowance(tokenAddress, owner, spender, cb) {
   let contract = new dweb3.eth.Contract(ABI_ERC20, tokenAddress)
   contract

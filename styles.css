@@ -44,6 +44,17 @@ html, body { // prevents horizontal scroll
   height: 40px;
 }
 
+.add-card-add-btn {
+  display: inline-block;
+  margin:0 auto;
+  display:block;
+  padding: 0;
+  border: none;
+  background: none;
+  width: 80%;
+  height: 40px;
+}
+
 .liquidity-card {
   font-family: Poppins;
   position: relative;

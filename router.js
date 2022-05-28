@@ -68,6 +68,9 @@ const locationHandler = async () => {
         case 'farm':
             farmInit()
             break;
+        case 'add':
+            addInit()
+            break;
         default:
             console.log('Unknown route: '+location)
     }
