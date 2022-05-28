@@ -108,6 +108,39 @@ html, body { // prevents horizontal scroll
   filter: brightness(60%);
 }
 
+.farm-card-approve-btn {
+  margin:0 auto;
+  display:block;
+  padding: 0;
+  border: none;
+  background: none;
+  width: 80%;
+  height: 40px;
+  margin-top: 10px;
+}
+
+.farm-card-deposit-btn {
+  margin:0 auto;
+  display:block;
+  padding: 0;
+  border: none;
+  background: none;
+  width: 40%;
+  height: 40px;
+  margin-top: 10px;
+}
+
+.farm-card-withdraw-btn {
+  margin:0 auto;
+  display:block;
+  padding: 0;
+  border: none;
+  background: none;
+  width: 40%;
+  height: 40px;
+  margin-top: 10px;
+}
+
 .farm-card-details {
   width: 100%;
   display: inline-block;
@@ -141,13 +174,10 @@ html, body { // prevents horizontal scroll
 .farm-card {
   display:inline-block;
   margin: 5%;
-  width: 357px;
-  height: 545px;
-
   background: #FCFCFC;
 
   /* shadow_2 */
-  box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
+  box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.36), 0px 2px 6px rgba(0, 0, 0, 0.24), 0px 0px 1px rgba(0, 0, 0, 0.24);
   border-radius: 20px;
 }
 

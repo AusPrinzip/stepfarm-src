@@ -21,17 +21,16 @@ const POOLS = [
     name: "GFT",
     allocPoints: 1000,
     lpToken: "0xC88C6143E1D600c7CB51277DB0de21471702a8a5",
-    image: ""
+    image: "",
+    pair: ["GFT", "GFT"],
+    multiplier: "40x"
   },
   {
     name: "USDC/USDT LP",
     allocPoints: 1000,
     lpToken: "0x716ae0FdAD4d9D6930DCae12fbA670c2A6740d53",
-    image: ""
+    image: "",
+    pair: ["USDC", "USDT"],
+    multiplier: "25x"
   }
-];
-
-// Append here more farming options for Farm page
-const FARMING_OPTIONS = [
-  ["USDT", "USDC"], ["BUSD", "BNB"], ["USDT", "BNB"]
 ];

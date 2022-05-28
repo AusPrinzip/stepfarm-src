@@ -1,51 +1,122 @@
 
 function farmInit() {
 
-  for (let i = 0; i < FARMING_OPTIONS.length; i++) {
-    const farm = FARMING_OPTIONS[i];
-    console.log(farm);
-    $("#farm-cards").append(`    
-      <div class="farm-card">
+  for (let i = 0; i < POOLS.length; i++) {
+    let farm = POOLS[i]
+    let pid = i
+    let depositAsset = farm.pair[0]+'-'+farm.pair[1]+' LP'
+    let name = farm.pair[0]+'-'+farm.pair[1]
+    let coinAstyle = ''
+    if (farm.pair[0] === farm.pair[1]) {
+      // GFT staking pool
+      name = farm.pair[0]+' Staking'
+      depositAsset = farm.pair[0]
+      coinAstyle = 'display:none'
+    }
+    $("#farm-cards").append(`
+      <div class="farm-card" data-pid="${pid}" data-address="${farm.lpToken}">
         <div class="farm-card-header">
           <div id="farm-card-symbol">
-            <img id="farm-coin-A" src="/images/coins/${farm[0].toLowerCase()}.png"></img>
-            <img id="farm-coin-B" src="/images/coins/${farm[1].toLowerCase()}.png"></img>
+            <img id="farm-coin-A" src="/images/coins/${farm.pair[0].toLowerCase()}.png" style="${coinAstyle}"></img>
+            <img id="farm-coin-B" src="/images/coins/${farm.pair[1].toLowerCase()}.png"></img>
           </div>
           <div class="farm-card-block">
-            <span id="farm-card-display">${farm[0]}-${farm[1]}</span>
+            <span id="farm-card-display">${name}</span>
             <div class="farm-card-title">
               <img src="/images/icons/core.svg"></img>
-              <div class="multiplier">40x</div>
+              <div class="multiplier">${farm.multiplier}</div>
+            </div>
+          </div>
+        </div>
+        <br /><br /><br />
+        <div class="farm-card-stats">
+          <p>Earn<span style="float: right;">GFT</span></p>
+        </div>
+
+        <div class="farm-card-stats">
+          <p>APR<span style="float: right;" id="farm${pid}-apr">29.5%</span></p>
+        </div>
+
+        <div class="farm-card-stats">
+          <p>TVL<span style="float: right;" id="farm${pid}-tvl">$0.00</span></p>
+        </div>
+
+        
+
+        <div class="farm-card-earned">
+          <div class="farm-card-earned-display"><span style="color: #00E8E7;">GFT</span> EARNED</div>
+          <div class="farm-card-earned-amount">
+            <h3 id="farm${pid}-earned">0.000</h3>
+            <button class="farm-card-harvest-btn" id="farm${pid}-harvest">Harvest</button>
+          </div>
+          <div class="farm-card-staked">
+            <span style="color: #00E8E7;">${depositAsset}</span> STAKED
+            <h3 id="farm${pid}-staked">0.000</h3>
+            <div class="farm-card-actions">
+              <button class="farm-card-approve-btn" id="farm${pid}-approve">Approve ${depositAsset}</button>
+              <button class="farm-card-deposit-btn" id="farm${pid}-deposit">Deposit</button>
+              <button class="farm-card-withdraw-btn" id="farm${pid}-withdraw">Withdraw</button>
             </div>
           </div>
         </div>
 
-        <div class="farm-card-stats">
-          <p>APR<span style="float: right;">29.5%</span></p>
-        </div>
-
-        <div class="farm-card-stats">
-          <p>Earn<span style="float: right;">STEP + Fees</span></p>
-        </div>
-
-        <div class="farm-card-earned">
-          <div class="farm-card-earned-display"><span style="color: #00E8E7;">STEP</span> EARNED</div>
-          <div class="farm-card-earned-amount">
-            <h3>0.000</h3>
-            <button class="farm-card-harvest-btn">Harvest</button>
-          </div>
-          <div class="farm-card-staked"><span style="color: #00E8E7;">STEP-BNB LP</span> STAKED</div>
-        </div>
-
+        
         <div class="farm-card-connect">
-          <button class="farm-card-connect-btn">Connect Wallet</button>
-        </div>
-        <center><div class="farm-card-separator"></div></center>
-        <div class="farm-card-details">
-          <button class="farm-card-details-btn">Details<span class="caret"></span></button>
+          <button class="farm-card-connect-btn" style="display: none">Connect Wallet</button>
         </div>
       </div>`
     );
+
+    setInterval(function() {
+      if (!selectedAccount) return
+      userInfo(pid, function(err, userInfo) {
+        let amount = formatBalance(userInfo.amount)
+        $('#farm'+pid+'-staked').text(amount)
+      })
+    }, 3000)
+
+    setTimeout(function() {
+      document.querySelector("#farm"+pid+"-harvest").addEventListener("click", function(e) {
+        let pid = $(this).parent().parent().parent().data('pid')
+        if (pid == 0) {
+          harvestStaking()
+        } else {
+          harvestFarm(pid)
+        }
+      })
+  
+      document.querySelector("#farm"+pid+"-deposit").addEventListener("click", function(e) {
+        let pid = $(this).parent().parent().parent().parent().data('pid')
+        if (pid == 0) {
+          enterStaking()
+        } else {
+          let lpAddress = $(this).parent().parent().parent().parent().data('address')
+          deposit(lpAddress, pid)
+        }
+      })
+    
+      document.querySelector("#farm"+pid+"-withdraw").addEventListener("click", function(e) {
+        let pid = $(this).parent().parent().parent().parent().data('pid')
+        if (pid == 0) {
+          leaveStaking()
+        } else {
+          withdraw(pid)
+        }
+      })
+    
+      document.querySelector("#farm"+pid+"-approve").addEventListener("click", function(e) {
+        let pid = $(this).parent().parent().parent().parent().data('pid')
+        approveToken(POOLS[pid].lpToken, ADDRESS_MASTERCHEF, function(err, res) {
+          console.log(err, res)
+        })
+      })
+    
+      if (selectedAccount)
+        getAllowance(POOLS[pid].lpToken, selectedAccount, ADDRESS_MASTERCHEF, function(err, allowance) {
+          // TODO
+          console.log(allowance)
+        })
+    }, 1000)
   }
 
   document.querySelector("#farm-getMultiplier").addEventListener("click", getMultiplier)
@@ -59,16 +130,9 @@ function farmInit() {
     let pid = i
     let name = POOLS[pid].name
     let lpToken = POOLS[pid].lpToken
-    setInterval(function() {
-      if (!selectedAccount) return
-      userInfo(pid, function(err, userInfo) {
-        let amount = formatBalance(userInfo.amount)
-        $('#farm'+pid+'-staked').text(amount)
-      })
-    }, 3000)
+
   
-    let html = ''
-    $('#farmsrow')[0].innerHTML += `
+    let html = `
     <div class="col-md-4">
       <div data-pid="${pid}" data-address="${lpToken}">
         <h2>Stake: <span id="farm${pid}-title">${name}</span></h2>
@@ -94,50 +158,7 @@ function farmInit() {
     </div>
     `
   
-    setTimeout(function() {
-      document.querySelector("#farm"+pid+"-harvest").addEventListener("click", function(e) {
-        let pid = $(this).parent().data('pid')
-        if (pid == 0) {
-          harvestStaking()
-        } else {
-          let lpAddress = $(this).parent().data('address')
-          harvestFarm(pid)
-        }
-      })
-  
-      document.querySelector("#farm"+pid+"-deposit").addEventListener("click", function(e) {
-        let pid = $(this).parent().data('pid')
-        if (pid == 0) {
-          enterStaking()
-        } else {
-          let lpAddress = $(this).parent().data('address')
-          deposit(lpAddress, pid)
-        }
-      })
     
-      document.querySelector("#farm"+pid+"-withdraw").addEventListener("click", function(e) {
-        let pid = $(this).parent().data('pid')
-        if (pid == 0) {
-          leaveStaking()
-        } else {
-          let lpAddress = $(this).parent().data('address')
-          withdraw(pid)
-        }
-      })
-    
-      document.querySelector("#farm"+pid+"-approve").addEventListener("click", function(e) {
-        let pid = $(this).parent().data('pid')
-        approveToken(POOLS[pid].lpToken, ADDRESS_MASTERCHEF, function(err, res) {
-          console.log(err, res)
-        })
-      })
-    
-      if (selectedAccount)
-        getAllowance(POOLS[pid].lpToken, selectedAccount, ADDRESS_MASTERCHEF, function(err, allowance) {
-          // TODO
-          console.log(allowance)
-        })
-    }, 1000)
     
   }
 }
@@ -261,7 +282,7 @@ function enterStaking() {
 
 function leaveStaking() {
   userInfo(0, function(err, userInfo) {
-    let amount = prompt("Amount to deposit", userInfo.amount)
+    let amount = prompt("Amount to withdraw", userInfo.amount)
     let web3 = new Web3(provider)
     let contract = new web3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
     contract
