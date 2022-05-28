@@ -198,15 +198,18 @@ function addLiquidity (tokenA, tokenB, amountA, amountB, cb) {
     })
 }
 
-function removeLiquidity () {
+function removeLiquidity (tokenA, tokenB, lpAmount) {
   let web3 = new Web3(provider)
   let contract = new web3.eth.Contract(ABI_ROUTER, ADDRESS_ROUTER)
   let deadline = Math.round(new Date().getTime()/1000) + 3 * ONE_MINUTE
   contract
     .methods
-    .removeLiquidity(TOKENS.USDT, TOKENS.USDC, "1"+ZEROES, "1", "1", selectedAccount, deadline)
+    .removeLiquidity(tokenA, tokenB, lpAmount, "1", "1", selectedAccount, deadline)
     .send({
       from: selectedAccount
+    })
+    .then(function(res){
+      cb(null, res)
     })
 }
 

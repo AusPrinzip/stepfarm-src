@@ -71,6 +71,9 @@ const locationHandler = async () => {
         case 'add':
             addInit()
             break;
+        case 'liquidity':
+            liquidityInit()
+            break;
         default:
             console.log('Unknown route: '+location)
     }
