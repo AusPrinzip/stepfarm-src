@@ -5,19 +5,17 @@ html, body { // prevents horizontal scroll
     font-size:16px;
 }
 
-.navbar-right {
-  right: 30% !important;
+#footer {
+  margin-top: 5%;
 }
-
-.connect {
-  float: right;
-}
-
 @media (min-width: 320px) {  
   h1 {font-size:1.3rem;} 
   p { font-size: 9px; }
   .nav {
     font-size: 16px;
+  }
+  .navbar-collapse {
+    background-color: white;
   }
   .stat {
     left: 45% !important;
@@ -54,6 +52,9 @@ html, body { // prevents horizontal scroll
 @media (min-width: 544px) {  
   h1 {font-size:1.5rem;} 
   p { font-size: 12px; }
+  .navbar-collapse {
+    background-color: #37E4E5;
+  }
   .stat {
     font-size: 12px !important;
     left: 70% !important;
@@ -170,11 +171,11 @@ html, body { // prevents horizontal scroll
 }
 
 .liquidity-card {
+  display: table;
+  margin: 0 auto;
   font-family: Poppins;
-  position: relative;
-  width: 35%;
-  min-width: 400px;
-  left: 36%;
+  width: 30%;
+  min-width: 350px;
   height: 400px;
   /*background-color: #00E8E7;*/
   box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
@@ -526,15 +527,14 @@ html, body { // prevents horizontal scroll
     width: 100% !important;
     height: 200px !important;
 }
-
 #swap-card {
-  margin: 5%;
+  display: table;
+  margin: 0 auto;
   position: relative;
-  width: 35%;
-  min-width: 300px;
-  left: 28%;
+  width: 30%;
+  min-width: 350px;
   height: auto;
-
+  z-index: 0;
   background: #FCFCFC;
 
   /* shadow */
@@ -550,8 +550,7 @@ html, body { // prevents horizontal scroll
 .swap-card-container {
   width: 100%;
   height: 40px;
-  text-align:center;
-  padding: 1%;
+  padding: 2%;
 }
 
 .swap-max-reward-usd {
@@ -755,9 +754,12 @@ img {
 }
 
 .navbar {
+  margin-bottom: 0px !important;
+}
+.navbar-header {
   font-family: Hurme;
   height: 120px !important;
-  margin-bottom: 0px !important;
+  background-color: #37E4E5;
 }
 
 .navbar-default {
@@ -769,17 +771,17 @@ img {
   max-width: 150px !important;
 }
 
-.navbar-collapse-vertical-aligned {
+/*.navbar-collapse-vertical-aligned {
   position: absolute;
   left: 150px;
   top: calc(25% - 1px) !important;
-}
+}*/
 
-.navbar-nav-vertical-aligned {
+/*.navbar-nav-vertical-aligned {
   position: absolute;
   right: 20px;
   top: 23px;
-}
+}*/
 
 #firstblock {
   font-family: Hurme;

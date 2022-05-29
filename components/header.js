@@ -5,7 +5,6 @@ class Header extends HTMLElement {
 
   connectedCallback () {
     this.innerHTML = `
-      <header>
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
@@ -31,16 +30,14 @@ class Header extends HTMLElement {
               <li><a class="" href="#"><img src="images/nav-facebook.svg"></img></a></li>
               <li><a class="" href="#"><img src="images/nav-twitter.svg"></img></a></li>
               <li><a class="" href="#"><img src="images/nav-instagram.svg"></img></a></li>
+              <li><button id="btn-connect" class="connect-wallet-btn">CONNECT WALLET</button></li>
+              <li><button style="display: none;" id="btn-disconnect" class="connect-wallet-btn">DISCONNECT WALLET</button></li>
             </ul>
 
           </div><!-- /.navbar-collapse -->
-          <div class="connect">
-            <button id="btn-connect" class="connect-wallet-btn">CONNECT WALLET</button>
-            <button style="display: none;" id="btn-disconnect" class="connect-wallet-btn">DISCONNECT WALLET</button>
-          </div>
+
         </div><!-- /.container-fluid -->
       </nav>
-     </header>
     `
   }
 }
