@@ -9,6 +9,7 @@ function indexInit() {
       $('.span').text(PLACEHOLDER_3);
       $('.shoe').attr("src", "/images/shoe-mobile.svg");
       $('.hero').attr("src", "/images/hero-mobile.svg");
+      $('.navbar-right').hide();
       // $('.stat').hide()
       $('.stats-rows').hide()
     } else {
@@ -25,6 +26,7 @@ function indexInit() {
     $('.shoe').attr("src", "/images/shoe-mobile.svg");
     $('.hero').attr("src", "/images/hero-mobile.svg");
     // $('.stat').hide()
+    $('.navbar-right').hide();
     $('.stats-rows').hide()
   } else {
     $('.span').text(PLACEHOLDER_1);
