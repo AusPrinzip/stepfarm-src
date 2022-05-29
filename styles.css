@@ -2,6 +2,46 @@
 html, body { // prevents horizontal scroll
     max-width: 100%;
     overflow-x: hidden;
+    font-size:16px;
+}
+
+@media (min-width: 370px) {  
+  h1 {font-size:1.3rem;} 
+  p { font-size: 9px; }
+  .stat {font-size: 7px !important;}
+  .statvalue {font-size: 11px !important;}
+  .circuitcontainer {font-size: 9px !important;}
+}
+
+@media (min-width: 544px) {  
+  h1 {font-size:1.5rem;} 
+  p { font-size: 12px; }
+  .stat {font-size: 12px !important;}
+  .statvalue {font-size: 16px !important;}
+}
+ 
+@media (min-width: 768px) {  
+  h1 {font-size:2rem;} 
+  p { font-size: 14px; }
+  .stat {font-size: 14px !important;}
+  .statvalue {font-size: 18px !important;}
+}
+ 
+@media (min-width: 992px) { 
+  h1 {font-size:2.5rem;}
+  p { font-size: 16px; }
+  .stat {font-size: 16px !important;}
+  .statvalue {font-size: 20px !important;}
+}
+ 
+@media (min-width: 1200px) {  
+  h1 {font-size:3rem;}     
+  p { font-size: 18px; }
+}
+ 
+ 
+@media (min-width: 950px) and (max-width:1100px) { 
+  h1 {font-size:2.75rem;color:red;} 
 }
 
 #add-card {
@@ -673,6 +713,10 @@ img {
   text-align: center;
 }
 
+#firstblock p {
+  margin: 5%;
+  color:  grey;
+}
 .statscontainer {
   margin-top: 5%;
   position: relative;
@@ -727,7 +771,6 @@ img {
 .statvalue {
   left: 50%;
   color: white;
-  font-size: 29px;
 }
 
 #secondblock {
