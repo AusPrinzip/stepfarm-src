@@ -3,23 +3,23 @@ const PLACEHOLDER_1 = "Sweet and Tone is a seven-day bodyweight training program
 const PLACEHOLDER_2 = "Sweet and Tone is a seven-day bodyweight training program designed to boost your strength and";
 const PLACEHOLDER_3 = "Lorem Ipsum Dolor Sit Amet";
 
-window.addEventListener('resize', function () { // conditional rendering based on viewport width
-  if (viewportWidth <= 375) {
-    $('.span').text(PLACEHOLDER_3);
-    $('.shoe').attr("src", "/images/shoe-mobile.svg");
-    $('.hero').attr("src", "/images/hero-mobile.svg");
-    $('.stat').hide()
-    $('.stats-rows').hide()
-  } else {
-    $('.span').text(PLACEHOLDER_1);
-    $('.shoe').attr("src", "/images/shoe.svg");
-    $('.hero').attr("src", "/images/hero.svg");
-    $('.stat').show()
-    $('.stats-rows').show()
-  }
-}, false);
-
-window.addEventListener('load', function () {
+function indexInit() {
+  alert(viewportWidth)
+  window.addEventListener('resize', function () { // conditional rendering based on viewport width
+    if (viewportWidth <= 375) {
+      $('.span').text(PLACEHOLDER_3);
+      $('.shoe').attr("src", "/images/shoe-mobile.svg");
+      $('.hero').attr("src", "/images/hero-mobile.svg");
+      $('.stat').hide()
+      $('.stats-rows').hide()
+    } else {
+      $('.span').text(PLACEHOLDER_1);
+      $('.shoe').attr("src", "/images/shoe.svg");
+      $('.hero').attr("src", "/images/hero.svg");
+      $('.stat').show()
+      $('.stats-rows').show()
+    }
+  }, false);
 
   if (viewportWidth <= 375) {
     $('.span').text(PLACEHOLDER_3);
@@ -48,4 +48,4 @@ window.addEventListener('load', function () {
         offset: 'bottom-in-view',
     } )
   }
-})
+}

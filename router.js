@@ -61,6 +61,7 @@ const locationHandler = async () => {
     // trigger functions for each page
     switch (location) {
         case '/':
+            indexInit()
             break;
         case 'swap':
             swapInit()
