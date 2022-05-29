@@ -1,5 +1,4 @@
 // design related JS logic
-
 window.addEventListener('load', function () {
   const counters = 4;
   for (let i = 1; i <= counters; i ++) {
