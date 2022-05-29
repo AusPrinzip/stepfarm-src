@@ -11,6 +11,13 @@ html, body { // prevents horizontal scroll
   .stat {font-size: 7px !important;}
   .statvalue {font-size: 11px !important;}
   .circuitcontainer {font-size: 9px !important;}
+  .shoe {
+    width: 80% !important;
+    position: relative !important;
+    z-index: 2;
+    left: -1% !important;
+    top: 0% !important;
+  }
 }
 
 @media (min-width: 544px) {  
@@ -18,6 +25,13 @@ html, body { // prevents horizontal scroll
   p { font-size: 12px; }
   .stat {font-size: 12px !important;}
   .statvalue {font-size: 16px !important;}
+  .shoe {
+    width: 30% !important;
+    position: absolute !important;
+    z-index: 2;
+    left: 8% !important;
+    top: -10% !important;
+  }
 }
  
 @media (min-width: 768px) {  
@@ -705,7 +719,7 @@ img {
 
 #firstblock {
   font-family: Hurme;
-  margin-top: 5%;
+  margin-top: 10%;
   text-align: center;
 }
 
@@ -733,14 +747,6 @@ img {
   right: 20%;
 }
 
-.shoe {
-  width: 30%;
-  position: absolute;
-  z-index: 2;
-  left: 10%;
-  bottom: 0%;
-}
-
 .stat {
   font-family: Hurme;
   position: absolute;
@@ -749,7 +755,7 @@ img {
 }
 
 .distance {
-  bottom: 83%;
+  top: 8%;
 }
 
 .carbon {
@@ -771,7 +777,7 @@ img {
 
 #secondblock {
   font-family: Hurme;
-  margin-top: 5%;
+  margin-top: 10%;
   margin-bottom: 10%;
   text-align: center;
 }
@@ -949,7 +955,7 @@ img {
 
 #thirdblock {
   font-family: Hurme;
-  margin-top: 5%;
+  margin-top: 10%;
   margin-bottom: 10%;
   text-align: center;
 }
@@ -973,7 +979,7 @@ img {
 
 #fourthblock {
   font-family: Hurme;
-  margin-top: 5%;
+  margin-top: 10%;
   margin-bottom: 10%;
   text-align: center;
 }
@@ -981,7 +987,7 @@ img {
 
 #fifthblock {
   font-family: Hurme;
-  margin-top: 5%;
+  margin-top: 10%;
   margin-bottom: 10%;
   text-align: center;
 }
