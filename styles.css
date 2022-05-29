@@ -5,7 +5,7 @@ html, body { // prevents horizontal scroll
     font-size:16px;
 }
 
-@media (min-width: 370px) {  
+@media (min-width: 320px) {  
   h1 {font-size:1.3rem;} 
   p { font-size: 9px; }
   .stat {font-size: 7px !important;}
