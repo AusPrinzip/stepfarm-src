@@ -9,7 +9,7 @@ function indexInit() {
       $('.span').text(PLACEHOLDER_3);
       $('.shoe').attr("src", "/images/shoe-mobile.svg");
       $('.hero').attr("src", "/images/hero-mobile.svg");
-      $('.stat').hide()
+      // $('.stat').hide()
       $('.stats-rows').hide()
     } else {
       $('.span').text(PLACEHOLDER_1);
@@ -24,7 +24,7 @@ function indexInit() {
     $('.span').text(PLACEHOLDER_3);
     $('.shoe').attr("src", "/images/shoe-mobile.svg");
     $('.hero').attr("src", "/images/hero-mobile.svg");
-    $('.stat').hide()
+    // $('.stat').hide()
     $('.stats-rows').hide()
   } else {
     $('.span').text(PLACEHOLDER_1);
