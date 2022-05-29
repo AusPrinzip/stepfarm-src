@@ -4,7 +4,6 @@ const PLACEHOLDER_2 = "Sweet and Tone is a seven-day bodyweight training program
 const PLACEHOLDER_3 = "Lorem Ipsum Dolor Sit Amet";
 
 function indexInit() {
-  alert(viewportWidth)
   window.addEventListener('resize', function () { // conditional rendering based on viewport width
     if (viewportWidth <= 375) {
       $('.span').text(PLACEHOLDER_3);
