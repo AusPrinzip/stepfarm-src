@@ -209,6 +209,17 @@ html, body { // prevents horizontal scroll
   height: 40px;
 }
 
+.add-card-approve-btn {
+  display: inline-block;
+  margin:0 auto;
+  display:block;
+  padding: 0;
+  border: none;
+  background: none;
+  width: 80%;
+  height: 40px;
+}
+
 .liquidity-card {
   display: table;
   margin: 0 auto;

@@ -13,6 +13,27 @@ function addInit() {
         reserves = res
       })
     })
+
+    // check allowance
+    if (selectedAccount) {
+      getAllowance(tokens[0], selectedAccount, ADDRESS_ROUTER, function(err, allow) {
+        $('.approveBtn1').attr('data-token', tokens[0])
+        if (allow > 0) {
+          $('.approveBtn1').hide()
+          if ($('.approveBtn2')[0].style.display != 'none')
+            $('.add-card-add-btn').show()
+        }
+      })
+
+      getAllowance(tokens[0], selectedAccount, ADDRESS_ROUTER, function(err, allow) {
+        $('.approveBtn2').attr('data-token', tokens[1])
+        if (allow > 0) {
+          $('.approveBtn2').hide()
+          if ($('.approveBtn1')[0].style.display != 'none')
+            $('.add-card-add-btn').show()
+        }
+      })
+    }
   }, 3000)
 
   // check user balances
@@ -57,6 +78,15 @@ function addInit() {
     })
   })
 
+  // Approve buttons
+  document.querySelectorAll('.add-card-approve-btn').forEach(item => {
+    item.addEventListener('click', function() {
+      approveToken($(this).data('token'), ADDRESS_ROUTER, function(err, res) {
+        console.log(err, res)
+      })
+    })
+  }) 
+
 
   // Token select Modal
 
@@ -75,10 +105,14 @@ function addInit() {
     const token = $(this).attr("value");
     if (changeToken == "A") {
       tokenA = token
-      $('#display-token-A').html(`<div class="token-select"><img width="20" src="/images/coins/${token.toLowerCase()}.png"></img> ${token}</div><span class="caret"></span>`);  
+      $('#display-token-A').html(`<div class="token-select"><img width="20" src="/images/coins/${token.toLowerCase()}.png"></img> ${token}</div><span class="caret"></span>`);
+      $('.approveBtn1').text("Approve "+tokenA)
+      $('.approveBtn1').show()
     } else {
       tokenB = token
       $('#display-token-B').html(`<div class="token-select"><img width="20" src="/images/coins/${token.toLowerCase()}.png"></img> ${token}</div><span class="caret"></span>`);
+      $('.approveBtn2').text("Approve "+tokenB)
+      $('.approveBtn2').show()
     }
     document.getElementById("tokenModal").style.display = "none";
   });
