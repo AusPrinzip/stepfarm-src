@@ -6,8 +6,22 @@ html, body { // prevents horizontal scroll
 }
 
 #fifthblock img {
-  max-width: 300px;
+  width: 40%;
 }
+
+#fifthblock .team-name {
+  font-family: Hurme;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+#fifthblock .team-role {
+  font-family: Hurme;
+  font-size: 16px;
+  font-weight: 0;
+  color: gray;
+}
+
 #footer {
   margin-top: 5%;
 }
