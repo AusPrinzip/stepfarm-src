@@ -51,7 +51,9 @@ html, body { // prevents horizontal scroll
     left: 15% !important;
     font-size: 18px !important;
   }
-  .circuitcontainer {font-size: 9px !important;}
+  .circuitcontainer {
+    font-size: 9px !important;
+  }
   .shoe {
     width: 80% !important;
     position: relative !important;
@@ -72,6 +74,10 @@ html, body { // prevents horizontal scroll
 
   .twitter {
     bottom: 3%;
+  }
+
+  .circuitcontainer img {
+    width: 80% !important;
   }
 }
 
@@ -111,6 +117,10 @@ html, body { // prevents horizontal scroll
   .twitter {
     bottom: 4%;
   }
+
+  .circuitcontainer img {
+    width: 60% !important;
+  }
 }
  
 @media (min-width: 768px) {  
@@ -118,6 +128,9 @@ html, body { // prevents horizontal scroll
   p { font-size: 14px; }
   .stat {font-size: 14px !important;}
   .statvalue {font-size: 28px !important;}
+  #circuitcontainer img {
+    width: 50% !important;
+  }
 }
  
 @media (min-width: 992px) { 
@@ -773,10 +786,16 @@ html, body { // prevents horizontal scroll
   font-size: 2em;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-    width: auto\9; /* ie8 */
+#thirdblock img {
+  max-width: 100%;
+  height: auto;
+  width: auto\9; /* ie8 */
+}
+
+#footer img {
+  max-width: 100%;
+  height: auto;
+  width: auto\9; /* ie8 */
 }
 
 .navbar {
