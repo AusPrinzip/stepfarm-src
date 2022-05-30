@@ -198,7 +198,7 @@ function addLiquidity (tokenA, tokenB, amountA, amountB, cb) {
     })
 }
 
-function removeLiquidity (tokenA, tokenB, lpAmount) {
+function removeLiquidity (tokenA, tokenB, lpAmount, cb) {
   let web3 = new Web3(provider)
   let contract = new web3.eth.Contract(ABI_ROUTER, ADDRESS_ROUTER)
   let deadline = Math.round(new Date().getTime()/1000) + 3 * ONE_MINUTE

@@ -121,6 +121,27 @@ async function fetchAccountData() {
   // MetaMask does not give you all accounts, only the selected account
   // console.log("Got accounts", accounts);
   selectedAccount = accounts[0];
+
+  var location = window.location.hash.replace("#", "");
+  if (location.length == 0) {
+    location = "/";
+  }
+  // trigger functions for each page
+  switch (location) {
+    case '/':
+        break;
+    case 'swap':
+        break;
+    case 'farm':
+        break;
+    case 'add':
+        break;
+    case 'liquidity':
+        liquidityConnectInit()
+        break;
+    default:
+        console.log('Unknown route: '+location)
+  }
 }
 
 
