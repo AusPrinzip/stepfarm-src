@@ -8,6 +8,15 @@ html, body { // prevents horizontal scroll
 #footer {
   margin-top: 5%;
 }
+
+.navbar {
+  font-family: Hurme !important;
+}
+
+.navbar-nav {
+  margin-top: 25px;
+}
+
 @media (min-width: 320px) {  
   h1 {font-size:1.3rem;} 
   p { font-size: 9px; }
