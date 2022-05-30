@@ -31,7 +31,7 @@ html, body { // prevents horizontal scroll
   }
   .stat {
     left: 45% !important;
-    font-size: 12px !important;
+    font-size: 9px !important;
   }
   .statvalue {
     left: 15% !important;
@@ -72,7 +72,7 @@ html, body { // prevents horizontal scroll
     left: 70% !important;
   }
   .statvalue {
-    font-size: 16px !important;
+    font-size: 24px !important;
     left: 45% !important;
   }
   .shoe {
@@ -103,14 +103,14 @@ html, body { // prevents horizontal scroll
   h1 {font-size:2rem;} 
   p { font-size: 14px; }
   .stat {font-size: 14px !important;}
-  .statvalue {font-size: 18px !important;}
+  .statvalue {font-size: 28px !important;}
 }
  
 @media (min-width: 992px) { 
   h1 {font-size:2.5rem;}
   p { font-size: 16px; }
   .stat {font-size: 16px !important;}
-  .statvalue {font-size: 24px !important;}
+  .statvalue {font-size: 32px !important;}
 }
  
 @media (min-width: 1200px) {  
