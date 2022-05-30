@@ -49,15 +49,6 @@ function approveToken (tokenAddress, spender, cb) {
 }
 
 function getBalance(tokenAddress, cb) {
-  if (!tokenAddress) {
-    let token = prompt("Please enter token", "USDC")
-    let tokenAddress = TOKENS[token]
-  }
-  
-  if (!tokenAddress) {
-    alert('Wrong token symbol provided')
-    return
-  }
   let contract = new dweb3.eth.Contract(ABI_ERC20, tokenAddress)
   contract
     .methods

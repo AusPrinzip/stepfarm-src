@@ -1,3 +1,32 @@
+function tokenAChanged() {
+  $("#approve-swap").show()
+  $("#confirm-swap").hide()
+
+  let tokenA = $('#display-token-A').text().trim()
+  let tokenAAddress = TOKENS[tokenA]
+
+  $('#token-balance-disp').text(tokenA)
+  $('#approve-swap').text('Approve '+tokenA)
+
+  if (!selectedAccount) return
+  
+  getBalance(tokenAAddress, function(err, bal) {
+    $('#token-balance-A').attr('data-bal', bal)
+    $('#token-balance-A').text(formatBalance(bal))
+  })
+
+  getAllowance(tokenAAddress, selectedAccount, ADDRESS_ROUTER, function(err, allow) {
+    if (allow > 0) {
+      $("#approve-swap").hide()
+      $("#confirm-swap").show()
+    }
+  })
+}
+
+function swapConnectInit() {
+  tokenAChanged()
+}
+
 function swapInit() {
   var changeToken = "A";
   // set default deadline (min) val to 20
@@ -52,36 +81,29 @@ function swapInit() {
   }
 
   // Token select Modal
-
-  // When the user clicks on the button, open the modal
   document.getElementById("token-select-A").onclick = function() {
     document.getElementById("tokenModal").style.display = "block";
     changeToken = "A";
   }
-
   document.getElementById("token-select-B").onclick = function() {
     document.getElementById("tokenModal").style.display = "block";
     changeToken = "B";
   }
-
   $('.token-element').click(function() {
     const token = $(this).attr("value");
     if (changeToken == "A") {
       tokenA = token
-      $('#display-token-A').html(`<div class="token-select"><img width="20" src="/images/coins/${token.toLowerCase()}.png"></img> ${token}</div><span class="caret"></span>`);  
+      $('#display-token-A').html(`<div class="token-select"><img width="20" src="/images/coins/${token.toLowerCase()}.png"></img> ${token}</div><span class="caret"></span>`);
+      tokenAChanged()
     } else {
       tokenB = token
       $('#display-token-B').html(`<div class="token-select"><img width="20" src="/images/coins/${token.toLowerCase()}.png"></img> ${token}</div><span class="caret"></span>`);
     }
     document.getElementById("tokenModal").style.display = "none";
   });
-
-  // When the user clicks on <span> (x), close the modal
   document.getElementById("closeTokenModal").onclick = function() {
     document.getElementById("tokenModal").style.display = "none";
   }
-
-  // When the user clicks anywhere outside of the modal, close it
   window.onclick = function(event) {
     if (event.target == document.getElementById("tokenModal")) {
       document.getElementById("tokenModal").style.display = "none";
@@ -101,6 +123,13 @@ function swapInit() {
   $("#confirm-swap").click(function () {
     swap();
   })
+
+  $("#maxTrade").click(function() {
+    $("#input-A").val($("#token-balance-A").data('bal') / Math.pow(10,18))
+    getQuote();
+  })
+
+  tokenAChanged()
 
   document.querySelector("#btn-getBalance").addEventListener("click", function() {
     let token = prompt("Please enter token", "USDC")
@@ -124,6 +153,13 @@ function swapInit() {
   document.querySelector("#btn-getKLast").addEventListener("click", getKLast)
   document.querySelector("#btn-getReserves").addEventListener("click", getReserves)
   document.querySelector("#btn-getPair").addEventListener("click", getPair)  
+  document.querySelector("#approve-swap").addEventListener("click", function() {
+    let tokenA = $('#display-token-A').text().trim()
+    let tokenAddress = TOKENS[tokenA]
+    approveToken(tokenAddress, ADDRESS_ROUTER, function(err, res) {
+      console.log(err, res)
+    })
+  })
 }
 
 function getReserves(lpAddress, cb) {

@@ -131,6 +131,7 @@ async function fetchAccountData() {
     case '/':
         break;
     case 'swap':
+        swapConnectInit()
         break;
     case 'farm':
         break;

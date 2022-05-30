@@ -649,23 +649,21 @@ html, body { // prevents horizontal scroll
   height: 100%;
   width: 90%;
 
-  background: #F4F4F4;
+  background: #00E8E7;
   border-radius: 16px;
 
   /* Inside auto layout */
   flex: none;
   order: 0;
   flex-grow: 0;
-}
 
-.swap-confirm-btn {
   font-family: Poppins;
-  color: #9A9FA5;
+  color: black;
 }
 
 .swap-confirm-btn:hover {
-  background-color: #00E8E7;
-  color: black;
+  background-color: #F4F4F4;
+  color: #9A9FA5;
 }
 
 .swap-card-title {
@@ -1091,4 +1089,9 @@ html, body { // prevents horizontal scroll
   margin-top: 10%;
   margin-bottom: 10%;
   text-align: center;
+}
+
+#maxTrade:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }

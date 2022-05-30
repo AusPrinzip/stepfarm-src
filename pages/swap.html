@@ -68,7 +68,7 @@
       <button id="settingsModalTrigger" class="swap-card-button"><img width="33" src="images/swap/swap-settings.svg"></img></button>
     </div>
     <div class="swap-card-container">
-      <p style="float: right">Available: 100 BNB</p>
+      <p style="float: right" id="maxTrade">Available: <span id="token-balance-A" data-bal="0">0</span> <span id="token-balance-disp">USDT</span></p>
     </div>
     <div class="swap-card-container">
       <button style="width: 25%; float:left;" class="btn btn-default dropdown-toggle" type="button" id="token-select-A" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -99,7 +99,10 @@
     </div>
 
     <div class="swap-card-container">
-      <div class="swap-confirm-container"><button id="confirm-swap" class="swap-confirm-btn"><h6>Confirm Order</h6></button></div>
+      <div class="swap-confirm-container">
+        <button id="approve-swap" class="swap-confirm-btn">Approve</button>
+        <button id="confirm-swap" class="swap-confirm-btn">Confirm Order</button>
+      </div>
     </div>
 
     <div class="swap-card-container">
@@ -142,9 +145,7 @@
       </div>
       <div class="modal-body">
         <div class="list-group">
-          <button type="button" value="BNB" class="list-group-item token-element"><img src="/images/coins/bnb.png"></img>BNB
-          </button>
-          <button type="button" value="GST" class="list-group-item token-element"><img src="/images/coins/gst.png"></img>GST
+          <button type="button" value="GFT" class="list-group-item token-element"><img src="/images/coins/gft.png"></img>GFT
           </button>
           <button type="button" value="USDT" class="list-group-item token-element"><img src="/images/coins/usdt.png"></img>USDT
           </button>
