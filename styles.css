@@ -792,6 +792,12 @@ html, body { // prevents horizontal scroll
   width: auto\9; /* ie8 */
 }
 
+#fourthblock img {
+  max-width: 100%;
+  height: auto;
+  width: auto\9; /* ie8 */
+}
+
 #footer img {
   max-width: 100%;
   height: auto;
