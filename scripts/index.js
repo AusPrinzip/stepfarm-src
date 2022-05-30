@@ -6,14 +6,14 @@ const PLACEHOLDER_3 = "Lorem Ipsum Dolor Sit Amet";
 function indexInit() {
   window.addEventListener('resize', function () { // conditional rendering based on viewport width
     if (viewportWidth <= 544) {
-      $('.span').text(PLACEHOLDER_3);
+      // $('.span').text(PLACEHOLDER_3);
       $('.shoe').attr("src", "/images/shoe-mobile.svg");
       $('.hero').attr("src", "/images/hero-mobile.svg");
       // $('.navbar-right').hide();
       // $('.stat').hide()
       $('.stats-rows').hide()
     } else {
-      $('.span').text(PLACEHOLDER_1);
+      // $('.span').text(PLACEHOLDER_1);
       $('.shoe').attr("src", "/images/shoe.svg");
       $('.hero').attr("src", "/images/hero.svg");
       $('.stat').show()
@@ -22,14 +22,14 @@ function indexInit() {
   }, false);
 
   if (viewportWidth <= 544) {
-    $('.span').text(PLACEHOLDER_3);
+    // $('.span').text(PLACEHOLDER_3);
     $('.shoe').attr("src", "/images/shoe-mobile.svg");
     $('.hero').attr("src", "/images/hero-mobile.svg");
     // $('.stat').hide()
     // $('.navbar-right').hide();
     $('.stats-rows').hide()
   } else {
-    $('.span').text(PLACEHOLDER_1);
+    // $('.span').text(PLACEHOLDER_1);
     $('.shoe').attr("src", "/images/shoe.svg");
     $('.hero').attr("src", "/images/hero.svg");
     $('.stat').show()
