@@ -8,8 +8,21 @@ function addInit() {
     tokens.push(TOKENS[$('#display-token-B').text().trim()])
     if (!tokens || tokens.length != 2) return
     if (tokens[0] == null || tokens[1] == null) return
+    let sortedTokens = []
+    for (let i = 0; i < tokens.length; i++)
+      sortedTokens.push(tokens[i])
+    sortedTokens = sortedTokens.sort(function(a,b) {
+      if (a > b) return 1;
+      if (b > a) return -1;
+      if (b == a) return 0;
+    })
     getPair(tokens, function(err, pair) {
       getReserves(pair, function(err, res) {
+        if (sortedTokens[0] != tokens[0]) {
+          let tmp = res[0]
+          res[0] = res[1]
+          res[1] = tmp
+        }
         reserves = res
       })
     })
@@ -131,11 +144,6 @@ function addInit() {
 }
 
 function getPair (tokens, cb) {
-  tokens = tokens.sort(function(a,b) {
-    if (a > b) return 1;
-    if (b > a) return -1;
-    if (b == a) return 0;
-  })
   let contract = new dweb3.eth.Contract(ABI_FACTORY, ADDRESS_FACTORY)
   contract
     .methods
