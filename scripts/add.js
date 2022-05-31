@@ -25,7 +25,7 @@ function addInit() {
         }
       })
 
-      getAllowance(tokens[0], selectedAccount, ADDRESS_ROUTER, function(err, allow) {
+      getAllowance(tokens[1], selectedAccount, ADDRESS_ROUTER, function(err, allow) {
         $('.approveBtn2').attr('data-token', tokens[1])
         if (allow > 0) {
           $('.approveBtn2').hide()
