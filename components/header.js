@@ -26,6 +26,8 @@ class Header extends HTMLElement {
               <li><a href="/#liquidity">LIQUIDITY</a></li>
             </ul>
 
+            <div id="gft-price"></div>
+
             <ul class="nav navbar-nav navbar-right navbar-nav-vertical-aligned">
               <li><a class="" href="#"><img src="images/nav-facebook.svg"></img></a></li>
               <li><a class="" href="#"><img src="images/nav-twitter.svg"></img></a></li>
