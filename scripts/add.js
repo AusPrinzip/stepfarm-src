@@ -24,6 +24,10 @@ function addInit() {
           res[1] = tmp
         }
         reserves = res
+        $('#rate-amount-B').text(formatBalance(
+          1000000000000000000 * reserves[1] / reserves[0],
+          6
+        ))
       })
     })
 
@@ -121,11 +125,13 @@ function addInit() {
       $('#display-token-A').html(`<div class="token-select"><img width="20" src="/images/coins/${token.toLowerCase()}.png"></img> ${token}</div><span class="caret"></span>`);
       $('.approveBtn1').text("Approve "+tokenA)
       $('.approveBtn1').show()
+      $('#rate-currency-A').text(tokenA)
     } else {
       tokenB = token
       $('#display-token-B').html(`<div class="token-select"><img width="20" src="/images/coins/${token.toLowerCase()}.png"></img> ${token}</div><span class="caret"></span>`);
       $('.approveBtn2').text("Approve "+tokenB)
       $('.approveBtn2').show()
+      $('#rate-currency-B').text(tokenB)
     }
     document.getElementById("tokenModal").style.display = "none";
   });

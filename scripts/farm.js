@@ -117,7 +117,7 @@ function farmInit() {
       if (selectedAccount)
         getAllowance(POOLS[pid].lpToken, selectedAccount, ADDRESS_MASTERCHEF, function(err, allowance) {
           // TODO
-          console.log(allowance)
+          // console.log(allowance)
         })
     }, 1000)
   }

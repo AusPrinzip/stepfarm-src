@@ -3,8 +3,9 @@ dweb3 = new Web3('https://data-seed-prebsc-1-s1.binance.org:8545/')
 
 dweb3.eth.getChainId().then(r => console.log('chain id: '+r))
 
-function formatBalance(bal) {
-  return Math.round(bal/Math.pow(10,14))/Math.pow(10,4)
+function formatBalance(bal, decimals = 4) {
+  let first = 18-decimals
+  return Math.round(bal/Math.pow(10,first))/Math.pow(10,decimals)
 }
 
 ABI_ERC20 = null

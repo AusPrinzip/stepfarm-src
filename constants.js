@@ -21,7 +21,6 @@ const POOLS = [
     name: "GFT",
     allocPoints: 1000,
     lpToken: "0xC88C6143E1D600c7CB51277DB0de21471702a8a5",
-    image: "",
     pair: ["GFT", "GFT"],
     multiplier: "40x"
   },
@@ -29,8 +28,14 @@ const POOLS = [
     name: "USDC/USDT LP",
     allocPoints: 1000,
     lpToken: "0x716ae0FdAD4d9D6930DCae12fbA670c2A6740d53",
-    image: "",
     pair: ["USDC", "USDT"],
     multiplier: "25x"
-  }
+  },
+  {
+    name: "USDC/GFT LP",
+    allocPoints: 1000,
+    lpToken: "0x3af995f21529541f7e5a51bd4ab3c06761f7120f",
+    pair: ["USDC", "GFT"],
+    multiplier: "25x"
+  },
 ];
