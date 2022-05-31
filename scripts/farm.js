@@ -76,6 +76,9 @@ function farmInit() {
         let amount = formatBalance(userInfo.amount)
         $('#farm'+pid+'-staked').text(amount)
       })
+      pendingGft(pid, function(err, pending) {
+        $('#farm'+pid+'-earned').text(formatBalance(pending))
+      })
     }, 3000)
 
     setTimeout(function() {
@@ -308,15 +311,14 @@ function harvestStaking() {
     })
 }
 
-function poolInfo() {
-  let pid = prompt("PID?", "0")
+function poolInfo(pid, cb) {
   let contract = new dweb3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
   contract
     .methods
     .poolInfo(pid)
     .call()
     .then(function(res) {
-      console.log(res)
+      cb(null, res)
     })
 }
 
@@ -337,4 +339,15 @@ function getTvl(pid, cb) {
     // console.log(bal)
     cb(null, null)
   })
+}
+
+function pendingGft(pid, cb) {
+  let contract = new dweb3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
+  contract
+    .methods
+    .pendingCake(pid, selectedAccount)
+    .call()
+    .then(function(res) {
+      cb(null, res)
+    })
 }

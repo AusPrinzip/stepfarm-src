@@ -15,27 +15,28 @@ const TOKENS = {
 
 
 // yield farm constants
+const GFT_PER_BLOCK = '1000000000000000000'
 const ADDRESS_MASTERCHEF = '0x414f10F8052Ac51A4F8d3287aAc6C02974b99FCf'
 const POOLS = [
   {
     name: "GFT",
-    allocPoints: 1000,
+    allocPoints: 233,
     lpToken: "0xC88C6143E1D600c7CB51277DB0de21471702a8a5",
     pair: ["GFT", "GFT"],
-    multiplier: "40x"
+    multiplier: "23x"
   },
   {
     name: "USDC/USDT LP",
-    allocPoints: 1000,
+    allocPoints: 500,
     lpToken: "0x716ae0FdAD4d9D6930DCae12fbA670c2A6740d53",
     pair: ["USDC", "USDT"],
-    multiplier: "25x"
+    multiplier: "50x"
   },
   {
     name: "USDC/GFT LP",
-    allocPoints: 1000,
+    allocPoints: 200,
     lpToken: "0x3af995f21529541f7e5a51bd4ab3c06761f7120f",
     pair: ["USDC", "GFT"],
-    multiplier: "25x"
+    multiplier: "20x"
   },
 ];
