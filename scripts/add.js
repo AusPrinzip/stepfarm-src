@@ -88,8 +88,6 @@ function addInit() {
     let tokenB = TOKENS[$('#display-token-B').text().trim()]
     let amountA = $('#input-A').val() * Math.pow(10, 18)
     let amountB = $('#input-B').val() * Math.pow(10, 18)
-    amountA = Math.round(amountA).toString()
-    amountB = Math.round(amountB).toString()
     addLiquidity(tokenA, tokenB, amountA, amountB, function(err, res) {
       console.log(err, res)
     })

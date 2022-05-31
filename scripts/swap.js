@@ -223,9 +223,11 @@ function addLiquidity (tokenA, tokenB, amountA, amountB, cb) {
   let web3 = new Web3(provider)
   let contract = new web3.eth.Contract(ABI_ROUTER, ADDRESS_ROUTER)
   let deadline = Math.round(new Date().getTime()/1000) + 1 * ONE_MINUTE
+  amountA = BigInt(amountA)
+  amountB = BigInt(amountB)
   contract
     .methods
-    .addLiquidity(tokenA, tokenB, amountA, amountB, "1", "1", selectedAccount, deadline)
+    .addLiquidity(tokenA, tokenB, amountA.toString(), amountB.toString(), "1", "1", selectedAccount, deadline)
     .send({
       from: selectedAccount
     })
