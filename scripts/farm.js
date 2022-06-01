@@ -68,8 +68,11 @@ function farmInit() {
 
     setTimeout(function() {
       getTvl(pid, function(err, tvl) {
-        console.log(pid, tvl)
         $('#farm'+pid+'-tvl').text('$'+formatBalance(tvl, 0))
+        let rewardYear = POOLS[pid].gftPerBlock * BLOCK_PER_DAY * 365 * gftPrice
+        let apr = rewardYear / tvl
+        apr = Math.round(1000*apr)/100
+        $('#farm'+pid+'-apr').text(apr+'%')
       })
     }, 100)
     

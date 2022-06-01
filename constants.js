@@ -16,6 +16,7 @@ const TOKENS = {
 
 // yield farm constants
 const GFT_PER_BLOCK = '1000000000000000000'
+const BLOCK_PER_DAY = 28800
 const ADDRESS_MASTERCHEF = '0x414f10F8052Ac51A4F8d3287aAc6C02974b99FCf'
 const POOLS = [
   {
@@ -40,3 +41,8 @@ const POOLS = [
     multiplier: "20x"
   },
 ];
+let totalAlloc = 0
+for (let i = 0; i < POOLS.length; i++)
+  totalAlloc += POOLS[i].allocPoints
+for (let i = 0; i < POOLS.length; i++)
+  POOLS[i].gftPerBlock = GFT_PER_BLOCK*POOLS[i].allocPoints/totalAlloc
