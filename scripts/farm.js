@@ -66,11 +66,15 @@ function farmInit() {
       </div>`
     );
 
-    setInterval(function() {
+    setTimeout(function() {
       getTvl(pid, function(err, tvl) {
-
+        console.log(pid, tvl)
+        $('#farm'+pid+'-tvl').text('$'+formatBalance(tvl, 0))
       })
+    }, 100)
+    
 
+    setInterval(function() {
       if (!selectedAccount) return
       userInfo(pid, function(err, userInfo) {
         let amount = formatBalance(userInfo.amount)
@@ -336,8 +340,37 @@ function userInfo(pid, cb) {
 function getTvl(pid, cb) {
   let lpToken = POOLS[pid].lpToken
   getBalanceOf(lpToken, ADDRESS_MASTERCHEF, function(err, bal) {
-    // console.log(bal)
-    cb(null, null)
+    if (pid == 0) {
+      cb(null, gftPrice*bal)
+      return
+    }
+    getSupply(lpToken, function(err, supply) {
+      let percentage = bal / supply
+      if (POOLS[pid].pair[0] === 'USDC') {
+        getBalanceOf(TOKENS["USDC"], lpToken, function(err, half) {
+          cb(null, half*2*percentage)
+        })
+        return
+      }
+      if (POOLS[pid].pair[1] === 'USDC') {
+        getBalanceOf(TOKENS["USDC"], lpToken, function(err, half) {
+          cb(null, half*2*percentage)
+        })
+        return
+      }
+      if (POOLS[pid].pair[0] === 'GFT') {
+        getBalanceOf(TOKENS["GFT"], lpToken, function(err, half) {
+          cb(null, gftPrice*half*2*percentage)
+        })
+        return
+      }
+      if (POOLS[pid].pair[1] === 'GFT') {
+        getBalanceOf(TOKENS["GFT"], lpToken, function(err, half) {
+          cb(null, gftPrice*half*2*percentage)
+        })
+        return
+      }
+    })
   })
 }
 

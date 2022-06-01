@@ -82,3 +82,14 @@ function getAllowance(tokenAddress, owner, spender, cb) {
       cb(null, res)
     })
 }
+
+function getSupply(tokenAddress, cb) {
+  let contract = new dweb3.eth.Contract(ABI_ERC20, tokenAddress)
+  contract
+    .methods
+    .totalSupply()
+    .call()
+    .then(function(res) {
+      cb(null, res)
+    })
+}
