@@ -34,6 +34,10 @@ html, body { // prevents horizontal scroll
   font-weight: 700;
 }
 
+#fifthblock img {
+  border-radius: 25px;
+}
+
 #fifthblock .team-role {
   font-family: Hurme;
   font-size: 16px;
