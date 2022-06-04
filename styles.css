@@ -16,7 +16,9 @@ html, body { // prevents horizontal scroll
   border-radius: 25px;
   z-index: 0;
 }
-
+.start-description p {
+  margin: 5%;
+}
 #fifthblock img {
   width: 40%;
 }
