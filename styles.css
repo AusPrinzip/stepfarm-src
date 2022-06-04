@@ -5,6 +5,11 @@ html, body { // prevents horizontal scroll
     font-size:16px;
 }
 
+.navbar-price {
+  vertical-align: middle
+  color: black;
+}
+
 .start-description {
   display: none;
   position: absolute;
