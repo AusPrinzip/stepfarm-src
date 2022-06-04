@@ -30,7 +30,7 @@ class Header extends HTMLElement {
             <ul class="nav navbar-nav navbar-right navbar-nav-vertical-aligned">
               <li><a class="navbar-price" id="gft-price" href="#"></a></li>
               <li><a class="" href="#"><img src="images/nav-facebook.svg"></img></a></li>
-              <li><a class="" href="#"><img src="images/nav-twitter.svg"></img></a></li>
+              <li><a class="" href="https://twitter.com/StepFarm" target="_blank"><img src="images/nav-twitter.svg"></img></a></li>
               <li><a class="" href="#"><img src="images/nav-instagram.svg"></img></a></li>
               <li><button id="btn-connect" class="connect-wallet-btn">CONNECT WALLET</button></li>
               <li><button style="display: none;" id="btn-disconnect" class="connect-wallet-btn">DISCONNECT WALLET</button></li>
