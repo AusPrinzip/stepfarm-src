@@ -3,7 +3,24 @@ const PLACEHOLDER_1 = "Sweet and Tone is a seven-day bodyweight training program
 const PLACEHOLDER_2 = "Sweet and Tone is a seven-day bodyweight training program designed to boost your strength and";
 const PLACEHOLDER_3 = "Lorem Ipsum Dolor Sit Amet";
 
+function findPath() {
+  const el = $('#start')
+  el.mouseover(() => {
+    $(".start-description").fadeIn("fast")
+    el.css("fill","black")
+  })
+  el.mouseout(() => {
+    el.css("fill","#00E8E7")
+    $(".start-description").fadeOut("fast")
+  })
+}
+
 function indexInit() {
+  
+$( document ).ready(function() {
+    console.log( "ready!" );
+    findPath()
+});
   window.addEventListener('resize', function () { // conditional rendering based on viewport width
     if (viewportWidth <= 544) {
       // $('.span').text(PLACEHOLDER_3);
