@@ -63,13 +63,14 @@ function indexInit() {
   }
 
   const counters = 4;
+  const firstCounter = document.querySelector('.counter1')
   for (let i = 1; i <= counters; i++) {
     const el = document.querySelector(`.counter${i}`);
     const counterUp = window.counterUp.default;
     new Waypoint( {
-        element: el,
+        element: firstCounter,
         handler: function() { 
-            counterUp(el, { duration: 4000, delay: 16 }) 
+            counterUp(el, { duration: 3000, delay: 16 }) 
             this.destroy()
         },
         offset: '80%',
