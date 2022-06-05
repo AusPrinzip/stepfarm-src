@@ -49,9 +49,9 @@ html, body { // prevents horizontal scroll
 .start-description {
   display: none;
   position: absolute;
-  right: 40%;
+  right: 30%;
   top: 20%;
-  width: 20%;
+  width: 40%;
   height: auto;
   background-color: #00E8E7;
   border-radius: 25px;
