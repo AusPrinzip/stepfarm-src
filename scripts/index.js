@@ -63,16 +63,16 @@ function indexInit() {
   }
 
   const counters = 4;
-  for (let i = 1; i <= counters; i ++) {
+  for (let i = 1; i <= counters; i++) {
     const el = document.querySelector(`.counter${i}`);
     const counterUp = window.counterUp.default;
     new Waypoint( {
         element: el,
         handler: function() { 
-            counterUp(el) 
+            counterUp(el, { duration: 4000, delay: 16 }) 
             this.destroy()
         },
-        offset: '50%',
+        offset: '80%',
     })
   }
 }
