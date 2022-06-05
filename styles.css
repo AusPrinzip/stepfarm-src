@@ -90,57 +90,100 @@ html, body { // prevents horizontal scroll
 }
 
 @media (min-width: 320px) {  
-  h1 {font-size:1.3rem;} 
+  h1 {font-size:1.3rem; } 
   p { font-size: 9px; }
+
   .nav {
     font-size: 16px;
   }
+
   .navbar-collapse {
     background-color: white;
   }
 
-  .stat-container {
-    display: inline-block;
+  .triangle {
     position: absolute;
-    width: 75%;
     left: 10%;
+    top: 14%;
+    display: inline-block;
+    border-top: 45vh solid white;
+    border-right: 45vh solid #00E8E7;
+  }
+
+  .stats-row {
+    margin: 0;
+    display: inline-block;
+    width: 80%;
+    height: 10vh;
+    background: #00E8E7;
+  }
+
+  .stats-spacing {
+    margin: 0;
+    display: inline-block;
+    width: 80%;
+    height: 2vh;
+    background: white;
+    top: 10vh;
+  }
+
+  .stat-container {
+    position: absolute !important;
+    display: inline-block !important;
+    width: 40%;
+    left: 20%;
   }
 
   .distance {
-    top: 52%;
+    top: 5%;
+    width: 80%;
+    float: right;
+    margin-right: 10%;
   }
+
   .carbon {
-    bottom: 29%;
+    bottom: 57%;
+    width: 80%;
+    float: right;
+    margin-right: 10%;
   }
 
   .calories {
-    bottom: 15%;
+    bottom: 31%;
+    width: 80%;
+    float: right;
+    margin-right: 10%;
   }
 
   .twitter {
-    bottom: 1%;
+    bottom: 4%;
+    width: 80%;
   }
 
   .statvalue {
-    font-size: 24px !important;
+    font-size: 24px;
     float: left;
-  }
-  .stat {
-    font-size: 12px !important;
-    float:  right;
+    color: white;
+    margin-right: 5%;
   }
 
+  .stat {
+    float: right;
+    font-size: 12px;
+  }
+
+  .shoe {
+    position: relative !important;
+    height: 60vh !important;
+    z-index: 2;
+    left: 0% !important;
+    /*bottom: -6% !important;*/
+  }
 
   .circuitcontainer {
     font-size: 9px !important;
   }
-  .shoe {
-    width: 80% !important;
-    position: relative !important;
-    z-index: 0;
-    left: -1% !important;
-    top: 0% !important;
-  }
+
 
   .map {
     width: 80% !important;
@@ -176,43 +219,74 @@ html, body { // prevents horizontal scroll
   .navbar-collapse {
     background-color: #37E4E5;
   }
+
+  .stats-row {
+    margin: 0;
+    display: inline-block;
+    width: 80%;
+    height: 10vh;
+    background: #00E8E7;
+  }
+  .stats-spacing {
+    margin: 0;
+    display: inline-block;
+    width: 80%;
+    height: 2vh;
+    background: white;
+    top: 10vh;
+  }
+
   .stat-container {
     position: absolute !important;
     display: inline-block !important;
     width: 40%;
-    left: 45%;
+    left: 40%;
   }
+
   .distance {
     top: 5%;
+    width: 66%;
+    float: right;
+    margin-right: 10%;
   }
 
   .carbon {
-    bottom: 58%;
+    bottom: 57%;
+    width: 70%;
+    float: right;
+    margin-right: 10%;
   }
 
   .calories {
     bottom: 31%;
+    width: 70%;
+    float: right;
+    margin-right: 10%;
   }
 
   .twitter {
     bottom: 4%;
+    width: 70%;
+    margin-left: 10%;
   }
 
   .statvalue {
     font-size: 24px;
-    left: 45%;
     float: left;
+    color: white;
+    margin-right: 5%;
   }
   .stat {
     float: right;
     font-size: 16px;
   }
+
   .shoe {
-    width: 30% !important;
     position: absolute !important;
+    height: 120% !important;
     z-index: 2;
     left: 8% !important;
-    top: -10% !important;
+    top: -8% !important;
   }
 
   .map {
@@ -257,21 +331,6 @@ html, body { // prevents horizontal scroll
   p { font-size: 16px; }
   .stat {font-size: 18px !important;}
   .statvalue {font-size: 36px !important;}
-  .distance {
-    top: 2%;
-  }
-
-  .carbon {
-    bottom: 55%;
-  }
-
-  .calories {
-    bottom: 28%;
-  }
-
-  .twitter {
-    bottom: 1%;
-  }
 }
  
 @media (min-width: 1200px) {  
@@ -279,33 +338,6 @@ html, body { // prevents horizontal scroll
   p { font-size: 18px; }
   .stat {font-size: 22px !important;}
   .statvalue {font-size: 48px !important;}
-  .distance {
-    top: 3%;
-  }
-
-  .carbon {
-    bottom: 57%;
-  }
-
-  .calories {
-    bottom: 29%;
-  }
-
-  .twitter {
-    bottom: 2%;
-  }
-}
-
-.stat {
-  font-family: Hurme;
-  position: absolute;
-  z-index: 2;
-  left: 75%;
-}
-
-.statvalue {
-  left: 50%;
-  color: white;
 }
 
 
@@ -945,10 +977,8 @@ html, body { // prevents horizontal scroll
   color:  grey;
 }
 .statscontainer {
-  margin-top: 5%;
   position: relative;
-  text-align: center;
-  color: black;
+  margin: 0;
 }
 
 .stats-rows {

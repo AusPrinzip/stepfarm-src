@@ -33,33 +33,37 @@ function indexInit() {
   window.addEventListener('resize', function () { // conditional rendering based on viewport width
     if (viewportWidth <= 544) {
       // $('.span').text(PLACEHOLDER_3);
-      $('.shoe').attr("src", "/images/shoe-mobile.svg");
+      // $('.shoe').attr("src", "/images/shoe-mobile.svg");
       $('.hero').attr("src", "/images/hero-mobile.svg");
+      $('.triangle').show();
       // $('.navbar-right').hide();
       // $('.stat').hide()
       $('.stats-rows').hide()
     } else {
       // $('.span').text(PLACEHOLDER_1);
-      $('.shoe').attr("src", "/images/shoe.svg");
+      // $('.shoe').attr("src", "/images/shoe.svg");
       $('.hero').attr("src", "/images/hero.svg");
       $('.stat').show()
       $('.stats-rows').show()
+      $('.triangle').hide();
     }
   }, false);
 
   if (viewportWidth <= 544) {
     // $('.span').text(PLACEHOLDER_3);
-    $('.shoe').attr("src", "/images/shoe-mobile.svg");
+    // $('.shoe').attr("src", "/images/shoe-mobile.svg");
     $('.hero').attr("src", "/images/hero-mobile.svg");
+    $('.triangle').show();
     // $('.stat').hide()
     // $('.navbar-right').hide();
     $('.stats-rows').hide()
   } else {
     // $('.span').text(PLACEHOLDER_1);
-    $('.shoe').attr("src", "/images/shoe.svg");
+    // $('.shoe').attr("src", "/images/shoe.svg");
     $('.hero').attr("src", "/images/hero.svg");
     $('.stat').show()
     $('.stats-rows').show()
+    $('.triangle').hide();
   }
 
   const counters = 4;
