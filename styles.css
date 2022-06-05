@@ -98,37 +98,48 @@ html, body { // prevents horizontal scroll
   .navbar-collapse {
     background-color: white;
   }
-  .stat {
-    left: 45% !important;
-    font-size: 9px !important;
+
+  .stat-container {
+    display: inline-block;
+    position: absolute;
+    width: 75%;
+    left: 10%;
   }
+
+  .distance {
+    top: 52%;
+  }
+  .carbon {
+    bottom: 29%;
+  }
+
+  .calories {
+    bottom: 15%;
+  }
+
+  .twitter {
+    bottom: 1%;
+  }
+
   .statvalue {
-    left: 15% !important;
-    font-size: 18px !important;
+    font-size: 24px !important;
+    float: left;
   }
+  .stat {
+    font-size: 12px !important;
+    float:  right;
+  }
+
+
   .circuitcontainer {
     font-size: 9px !important;
   }
   .shoe {
     width: 80% !important;
     position: relative !important;
-    z-index: 2;
+    z-index: 0;
     left: -1% !important;
     top: 0% !important;
-  }
-  .distance {
-    top: 54%;
-  }
-  .carbon {
-    bottom: 30%;
-  }
-
-  .calories {
-    bottom: 17%;
-  }
-
-  .twitter {
-    bottom: 3%;
   }
 
   .map {
@@ -165,23 +176,14 @@ html, body { // prevents horizontal scroll
   .navbar-collapse {
     background-color: #37E4E5;
   }
-  .stat {
-    font-size: 12px !important;
-    left: 70% !important;
-  }
-  .statvalue {
-    font-size: 24px !important;
-    left: 45% !important;
-  }
-  .shoe {
-    width: 30% !important;
+  .stat-container {
     position: absolute !important;
-    z-index: 2;
-    left: 8% !important;
-    top: -10% !important;
+    display: inline-block !important;
+    width: 40%;
+    left: 45%;
   }
   .distance {
-    top: 8%;
+    top: 5%;
   }
 
   .carbon {
@@ -194,6 +196,23 @@ html, body { // prevents horizontal scroll
 
   .twitter {
     bottom: 4%;
+  }
+
+  .statvalue {
+    font-size: 24px;
+    left: 45%;
+    float: left;
+  }
+  .stat {
+    float: right;
+    font-size: 16px;
+  }
+  .shoe {
+    width: 30% !important;
+    position: absolute !important;
+    z-index: 2;
+    left: 8% !important;
+    top: -10% !important;
   }
 
   .map {
@@ -236,13 +255,45 @@ html, body { // prevents horizontal scroll
 @media (min-width: 992px) { 
   h1 {font-size:2.5rem;}
   p { font-size: 16px; }
-  .stat {font-size: 16px !important;}
-  .statvalue {font-size: 32px !important;}
+  .stat {font-size: 18px !important;}
+  .statvalue {font-size: 36px !important;}
+  .distance {
+    top: 2%;
+  }
+
+  .carbon {
+    bottom: 55%;
+  }
+
+  .calories {
+    bottom: 28%;
+  }
+
+  .twitter {
+    bottom: 1%;
+  }
 }
  
 @media (min-width: 1200px) {  
   h1 {font-size:3rem;}     
   p { font-size: 18px; }
+  .stat {font-size: 22px !important;}
+  .statvalue {font-size: 48px !important;}
+  .distance {
+    top: 3%;
+  }
+
+  .carbon {
+    bottom: 57%;
+  }
+
+  .calories {
+    bottom: 29%;
+  }
+
+  .twitter {
+    bottom: 2%;
+  }
 }
 
 .stat {
