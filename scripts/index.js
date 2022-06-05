@@ -1,26 +1,35 @@
 // design related JS logic
-const PLACEHOLDER_1 = "Sweet and Tone is a seven-day bodyweight training program designed to boost your strength and endurance over the course of a week.";
-const PLACEHOLDER_2 = "Sweet and Tone is a seven-day bodyweight training program designed to boost your strength and";
-const PLACEHOLDER_3 = "Lorem Ipsum Dolor Sit Amet";
 
-function findPath() {
-  const el = $('#start')
-  el.mouseover(() => {
-    $(".start-description").fadeIn("fast")
-    el.css("fill","black")
-  })
-  el.mouseout(() => {
-    el.css("fill","#00E8E7")
-    $(".start-description").fadeOut("fast")
-  })
+function fadeColor () {
+  console.log("highlighting")
+  $("#start").toggle( "highlight" );
+  $("#start").toggle( "highlight" );
 }
 
 function indexInit() {
-  
-$( document ).ready(function() {
-    console.log( "ready!" );
-    findPath()
-});
+
+  $(document).ready(function() {
+    const el = $('#start')
+    el.mouseover(() => {
+      $(".start-description").fadeIn("fast")
+      el.css("fill","black")
+    })
+    el.mouseout(() => {
+      el.css("fill","#00E8E7")
+      $(".start-description").fadeOut("fast")
+    })
+
+    const start = document.querySelector(`#start`);
+    new Waypoint( {
+        element: start,
+        handler: function() { 
+            fadeColor()
+            this.destroy()
+        },
+        offset: '50%',
+    })
+
+  });
   window.addEventListener('resize', function () { // conditional rendering based on viewport width
     if (viewportWidth <= 544) {
       // $('.span').text(PLACEHOLDER_3);
@@ -60,10 +69,10 @@ $( document ).ready(function() {
     new Waypoint( {
         element: el,
         handler: function() { 
-            counterUp( el ) 
+            counterUp(el) 
             this.destroy()
         },
-        offset: 'bottom-in-view',
-    } )
+        offset: '50%',
+    })
   }
 }

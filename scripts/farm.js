@@ -13,7 +13,7 @@ function farmInit() {
       coinAstyle = 'display:none'
     }
     $("#farm-cards").append(`
-      <div class="farm-card" data-pid="${pid}" data-address="${farm.lpToken}">
+      <div class="farm-card col-sm-3" data-pid="${pid}" data-address="${farm.lpToken}">
         <div class="farm-card-header">
           <div id="farm-card-symbol">
             <img id="farm-coin-A" src="/images/coins/${farm.pair[0].toLowerCase()}.png" style="${coinAstyle}"></img>
