@@ -101,19 +101,51 @@ html, body { // prevents horizontal scroll
     background-color: white;
   }
 
-  .triangle {
-    position: absolute;
-    left: 10%;
-    top: 14%;
+  .statscontainer {
+    position: relative;
+    margin: 0;
+    font-size: 0; // super important if u want to remove spacing between "inline-block" elements
+  }
+
+  .shoe-mobile {
+    margin: 0 !important;
+    padding: 0 !important;
     display: inline-block;
-    border-top: 45vh solid white;
-    border-right: 45vh solid #00E8E7;
+    width: 80%;
+    height: 100%;
+  }
+
+  .cut {
+    position: absolute;
+    width: 100%;
+    height: 18vh;
+    background: white;
+  }
+  .triangle {
+    width: 100%;
+    height: 50vh;
+    background: linear-gradient(135deg, white 49.9%, #00E8E7 50.1%);
+  }
+
+  .distance-mobile {
+    position: absolute !important;
+    bottom: 0% !important;
+  }
+
+  .shoe {
+    position: absolute !important;
+    max-width: 80% !important;
+    height: 65%;
+    z-index: 2;
+    left: 10% !important;
+    top: -8% !important;
   }
 
   .stats-row {
-    margin: 0;
+    padding: 0 !important;
+    margin-top: 0 !important;
     display: inline-block;
-    width: 80%;
+    width: 80% !important;
     height: 10vh;
     background: #00E8E7;
   }
@@ -135,24 +167,18 @@ html, body { // prevents horizontal scroll
   }
 
   .distance {
-    top: 5%;
+    top: 84%;
     width: 80%;
-    float: right;
-    margin-right: 10%;
   }
 
   .carbon {
     bottom: 57%;
     width: 80%;
-    float: right;
-    margin-right: 10%;
   }
 
   .calories {
     bottom: 31%;
     width: 80%;
-    float: right;
-    margin-right: 10%;
   }
 
   .twitter {
@@ -170,14 +196,6 @@ html, body { // prevents horizontal scroll
   .stat {
     float: right;
     font-size: 12px;
-  }
-
-  .shoe {
-    position: relative !important;
-    height: 60vh !important;
-    z-index: 2;
-    left: 0% !important;
-    /*bottom: -6% !important;*/
   }
 
   .circuitcontainer {
@@ -245,21 +263,21 @@ html, body { // prevents horizontal scroll
 
   .distance {
     top: 5%;
-    width: 66%;
+    width: 67% !important;
     float: right;
     margin-right: 10%;
   }
 
   .carbon {
     bottom: 57%;
-    width: 70%;
+    width: 65% !important;
     float: right;
     margin-right: 10%;
   }
 
   .calories {
     bottom: 31%;
-    width: 70%;
+    width: 68% !important;
     float: right;
     margin-right: 10%;
   }
@@ -267,7 +285,6 @@ html, body { // prevents horizontal scroll
   .twitter {
     bottom: 4%;
     width: 70%;
-    margin-left: 10%;
   }
 
   .statvalue {
@@ -285,7 +302,7 @@ html, body { // prevents horizontal scroll
     position: absolute !important;
     height: 120% !important;
     z-index: 2;
-    left: 8% !important;
+    left: 6% !important;
     top: -8% !important;
   }
 
@@ -975,10 +992,6 @@ html, body { // prevents horizontal scroll
 #firstblock p {
   margin: 5%;
   color:  grey;
-}
-.statscontainer {
-  position: relative;
-  margin: 0;
 }
 
 .stats-rows {
