@@ -695,13 +695,26 @@ html, body { // prevents horizontal scroll
   float: left;
 }
 
-.balance {
+.swap-exchange {
+  margin:  auto;
+}
+
+.swap-card-token-btn {
+  margin: auto;
+  float: left;
+  width: 30%;
+  height: 30px;
+  border-radius: 20px;
+  border: 1px solid #00E8E7;
+}
+
+.swap-card-balance {
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   border-radius: 20px;
-  border: 1px solid #2d9fd9;
-  color: #a0d18c;
-  width: 250px;
+  border: 1px solid #00E8E7;
+  color: black;
+  width: 200px !important;
   height: 30px;
   padding-left: 10px;
 }
@@ -774,11 +787,9 @@ html, body { // prevents horizontal scroll
 }
 
 #swap-card {
-  display: table;
   margin: 0 auto;
   position: relative;
-  width: 30%;
-  min-width: 350px;
+  width: 328px !important;
   height: auto;
   z-index: 0;
   background: #FCFCFC;
@@ -788,15 +799,44 @@ html, body { // prevents horizontal scroll
   border-radius: 24px;
 }
 
-#swap-card p {
-  color: #6F767E;
-  font-family: Poppins;
+.swap-tokens-btn {
+  box-shadow: rgb(0 0 0 / 10%) 0px -2px 0px inset;
+  position: absolute;
+  left: 50%;
+  padding: 0;
+  border: none;
+  background: none;
 }
 
 .swap-card-container {
-  width: 100%;
+  display: flex;
+  flex-direction: row;
   height: 40px;
   padding: 2%;
+}
+
+.swap-confirm-container {
+  font-size: 12px !important;
+  display: inline-flex;
+  justify-content: center;
+  width: 100%;
+  margin: 2%;
+}
+
+#approve-swap {
+  margin: auto;
+  width: 38%;
+}
+
+#confirm-swap {
+  margin: auto;
+  width: 38%;
+}
+
+
+#swap-card p {
+  color: #6F767E;
+  font-family: Poppins;
 }
 
 .swap-max-reward-usd {
@@ -862,18 +902,23 @@ html, body { // prevents horizontal scroll
   color: #9A9FA5;
 }
 
+.swap-card-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid rgb(231, 227, 235);
+}
 .swap-card-title {
-  position: relative;
-  top: 8px;
-  vertical-align: middle;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
   font-size: 12px;
-  float: left;
   font-weight: bold;
 }
 
 .swap-card-button {
-  display: inline-block;
-  float: right;
+  display: inline-flex;
   padding: 0;
   border: none;
   background: none;
@@ -885,18 +930,12 @@ html, body { // prevents horizontal scroll
 
 
 .swap-card-tag {
-  display: inline-block;
-  float: left;
+  display: flex;
   width: 16px;
   height: 32px;
 
   background: #37E4E5;
   border-radius: 4px;
-
-  /* Inside auto layout */
-  flex: none;
-  order: 0;
-  flex-grow: 0;
 }
 
 

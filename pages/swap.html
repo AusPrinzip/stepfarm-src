@@ -1,111 +1,62 @@
 
 <html lang="en">
-  <div style="margin:5%;" class="container">
-    <div class="row" id="swap-test" style="display: none">
-      <div class="col-md-12">
-        <div id="connected">
-          <button class="btn btn-primary" id="btn-disconnect">
-            Disconnect wallet
-          </button>
 
-          <h2>Tokens</h2>
-          <button class="btn btn-primary" id="btn-getBalance">
-            Get Balance
-          </button>
-          <button class="btn btn-primary" id="btn-approveToken">
-            Approve Token
-          </button>
-
-          <h2>LPs</h2>
-          <button class="btn btn-primary" id="btn-getKLast">
-            Get KLast
-          </button>
-          <button class="btn btn-primary" id="btn-getReserves">
-            Get Reserves
-          </button>
-
-          <h2>Factory</h2>
-          <button class="btn btn-primary" id="btn-setTreasury">
-            Set Treasury
-          </button>
-          <button class="btn btn-primary" id="btn-getTreasury">
-            Get Treasury
-          </button>
-          <button class="btn btn-primary" id="btn-getPair">
-            Get Pair
-          </button>
-
-          <h2>Router</h2> 
-          <button class="btn btn-primary" id="btn-addLiquidity">
-            Add liquidity
-          </button>
-          <button class="btn btn-primary" id="btn-removeLiquidity">
-            Remove liquidity
-          </button>
-          <button class="btn btn-primary" id="btn-getFactory">
-            Get Factory
-          </button>
-
-          <hr>
-
-          <div id="network">
-            <p>
-              <strong>Connected blockchain:</strong> <span id="network-name"></span>
-            </p>
-            <p>
-              <strong>Selected account:</strong> <span id="selected-account"></span>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div id="network">
+    <p>
+      <strong>Connected blockchain:</strong> <span id="network-name"></span>
+    </p>
+    <p>
+      <strong>Selected account:</strong> <span id="selected-account"></span>
+    </p>
   </div>
 
   <div id="swap-card">
-    <div class="swap-card-container">
-      <div class="swap-card-tag"></div>
-      <div class="swap-card-title">SWAP</div>
-      <button id="settingsModalTrigger" class="swap-card-button"><img width="33" src="images/swap/swap-settings.svg"></img></button>
+    <div class="swap-card-header">
+      <div class="swap-card-container">
+        <div class="swap-card-tag"></div>
+        <div class="swap-card-title">SWAP</div>
+      </div>
+      <div class="swap-card-container">
+        <button id="settingsModalTrigger" class="swap-card-button"><img width="33" src="images/swap/swap-settings.svg"></img></button>
+      </div>
     </div>
     <div class="swap-card-container">
       <p style="float: right" id="maxTrade">Available: <span id="token-balance-A" data-bal="0">0</span> <span id="token-balance-disp">USDT</span></p>
     </div>
     <div class="swap-card-container">
-      <button style="width: 25%; float:left;" class="btn btn-default dropdown-toggle" type="button" id="token-select-A" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      <button class="btn btn-default dropdown-toggle swap-card-token-btn" type="button" id="token-select-A" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         <div id="display-token-A">
           <img width="20" src="/images/coins/usdt.png"></img> USDT<span class="caret"></span>
         </div>
       </button>
-       <input id="input-A" value="0" type="number" style="float:right; width: 70%;" class="balance"></input>
+       <input id="input-A" value="0" type="number" style="float:right; width: 70%;" class="swap-card-balance"></input>
     </div>
 
     <div class="swap-card-container">
-      <img width="33" src="images/swap/swap-arrow.svg"></img>
+      <button class="swap-tokens-btn"><img width="33" src="images/swap/swap-arrow.svg"></img></button>
     </div>
 
     <div class="swap-card-container">
-      <div class="dropdown">
-        <button style="width: 25%; float:left;" id="token-select-B" class="btn btn-default dropdown-toggle" type="button" id="token-select-B" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <button id="token-select-B" class="btn btn-default dropdown-toggle swap-card-token-btn" type="button" id="token-select-B" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
           <div id="display-token-B">
             <img width="20" src="/images/coins/usdc.png"></img> USDC<span class="caret"></span>
           </div>
         </button> 
-        <input id="input-B" value="0" type="number" style="float:right; width: 70%;" class="balance"></input>
-      </div>
+        <input id="input-B" value="0" type="number" style="float:right; width: 70%;" class="swap-card-balance"></input>
     </div>
 
     <div class="swap-card-container">
       <div class="swap-exchange">1 BUSD = 1.0000 USDC <img src="images/swap/swap-arrow-exchange.svg"></img></div>
     </div>
 
-    <div class="swap-card-container">
+
       <div class="swap-confirm-container">
         <button id="approve-swap" class="swap-confirm-btn">Approve</button>
         <button id="confirm-swap" class="swap-confirm-btn">Confirm Order</button>
       </div>
-    </div>
 
-    <div class="swap-card-container">
+
+<!--     <div class="swap-card-container">
       <p>Enter an amount to see more trading details</p>
     </div>
 
@@ -114,7 +65,7 @@
     <div class="swap-card-container">
       <p style="float:left; margin:1%;">Trade Mining <img src="images/swap/swap-question-help.svg"></img></p>
       <p style="float:right; margin:1%;">Max Reward <span class="swap-max-reward">5.04 DEX</span><span class="swap-max-reward-usd">$16.68</span></p>
-    </div>
+    </div> -->
 
   </div>
 

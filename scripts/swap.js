@@ -131,28 +131,6 @@ function swapInit() {
 
   tokenAChanged()
 
-  document.querySelector("#btn-getBalance").addEventListener("click", function() {
-    let token = prompt("Please enter token", "USDC")
-    let tokenAddress = TOKENS[token]
-    getBalance(tokenAddress, function(err, res) {
-      console.log(err, res)
-    })
-  })
-  document.querySelector("#btn-addLiquidity").addEventListener("click", addLiquidity)
-  document.querySelector("#btn-removeLiquidity").addEventListener("click", removeLiquidity)
-  document.querySelector("#btn-approveToken").addEventListener("click", function() {
-    let token = prompt("Please enter token", "USDC")
-    let tokenAddress = TOKENS[token]
-    approveToken(tokenAddress, ADDRESS_ROUTER, function(err, res) {
-      console.log(err, res)
-    })
-  })
-  document.querySelector("#btn-setTreasury").addEventListener("click", setFeeTo)
-  document.querySelector("#btn-getFactory").addEventListener("click", getFactoryAddress)
-  document.querySelector("#btn-getTreasury").addEventListener("click", getFeeTo)
-  document.querySelector("#btn-getKLast").addEventListener("click", getKLast)
-  document.querySelector("#btn-getReserves").addEventListener("click", getReserves)
-  document.querySelector("#btn-getPair").addEventListener("click", getPair)  
   document.querySelector("#approve-swap").addEventListener("click", function() {
     let tokenA = $('#display-token-A').text().trim()
     let tokenAddress = TOKENS[tokenA]

@@ -108,13 +108,7 @@ async function fetchAccountData() {
   const chainId = await web3.eth.getChainId();
   // Load chain information over an HTTP API
   const chainData = evmChains.getChain(chainId);
-
-  if (window.location.hash == "#swap") {
-    document.querySelector("#network-name").textContent = chainData.name;
-    document.querySelector("#selected-account").textContent = selectedAccount;
-  }
   
-
   // Get list of accounts of the connected wallet
   const accounts = await web3.eth.getAccounts();
 
@@ -122,6 +116,12 @@ async function fetchAccountData() {
   // console.log("Got accounts", accounts);
   selectedAccount = accounts[0];
 
+  if (window.location.hash == "#swap") {
+    console.log(selectedAccount)
+    document.querySelector("#network-name").textContent = chainData.name;
+    document.querySelector("#selected-account").textContent = selectedAccount;
+  }
+  
   var location = window.location.hash.replace("#", "");
   if (location.length == 0) {
     location = "/";
