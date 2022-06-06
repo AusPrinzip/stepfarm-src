@@ -771,10 +771,6 @@ html, body { // prevents horizontal scroll
   filter: brightness(60%);
 }
 
-.dropdown-menu {
-    width: 100% !important;
-    height: 200px !important;
-}
 #swap-card {
   display: table;
   margin: 0 auto;

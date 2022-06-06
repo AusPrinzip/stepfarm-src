@@ -24,14 +24,22 @@ class Header extends HTMLElement {
               <li><a href="/#swap">SWAP</a></li>
               <li><a href="/#farm">FARM</a></li>
               <li><a href="/#liquidity">LIQUIDITY</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle hidden-sm hidden-md hidden-bg hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SOCIAL MEDIA <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a class="" href="#"><img src="images/nav-facebook.svg"></img>Facebook</a></li>
+                  <li><a class="" href="https://twitter.com/StepFarm" target="_blank"><img src="images/nav-twitter.svg"></img>Twitter</a></li>
+                  <li><a class="" href="#"><img src="images/nav-instagram.svg"></img>Instagram</a></li>
+                </ul>
+              </li>
             </ul>
             
 
             <ul class="nav navbar-nav navbar-right navbar-nav-vertical-aligned">
               <li><a class="navbar-price" id="gft-price" href="#"></a></li>
-              <li><a class="" href="#"><img src="images/nav-facebook.svg"></img></a></li>
-              <li><a class="" href="https://twitter.com/StepFarm" target="_blank"><img src="images/nav-twitter.svg"></img></a></li>
-              <li><a class="" href="#"><img src="images/nav-instagram.svg"></img></a></li>
+              <li><a class="hidden-xs" href="#"><img src="images/nav-facebook.svg"></img></a></li>
+              <li><a class="hidden-xs" href="https://twitter.com/StepFarm" target="_blank"><img src="images/nav-twitter.svg"></img></a></li>
+              <li><a class="hidden-xs" href="#"><img src="images/nav-instagram.svg"></img></a></li>
               <li><button id="btn-connect" class="connect-wallet-btn">CONNECT WALLET</button></li>
               <li><button style="display: none;" id="btn-disconnect" class="connect-wallet-btn">DISCONNECT WALLET</button></li>
             </ul>
