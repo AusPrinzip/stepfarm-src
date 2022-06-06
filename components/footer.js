@@ -14,7 +14,7 @@ class Div extends HTMLElement {
           <a target="https://twitter.com/StepFarm" href="https://discord.gg/gC72KwH4Gp" target="_blank"><img class="" src="images/icons/discord.svg"></img></a>
         </div>
         <div class="footer-icon telegram-container">
-          <a href="https://t.me/+GugtFxYudhtiYWE0" target="_blank"><img class="" src="images/icons/telegram.svg"></img></a>
+          <a href="https://t.me/StepFarmGFT" target="_blank"><img class="" src="images/icons/telegram.svg"></img></a>
         </div>
         <div class="footer-icon medium-container">
           <a target="_blank"><img class="" src="images/icons/medium.svg"></img></a>
