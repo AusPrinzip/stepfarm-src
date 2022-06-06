@@ -1,4 +1,23 @@
 function tokenAChanged() {
+
+  $(document).ready(function  () {
+    $('.swap-tokens-btn').hover(function () {
+        $(this).find('img').attr('src', function (i, src) {
+            return src.replace('images/swap/arrow.svg', 'images/swap/arrows.svg')
+        })
+    }, function () {
+        $(this).find('img').attr('src', function (i, src) {
+            return src.replace('images/swap/arrows.svg', 'images/swap/arrow.svg')
+        })
+    })
+
+    $('.swap-tokens-btn').click(function() {
+      // TODO 
+        // - abstract away logic for token a/b swapping
+        // change the actual text of dropdowns to display the new tokens
+    })
+  })
+
   $("#approve-swap").show()
   $("#confirm-swap").hide()
 

@@ -808,6 +808,16 @@ html, body { // prevents horizontal scroll
   background: none;
 }
 
+.swap-tokens-btn img {
+  color: blue !important;
+  width: 33px;
+  border-radius: 16px;
+}
+
+.swap-tokens-btn img:hover {
+  background: #00E8E7;
+}
+
 .swap-card-container {
   display: flex;
   flex-direction: row;
