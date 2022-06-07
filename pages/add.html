@@ -1,85 +1,89 @@
 
-<html lang="en">
-  <div style="margin:5%;" class="container">
-    
-  <div id="add-card">
 
-    <div class="add-card-header">
-      <div class="add-card-tag"></div>
-      <div class="add-card-title">Add Liquidity</div>
-      <button id="settingsModalTrigger"><img width="33" src="images/swap/swap-settings.svg"></img></button>
-    </div>
+  
+<div id="add-card">
 
-    <div class="add-card-container">
-
-      <button class="btn btn-default dropdown-toggle add-card-button" type="button" id="token-select-A" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-
-        <div id="display-token-A">
-          Select<span class="caret"></span>
-        </div>
-      </button>
-      <input id="input-A" value="0" type="number" class="add-card-input"></input>
-    </div>
-
-    <div class="add-card-container">
-      <div class="add-card-balance">
-        Balance: <span id="balance-token-A" data-bal="0">0</span>
-      </div>
-    </div>
-
-    <div class="add-card-container">
-      +
-    </div>
-
-    <div class="add-card-container">
-      <button class="btn btn-default dropdown-toggle add-card-button" type="button" id="token-select-B" data-toggle="dropdown"aria-haspopup="true" aria-expanded="true">
-
-        <div id="display-token-B">
-          Select<span class="caret"></span>
-        </div>
-      </button> 
-      <input id="input-B" value="0" type="number" class="add-card-input"></input>
-    </div>
-
-    <div class="add-card-container">
-      <div class="add-card-balance">
-        Balance: <span id="balance-token-B" data-bal="0">0</span>
-      </div>
-    </div>
-
-    <div class="add-card-container">
-      <div class="swap-exchange">
-        <span id="rate-amount-A">1</span> <span id="rate-currency-A">BUSD</span> = 
-        <span id="rate-amount-B">1.0000</span> <span id="rate-currency-B">USDC</span> 
-        <img src="images/swap/swap-arrow-exchange.svg"></img>
-      </div>
-    </div>
-
-    <div class="add-card-container">
-      <button class="add-card-approve-btn approveBtn1" style="display:none"></button>
-      <button class="add-card-approve-btn approveBtn2" style="display:none"></button>
-      <button class="add-card-add-btn" style="display: none">Add Liquidity</button> 
-    </div>
-
+  <div class="add-card-header">
+    <div class="add-card-tag"></div>
+    <div class="add-card-title">Add Liquidity</div>
+    <button id="settingsModalTrigger"><img width="33" src="images/swap/swap-settings.svg"></img></button>
   </div>
 
-  <div id="tokenModal" class="modal">
-    <div class="modal-content">
-      <div class="eNDJNI">
-        <span id="closeTokenModal" class="closeModal">&times;</span>
-        <h2>Select a Token</h2>
+  <div class="add-card-container">
+
+    <button class="btn btn-default dropdown-toggle add-card-button" type="button" id="token-select-A" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+
+      <div id="display-token-A">
+        Select<span class="caret"></span>
       </div>
-      <div class="modal-body">
-        <div class="list-group">
-          <button type="button" value="GFT" class="list-group-item token-element"><img src="/images/coins/gft.png"></img>GFT
-          </button>
-          <button type="button" value="USDT" class="list-group-item token-element"><img src="/images/coins/usdt.png"></img>USDT
-          </button>
-          <button type="button" value="USDC" class="list-group-item token-element"><img src="/images/coins/usdc.png"></img>USDC
-          </button>
-        </div>
-      </div>
+    </button>
+    <input id="input-A" value="0" type="number" class="add-card-input"></input>
+    <div class="add-card-balance">
+      Balance: <span id="balance-token-A" data-bal="0">0</span>
     </div>
   </div>
 
-</html>
+<!--   <div class="add-card-container">
+    <div class="add-card-balance">
+      Balance: <span id="balance-token-A" data-bal="0">0</span>
+    </div>
+  </div> -->
+
+  <div class="add-card-container" style="justify-content: center;">
+    <p style="font-size: 32px; color: #00E8E7;">+</p>
+  </div>
+
+  <div class="add-card-container">
+    <button class="btn btn-default dropdown-toggle add-card-button" type="button" id="token-select-B" data-toggle="dropdown"aria-haspopup="true" aria-expanded="true">
+
+      <div id="display-token-B">
+        Select<span class="caret"></span>
+      </div>
+    </button> 
+    <input id="input-B" value="0" type="number" class="add-card-input"></input>
+    <div class="add-card-balance">
+      Balance: <span id="balance-token-B" data-bal="0">0</span>
+    </div>
+  </div>
+
+<!--   <div class="add-card-container">
+    <div class="add-card-balance">
+      Balance: <span id="balance-token-B" data-bal="0">0</span>
+    </div>
+  </div> -->
+
+  <div class="add-card-container">
+    <div class="swap-exchange">
+      <span id="rate-amount-A">1</span> <span id="rate-currency-A">BUSD</span> = 
+      <span id="rate-amount-B">1.0000</span> <span id="rate-currency-B">USDC</span> 
+      <img src="images/swap/swap-arrow-exchange.svg"></img>
+    </div>
+  </div>
+
+  <div class="add-card-container">
+    <button class="add-card-approve-btn approveBtn1" style="display:none"></button>
+    <button class="add-card-approve-btn approveBtn2" style="display:none"></button>
+    <button class="add-card-add-btn" style="display: none">Add Liquidity</button> 
+  </div>
+
+</div>
+
+<div id="tokenModal" class="modal">
+  <div class="modal-content">
+    <div class="eNDJNI">
+      <span id="closeTokenModal" class="closeModal">&times;</span>
+      <h2>Select a Token</h2>
+    </div>
+    <div class="modal-body">
+      <div class="list-group">
+        <button type="button" value="GFT" class="list-group-item token-element"><img src="/images/coins/gft.png"></img>GFT
+        </button>
+        <button type="button" value="USDT" class="list-group-item token-element"><img src="/images/coins/usdt.png"></img>USDT
+        </button>
+        <button type="button" value="USDC" class="list-group-item token-element"><img src="/images/coins/usdc.png"></img>USDC
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+

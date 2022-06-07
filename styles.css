@@ -1,8 +1,8 @@
 
-html, body { // prevents horizontal scroll
-    max-width: 100%;
-    overflow-x: hidden;
-    font-size:16px;
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  font-size:16px;
 }
 
 .footer-rectangle {
@@ -361,12 +361,13 @@ html, body { // prevents horizontal scroll
 
 
 #add-card {
-  display: table;
+  display: block;
   margin: 0 auto;
+  margin-top: 5%;
   font-family: Poppins;
   width: 40%;
   min-width: 328px;
-  height: 400px;
+  height: auto;
   height: auto;
   z-index: 0;
   background: #FCFCFC;
@@ -393,7 +394,6 @@ html, body { // prevents horizontal scroll
   border-radius: 20px;
   border: 1px solid #00E8E7;
   color: black;
-  width: 250px !important;
   height: 30px;
   padding-left: 10px;
 }
@@ -840,8 +840,9 @@ html, body { // prevents horizontal scroll
 }
 
 #swap-card {
-  display: table;
+  display: block;
   margin: 0 auto;
+  margin-top: 5%;
   font-family: Poppins;
   width: 30%;
   min-width: 328px;
