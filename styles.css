@@ -393,6 +393,7 @@ html, body {
 }
 
 .add-card-input {
+  text-align:right;
   margin-left: 2%;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
@@ -400,8 +401,7 @@ html, body {
   border: 1px solid #00E8E7;
   color: black;
   height: 30px;
-  width: auto;
-  /*max-width: 50%;*/
+  max-width: 50%;
 }
     
 .add-card-input:focus {
@@ -768,6 +768,7 @@ html, body {
 }
 
 .swap-card-balance {
+  text-align:right;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   border-radius: 20px;
