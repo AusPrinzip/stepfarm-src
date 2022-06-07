@@ -771,7 +771,7 @@ html, body {
   border-radius: 20px;
   border: 1px solid #00E8E7;
   color: black;
-  width: 300px !important;
+  width: auto;
   height: 30px;
   padding-left: 10px;
 }

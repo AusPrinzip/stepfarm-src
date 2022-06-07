@@ -41,7 +41,7 @@ class Header extends HTMLElement {
               <li><a class="hidden-xs" href="https://twitter.com/StepFarm" target="_blank"><img src="images/nav-twitter.svg"></img></a></li>
               <li><a class="hidden-xs" href="#"><img src="images/nav-instagram.svg"></img></a></li>
               <li><button id="btn-connect" class="connect-wallet-btn">CONNECT WALLET</button></li>
-              <li><button style="display: none;" id="btn-disconnect" class="connect-wallet-btn">DISCONNECT WALLET</button></li>
+              <li><button style="display: none;" id="btn-disconnect" class="connect-wallet-btn"><img src="images/wallet.svg"></img>DISCONNECT WALLET</button></li>
             </ul>
 
           </div><!-- /.navbar-collapse -->
