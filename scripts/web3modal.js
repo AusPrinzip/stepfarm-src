@@ -125,6 +125,7 @@ async function fetchAccountData() {
   var location = window.location.hash.replace("#", "");
   if (location.length == 0) {
     location = "/";
+    $('#btn-disconnect').html(`<img src="images/wallet.svg"></img>${selectedAccount.substring(0, 3)}...${selectedAccount.substring(selectedAccount.length - 3, selectedAccount.length)}`);
   }
   // trigger functions for each page
   switch (location) {
@@ -172,7 +173,7 @@ async function onConnect() {
   try {
     provider = await web3Modal.connect();
     $('#btn-connect').hide();
-    $('#btn-disconnect').show();
+    $('#btn-disconnect').show();    
   } catch(e) {
     // console.log("Could not get a wallet connection", e);
     return;
