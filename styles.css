@@ -367,8 +367,7 @@ html, body {
   font-family: Poppins;
   width: 40%;
   min-width: 328px;
-  height: auto;
-  height: auto;
+  height: 300px;
   z-index: 0;
   background: #FCFCFC;
 
@@ -377,8 +376,12 @@ html, body {
   border-radius: 24px;
 }
 
+.add-card-balance {
+  margin-left: 2%;
+}
+
 .add-card-button {
-  width: 25%; float:left;
+  width: 100px !important;
 }
 
 .add-card-container {
@@ -389,13 +392,14 @@ html, body {
 }
 
 .add-card-input {
+  margin-left: 2%;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   border-radius: 20px;
   border: 1px solid #00E8E7;
   color: black;
   height: 30px;
-  padding-left: 10px;
+  max-width: 50%;
 }
     
 .add-card-input:focus {
