@@ -3,43 +3,51 @@
   <div style="margin:5%;" class="container">
     
   <div id="add-card">
-    <div class="swap-card-container">
-      <div class="swap-card-tag"></div>
-      <div class="swap-card-title">Add Liquidity</div>
-      <button id="settingsModalTrigger" class="swap-card-button"><img width="33" src="images/swap/swap-settings.svg"></img></button>
+
+    <div class="add-card-header">
+      <div class="add-card-tag"></div>
+      <div class="add-card-title">Add Liquidity</div>
+      <button id="settingsModalTrigger"><img width="33" src="images/swap/swap-settings.svg"></img></button>
     </div>
 
-    <div class="swap-card-container">
-      <button style="width: 25%; float:left;" class="btn btn-default dropdown-toggle" type="button" id="token-select-A" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <div class="add-card-container">
+
+      <button class="btn btn-default dropdown-toggle add-card-button" type="button" id="token-select-A" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+
         <div id="display-token-A">
-          Select Currency<span class="caret"></span>
+          Select<span class="caret"></span>
         </div>
       </button>
-      <div>
-        Balance: <span id="balance-token-A" data-bal="0">0</span>
-      </div>
-      <input id="input-A" value="0" type="number" style="float:right; width: 50%;" class="balance"></input>
+      <input id="input-A" value="0" type="number" class="add-card-input"></input>
     </div>
 
-    <div class="swap-card-container">
+    <div class="add-card-container">
+      <div class="add-card-balance">
+        Balance: <span id="balance-token-A" data-bal="0">0</span>
+      </div>
+    </div>
+
+    <div class="add-card-container">
       +
     </div>
 
-    <div class="swap-card-container">
-      <div class="dropdown">
-        <button style="width: 25%; float:left;" id="token-select-B" class="btn btn-default dropdown-toggle" type="button" id="token-select-B" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-          <div id="display-token-B">
-            Select Currency<span class="caret"></span>
-          </div>
-        </button> 
-        <div>
-          Balance: <span id="balance-token-B" data-bal="0">0</span>
+    <div class="add-card-container">
+      <button class="btn btn-default dropdown-toggle add-card-button" type="button" id="token-select-B" data-toggle="dropdown"aria-haspopup="true" aria-expanded="true">
+
+        <div id="display-token-B">
+          Select<span class="caret"></span>
         </div>
-        <input id="input-B" value="0" type="number" style="float:right; width: 50%;" class="balance"></input>
+      </button> 
+      <input id="input-B" value="0" type="number" class="add-card-input"></input>
+    </div>
+
+    <div class="add-card-container">
+      <div class="add-card-balance">
+        Balance: <span id="balance-token-B" data-bal="0">0</span>
       </div>
     </div>
 
-    <div class="swap-card-container">
+    <div class="add-card-container">
       <div class="swap-exchange">
         <span id="rate-amount-A">1</span> <span id="rate-currency-A">BUSD</span> = 
         <span id="rate-amount-B">1.0000</span> <span id="rate-currency-B">USDC</span> 
@@ -47,7 +55,7 @@
       </div>
     </div>
 
-    <div class="swap-card-container">
+    <div class="add-card-container">
       <button class="add-card-approve-btn approveBtn1" style="display:none"></button>
       <button class="add-card-approve-btn approveBtn2" style="display:none"></button>
       <button class="add-card-add-btn" style="display: none">Add Liquidity</button> 

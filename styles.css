@@ -361,18 +361,70 @@ html, body { // prevents horizontal scroll
 
 
 #add-card {
-  margin: 5%;
-  position: relative;
-  width: 50%;
-  min-width: 400px;
-  left: 28%;
-  height: 300px;
-
+  display: table;
+  margin: 0 auto;
+  font-family: Poppins;
+  width: 40%;
+  min-width: 328px;
+  height: 400px;
+  height: auto;
+  z-index: 0;
   background: #FCFCFC;
 
   /* shadow */
   box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
   border-radius: 24px;
+}
+
+.add-card-button {
+  width: 25%; float:left;
+}
+
+.add-card-container {
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  padding: 2%;
+}
+
+.add-card-input {
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  border: 1px solid #00E8E7;
+  color: black;
+  width: 250px !important;
+  height: 30px;
+  padding-left: 10px;
+}
+    
+.add-card-input:focus {
+  outline: none;
+  border: 1px solid #a0d18c;
+  color: #2d9fd9;
+}
+
+.add-card-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid rgb(231, 227, 235);
+}
+.add-card-title {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.add-card-tag {
+  display: flex;
+  width: 16px;
+  height: 32px;
+  background: #37E4E5;
+  border-radius: 4px;
 }
 
 #add-card button {
@@ -696,6 +748,7 @@ html, body { // prevents horizontal scroll
 }
 
 .swap-exchange {
+  display: flex;
   margin:  auto;
 }
 
@@ -719,7 +772,7 @@ html, body { // prevents horizontal scroll
   padding-left: 10px;
 }
     
-.balance:focus {
+.swap-card-balance:focus {
   outline: none;
   border: 1px solid #a0d18c;
   color: #2d9fd9;
@@ -922,6 +975,15 @@ html, body { // prevents horizontal scroll
   font-weight: bold;
 }
 
+.swap-card-tag {
+  display: flex;
+  width: 16px;
+  height: 32px;
+  background: #37E4E5;
+  border-radius: 4px;
+}
+
+
 .swap-card-button {
   display: inline-flex;
   padding: 0;
@@ -932,17 +994,6 @@ html, body { // prevents horizontal scroll
 .swap-card-button:hover {
   filter: brightness(60%);
 }
-
-
-.swap-card-tag {
-  display: flex;
-  width: 16px;
-  height: 32px;
-
-  background: #37E4E5;
-  border-radius: 4px;
-}
-
 
 .nav img:hover {
   transform: scale(1.1) !important;
