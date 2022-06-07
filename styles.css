@@ -365,7 +365,7 @@ html, body {
   margin: 0 auto;
   margin-top: 5%;
   font-family: Poppins;
-  width: 40%;
+  width: 30%;
   min-width: 328px;
   height: 300px;
   z-index: 0;
@@ -387,6 +387,7 @@ html, body {
 .add-card-container {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   height: 40px;
   padding: 2%;
 }
@@ -399,7 +400,8 @@ html, body {
   border: 1px solid #00E8E7;
   color: black;
   height: 30px;
-  max-width: 50%;
+  width: auto;
+  /*max-width: 50%;*/
 }
     
 .add-card-input:focus {

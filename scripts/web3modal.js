@@ -116,6 +116,8 @@ async function fetchAccountData() {
   // console.log("Got accounts", accounts);
   selectedAccount = accounts[0];
 
+  $('#btn-disconnect').html(`<img src="images/wallet.svg"></img>${selectedAccount.substring(0, 3)}...${selectedAccount.substring(selectedAccount.length - 3, selectedAccount.length)}`);
+
   if (window.location.hash == "#swap") {
     console.log(selectedAccount)
     document.querySelector("#network-name").textContent = chainData.name;
@@ -125,7 +127,6 @@ async function fetchAccountData() {
   var location = window.location.hash.replace("#", "");
   if (location.length == 0) {
     location = "/";
-    $('#btn-disconnect').html(`<img src="images/wallet.svg"></img>${selectedAccount.substring(0, 3)}...${selectedAccount.substring(selectedAccount.length - 3, selectedAccount.length)}`);
   }
   // trigger functions for each page
   switch (location) {
