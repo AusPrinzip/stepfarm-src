@@ -772,8 +772,8 @@ html, body {
   border: 1px solid #00E8E7;
   color: black;
   width: auto;
+  max-width: 70%;
   height: 30px;
-  padding-left: 10px;
 }
     
 .swap-card-balance:focus {
