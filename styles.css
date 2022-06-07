@@ -714,7 +714,7 @@ html, body { // prevents horizontal scroll
   border-radius: 20px;
   border: 1px solid #00E8E7;
   color: black;
-  width: 200px !important;
+  width: 300px !important;
   height: 30px;
   padding-left: 10px;
 }
@@ -787,9 +787,12 @@ html, body { // prevents horizontal scroll
 }
 
 #swap-card {
+  display: table;
   margin: 0 auto;
-  position: relative;
-  width: 328px !important;
+  font-family: Poppins;
+  width: 30%;
+  min-width: 328px;
+  height: 400px;
   height: auto;
   z-index: 0;
   background: #FCFCFC;
@@ -798,6 +801,12 @@ html, body { // prevents horizontal scroll
   box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
   border-radius: 24px;
 }
+
+#swap-card p {
+  color: #6F767E;
+  font-family: Poppins;
+}
+
 
 .swap-tokens-btn {
   box-shadow: rgb(0 0 0 / 10%) 0px -2px 0px inset;
@@ -843,12 +852,6 @@ html, body { // prevents horizontal scroll
   width: 38%;
 }
 
-
-#swap-card p {
-  color: #6F767E;
-  font-family: Poppins;
-}
-
 .swap-max-reward-usd {
   width: 45px;
   height: 24px;
@@ -887,24 +890,16 @@ html, body { // prevents horizontal scroll
 .swap-confirm-btn {
   padding: 0;
   border: none;
-  background: none;
-
-  justify-content: center;
-  align-items: center;
-
-  height: 100%;
-  width: 90%;
-
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 700;
   background: #00E8E7;
   border-radius: 16px;
-
-  /* Inside auto layout */
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-
-  font-family: Poppins;
-  color: black;
+  display: inline-block;
+  margin:0 auto;
+  display:block;
+  width: 80%;
+  height: 40px;
 }
 
 .swap-confirm-btn:hover {
