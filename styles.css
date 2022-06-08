@@ -1064,8 +1064,19 @@ html, body {
 }
 
 .navbar-default {
-    background-color: #37E4E5 !important;
-    border-color: #E7E7E7;
+  background-color: #37E4E5 !important;
+  border-color: #E7E7E7;
+}
+
+.nav.navbar-nav.navbar-nav li a {
+    color: black;
+}
+.nav.navbar-nav.navbar-nav li a:hover {
+    color: grey;
+}
+
+.nav.navbar-nav.navbar-right li a {
+    color: black;
 }
 
 .navbar-brand {
