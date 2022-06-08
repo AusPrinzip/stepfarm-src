@@ -57,8 +57,10 @@ html, body {
   border-radius: 25px;
   z-index: 0;
 }
+
 .start-description p {
   margin: 5%;
+  color:  black !important;
 }
 #fifthblock img {
   width: 40%;
