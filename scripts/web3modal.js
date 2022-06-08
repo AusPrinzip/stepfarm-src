@@ -109,6 +109,11 @@ async function fetchAccountData() {
   // Load chain information over an HTTP API
   const chainData = evmChains.getChain(chainId);
   
+  // Alert if wrong chain
+  if (chainData.name !== "Binance Smart Chain Testnet") {
+    alert("Wrong chain")
+  }
+
   // Get list of accounts of the connected wallet
   const accounts = await web3.eth.getAccounts();
 
@@ -117,13 +122,13 @@ async function fetchAccountData() {
   selectedAccount = accounts[0];
 
 
-  $('#wallet-dropdown').html(`<img src="images/wallet.svg"></img>${selectedAccount.substring(0, 3)}...${selectedAccount.substring(selectedAccount.length - 3, selectedAccount.length)}`);
+  $('#wallet').html(`<img src="images/wallet.svg"></img>${selectedAccount.substring(0, 3)}...${selectedAccount.substring(selectedAccount.length - 3, selectedAccount.length)}`);
 
-  if (window.location.hash == "#swap") {
-    console.log(selectedAccount)
-    document.querySelector("#network-name").textContent = chainData.name;
-    document.querySelector("#selected-account").textContent = selectedAccount;
-  }
+  // if (window.location.hash == "#swap") {
+  //   console.log(selectedAccount)
+  //   document.querySelector("#network-name").textContent = chainData.name;
+  //   document.querySelector("#selected-account").textContent = selectedAccount;
+  // }
   
   var location = window.location.hash.replace("#", "");
   if (location.length == 0) {

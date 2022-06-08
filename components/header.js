@@ -41,15 +41,15 @@ class Header extends HTMLElement {
               <li><a class="hidden-xs" href="https://twitter.com/StepFarm" target="_blank"><img src="images/nav-twitter.svg"></img></a></li>
               <li><a class="hidden-xs" href="#"><img src="images/nav-instagram.svg"></img></a></li>
               <li><button id="btn-connect" class="connect-wallet-btn">CONNECT WALLET</button></li>
-              <li class="dropdown">
-              <button style="display: none;" id="wallet-dropdown" class="connect-wallet-btn"><img src="images/wallet.svg"></img>DISCONNECT WALLET</button>
-                  <ul id="products-menu" class="dropdown-menu clearfix" role="menu">
-                      <li class="wallet-dropdown-el"><a id="btn-disconnect">DISCONNECT</a></li>
-                      <li class="wallet-dropdown-el"><a>OPTION B</a></li>
-                      <li class="wallet-dropdown-el"><a>OPTION C</a></li>
-                      <li class="wallet-dropdown-el"><a>OPTION D</a></li>
-                  </ul>
-              </li>
+              <li class="dropdown" id="wallet-dropdown" style="display: none;">
+                <div id="wallet" class="connect-wallet-btn wallet"></div>
+                <ul class="dropdown-menu clearfix wallet-dropdown" role="menu">
+                  <li class="wallet-dropdown-el"><a id="btn-disconnect">DISCONNECT</a></li>
+                  <li class="wallet-dropdown-el"><a>OPTION B</a></li>
+                  <li class="wallet-dropdown-el"><a>OPTION C</a></li>
+                  <li class="wallet-dropdown-el"><a>OPTION D</a></li>
+                </ul>
+                </li>
             </ul>
 
           </div><!-- /.navbar-collapse -->
