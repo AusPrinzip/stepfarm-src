@@ -5,6 +5,13 @@ html, body {
   font-size:16px;
 }
 
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.wallet-dropdown-el {
+  cursor: pointer;
+}
 .footer-rectangle {
   display: flex;
   justify-content: center;

@@ -116,7 +116,8 @@ async function fetchAccountData() {
   // console.log("Got accounts", accounts);
   selectedAccount = accounts[0];
 
-  $('#btn-disconnect').html(`<img src="images/wallet.svg"></img>${selectedAccount.substring(0, 3)}...${selectedAccount.substring(selectedAccount.length - 3, selectedAccount.length)}`);
+
+  $('#wallet-dropdown').html(`<img src="images/wallet.svg"></img>${selectedAccount.substring(0, 3)}...${selectedAccount.substring(selectedAccount.length - 3, selectedAccount.length)}`);
 
   if (window.location.hash == "#swap") {
     console.log(selectedAccount)
@@ -174,7 +175,7 @@ async function onConnect() {
   try {
     provider = await web3Modal.connect();
     $('#btn-connect').hide();
-    $('#btn-disconnect').show();    
+    $('#wallet-dropdown').show();    
   } catch(e) {
     // console.log("Could not get a wallet connection", e);
     return;
@@ -225,7 +226,7 @@ async function onDisconnect() {
     document.querySelector("#prepare").style.display = "block";
     document.querySelector("#connected").style.display = "none";
   }
-  $('#btn-disconnect').hide();
+  $('#wallet-dropdown').hide();
   $('#btn-connect').show();
 }
 
