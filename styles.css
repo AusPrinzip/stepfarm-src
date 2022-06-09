@@ -400,7 +400,10 @@ html, body {
 }
 
 .add-card-button {
-  width: 100px !important;
+  display: inline-flex;
+  padding: 0;
+  border: none;
+  background: none;
 }
 
 .add-card-container {
@@ -436,12 +439,16 @@ html, body {
   width: 100%;
   border-bottom: 1px solid rgb(231, 227, 235);
 }
+.add-card-header p {
+  font-size: 12px;
+  color: grey;
+}
 .add-card-title {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   align-items: flex-end;
-  font-size: 12px;
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .add-card-tag {
@@ -452,7 +459,7 @@ html, body {
   border-radius: 4px;
 }
 
-#add-card button {
+.add-card-container button {
   padding: 0;
   border: none;
   font-family: Poppins;
@@ -499,39 +506,44 @@ html, body {
   height: 40px;
 }
 
-.liquidity-card {
-  display: table;
+#liquidity-card {
+  display: block;
   margin: 0 auto;
+  margin-top: 5%;
   font-family: Poppins;
   width: 30%;
-  min-width: 350px;
+  min-width: 328px;
   height: 400px;
-  /*background-color: #00E8E7;*/
+  height: 300px;
+  z-index: 0;
+  background: #FCFCFC;
+
+  /* shadow */
   box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
   border-radius: 24px;
 }
 
-.liquidity-card button:hover {
+#liquidity-card p {
+  font-size: 12px;
+  color:  grey;
+}
+
+#liquidity-card button:hover {
   filter: brightness(60%);
 }
 
-.liquidity-card img {
+#liquidity-card img {
   display: inline-block;
 }
 
-.liquidity-card-title {
-  margin:  5%;
-  display: inline-block;
-  width: 50%;
-  font-size: 24px;
+.liquidity-card-container {
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  padding: 2%;
 }
 
-.liquidity-card-header {
-  display: inline-block;
-  width: 100%;
-}
-
-.liquidity-card button {
+.liquidity-card-container button {
   padding: 0;
   border: none;
   font-family: Poppins;
@@ -540,6 +552,26 @@ html, body {
   background: #00E8E7;
   border-radius: 16px;
 }
+
+.liquidity-card-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: Poppins;
+}
+
+.liquidity-card-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid rgb(231, 227, 235);
+}
+
+
+
 
 .farm-liquidity-connect-btn {
   display: inline-block;
