@@ -885,6 +885,7 @@ html, body {
 #swap-card p {
   color: #6F767E;
   font-family: Poppins;
+  font-size: 14px;
 }
 
 
@@ -994,12 +995,13 @@ html, body {
   width: 100%;
   border-bottom: 1px solid rgb(231, 227, 235);
 }
+
 .swap-card-title {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   align-items: flex-end;
-  font-size: 12px;
-  font-weight: bold;
+  font-size: 20px;
+  font-weight: 600;
 }
 
 .swap-card-tag {
