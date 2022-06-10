@@ -1,23 +1,5 @@
 function tokenAChanged() {
 
-  $(document).ready(function  () {
-    $('.swap-tokens-btn').hover(function () {
-        $(this).find('img').attr('src', function (i, src) {
-            return src.replace('images/swap/arrow.svg', 'images/swap/arrows.svg')
-        })
-    }, function () {
-        $(this).find('img').attr('src', function (i, src) {
-            return src.replace('images/swap/arrows.svg', 'images/swap/arrow.svg')
-        })
-    })
-
-    $('.swap-tokens-btn').click(function() {
-      // TODO 
-        // - abstract away logic for token a/b swapping
-        // change the actual text of dropdowns to display the new tokens
-    })
-  })
-
   $("#approve-swap").show()
   $("#confirm-swap").hide()
 
@@ -47,6 +29,27 @@ function swapConnectInit() {
 }
 
 function swapInit() {
+
+  $('.swap-tokens-btn').hover(function () {
+      $(this).find('img').attr('src', function (i, src) {
+          return src.replace('images/swap/arrow.svg', 'images/swap/arrows.svg')
+      })
+  }, function () {
+      $(this).find('img').attr('src', function (i, src) {
+          return src.replace('images/swap/arrows.svg', 'images/swap/arrow.svg')
+      })
+  })
+
+  // Switch tokens (instead of selling A for B, you set to sell B for A)
+  $('.swap-tokens-btn').click(function() {
+    let tokenA = $('#display-token-A').text().trim()
+    let tokenB = $('#display-token-B').text().trim()
+    $('#display-token-A').html(`<div class="token-select"><img width="20" src="/images/coins/${tokenB.toLowerCase()}.png"></img> ${tokenB}</div><span class="caret"></span>`);
+    $('#display-token-B').html(`<div class="token-select"><img width="20" src="/images/coins/${tokenA.toLowerCase()}.png"></img> ${tokenA}</div><span class="caret"></span>`);
+    getQuote();
+    tokenAChanged();
+  })
+
   var changeToken = "A";
   // set default deadline (min) val to 20
   document.getElementById('deadline').value = DEADLINE_MIN;
@@ -274,6 +277,7 @@ function getQuote () {
       tokenBAmount /= 10**18
       $('#input-B').val(tokenBAmount)
     })
+    .catch((e) => console.error(e))
 }
 
 function swap () {
