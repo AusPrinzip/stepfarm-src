@@ -59,8 +59,9 @@ html, body {
 }
 
 .navbar-price {
-  vertical-align: middle
   color: black;
+  pointer-events: none;
+  cursor: default;
 }
 
 .start-description {
