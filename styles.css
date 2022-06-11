@@ -58,6 +58,9 @@ html, body {
   cursor: pointer;
 }
 
+.navbar-right img {
+  width: 25px;
+}
 .navbar-price {
   color: black;
   pointer-events: none;
@@ -1118,7 +1121,7 @@ html, body {
 }
 .navbar-header {
   font-family: Hurme;
-  height: 120px !important;
+  height: 110px !important;
   background-color: #37E4E5;
 }
 
