@@ -114,7 +114,7 @@ html, body {
 
 @media (min-width: 320px) {  
   h1 {font-size:1.3rem; } 
-  p { font-size: 9px; }
+  p { font-size: 16px; }
 
   .nav {
     font-size: 16px;
@@ -599,6 +599,10 @@ html, body {
   filter: brightness(60%);
 }
 
+.farm-card-container {
+  display: flex;
+}
+
 .farm-card-approve-btn {
   margin:0 auto;
   display:block;
@@ -663,20 +667,14 @@ html, body {
 }
 
 .farm-card {
-  display:inline-block;
-  margin: 2% !important;
+  display: block;
+  margin: 1%;
   background: #FCFCFC;
   /* shadow_2 */
   box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.36), 0px 2px 6px rgba(0, 0, 0, 0.24), 0px 0px 1px rgba(0, 0, 0, 0.24);
   border-radius: 20px;
 }
 
-.farm-card-separator {
-  margin: 5%;
-  height: 2px;
-  background: #EFEFEF;
-  width: 70%;
-}
 .farm-card button {
   padding: 0;
   border: none;
