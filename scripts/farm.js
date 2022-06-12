@@ -44,7 +44,7 @@ async function farmInit() {
           <div class="sk-chase-dot"></div>
         </div></center>
 
-        <div class="farm-card-stats-${pid}" style="display: none;">
+        <div class="farm-card-stats farm-card-stats-${pid}" style="display: none;">
           <p>Earn<span style="float: right;">GFT</span></p>
           <p>APR<span style="float: right;" id="farm${pid}-apr">29.5%</span></p>
           <p>TVL<span style="float: right;" id="farm${pid}-tvl">$0.00</span></p>
@@ -82,7 +82,6 @@ async function farmInit() {
         $('#farm'+pid+'-apr').text(apr+'%')
         $(`.farm-card-stats-${pid}`).show()
         $(`.spinner-${pid}`).hide()
-        console.log('bingo')
       })
     }, 100)
     
