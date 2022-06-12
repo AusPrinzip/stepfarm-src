@@ -30,13 +30,7 @@ function farmInit() {
 
         <div class="farm-card-stats">
           <p>Earn<span style="float: right;">GFT</span></p>
-        </div>
-
-        <div class="farm-card-stats">
           <p>APR<span style="float: right;" id="farm${pid}-apr">29.5%</span></p>
-        </div>
-
-        <div class="farm-card-stats">
           <p>TVL<span style="float: right;" id="farm${pid}-tvl">$0.00</span></p>
         </div>
 
@@ -127,42 +121,6 @@ function farmInit() {
           // console.log(allowance)
         })
     }, 1000)
-  }
-  
-  for (let i = 0; i < POOLS.length; i++) {
-    let pid = i
-    let name = POOLS[pid].name
-    let lpToken = POOLS[pid].lpToken
-
-  
-    let html = `
-    <div class="col-md-4">
-      <div data-pid="${pid}" data-address="${lpToken}">
-        <h2>Stake: <span id="farm${pid}-title">${name}</span></h2>
-        <h3>x<span id="farm${pid}-multiplier">1</span></h3>
-        <h3>APR: <span id="farm${pid}-apr"></span>%</h3>
-        <h3>Earn: GFT</h3>
-        <h3>Earned: <span id="farm${pid}-earned">0.000</span></h3>
-        <button class="btn btn-primary" id="farm${pid}-harvest">
-          Harvest
-        </button>
-        <button class="btn btn-primary" id="farm${pid}-approve">
-          Approve ${name}
-        </button>
-        <button class="btn btn-primary" id="farm${pid}-deposit">
-          Deposit
-        </button>
-        <button class="btn btn-primary" id="farm${pid}-withdraw">
-          Withdraw
-        </button>
-        <h3>${name} staked: <span id="farm${pid}-staked">0.000</span></h3>
-        <h3>Total liquidity: <span id="farm${pid}-liquidity">0.000</span></h3>
-      </div>
-    </div>
-    `
-  
-    
-    
   }
 }
 
