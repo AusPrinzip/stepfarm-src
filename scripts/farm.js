@@ -128,13 +128,6 @@ function farmInit() {
         })
     }, 1000)
   }
-
-  document.querySelector("#farm-getMultiplier").addEventListener("click", getMultiplier)
-  document.querySelector("#farm-setMultiplier").addEventListener("click", setMultiplier)
-  document.querySelector("#farm-poolLength").addEventListener("click", poolLength)
-  document.querySelector("#farm-poolInfo").addEventListener("click", poolInfo)
-  document.querySelector("#farm-addPair").addEventListener("click", addPair)
-  document.querySelector("#farm-setPair").addEventListener("click", setPair)
   
   for (let i = 0; i < POOLS.length; i++) {
     let pid = i
