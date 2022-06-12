@@ -1,5 +1,12 @@
 
-function farmInit() {
+function wait (ms) {
+  return new Promise((resolve) => {
+    console.log(`waiting ${ms} ms..`)
+    setTimeout(() => { resolve() }, ms)
+  })
+}
+
+async function farmInit() {
   for (let i = 0; i < POOLS.length; i++) {
     let farm = POOLS[i]
     let pid = i
@@ -28,7 +35,16 @@ function farmInit() {
           </div>
         </div>
 
-        <div class="farm-card-stats">
+        <center><div class="sk-chase spinner-${pid}">
+          <div class="sk-chase-dot"></div>
+          <div class="sk-chase-dot"></div>
+          <div class="sk-chase-dot"></div>
+          <div class="sk-chase-dot"></div>
+          <div class="sk-chase-dot"></div>
+          <div class="sk-chase-dot"></div>
+        </div></center>
+
+        <div class="farm-card-stats-${pid}" style="display: none;">
           <p>Earn<span style="float: right;">GFT</span></p>
           <p>APR<span style="float: right;" id="farm${pid}-apr">29.5%</span></p>
           <p>TVL<span style="float: right;" id="farm${pid}-tvl">$0.00</span></p>
@@ -64,6 +80,9 @@ function farmInit() {
         let apr = rewardYear / tvl
         apr = Math.round(1000*apr)/100
         $('#farm'+pid+'-apr').text(apr+'%')
+        $(`.farm-card-stats-${pid}`).show()
+        $(`.spinner-${pid}`).hide()
+        console.log('bingo')
       })
     }, 100)
     
@@ -121,6 +140,7 @@ function farmInit() {
           // console.log(allowance)
         })
     }, 1000)
+    // await wait(300)
   }
 }
 
