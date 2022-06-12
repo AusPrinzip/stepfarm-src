@@ -721,6 +721,7 @@ html, body {
 }
 
 .farm-card-header {
+  display: flex;
   margin: 5%;
   font-size: 30px;
   font-family: Poppins;
@@ -749,8 +750,7 @@ html, body {
 }
 
 #farm-card-symbol {
-  float: left;
-  height: 80px;
+  width: 20%;
 }
 
 #farm-card-display {
@@ -758,16 +758,21 @@ html, body {
 }
 
 #farm-coin-A {
-  position: relative;
-  left: 0%;
+  position: absolute;
+  left: 20px;
+  top: 30px;
   width: 35px;
+  z-index: 2;
+  margin: 5%;
 }
 
 #farm-coin-B {
-  position: relative;
-  left: -25%;
-  top: 20%;
+  position: absolute;
+  left: 0%;
+  top: 0%;
   width: 50px;
+  z-index: 1;
+  margin: 5%;
 }
 
 .farm-card-block {

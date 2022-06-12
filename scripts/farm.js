@@ -27,7 +27,7 @@ function farmInit() {
             </div>
           </div>
         </div>
-        <br /><br /><br />
+
         <div class="farm-card-stats">
           <p>Earn<span style="float: right;">GFT</span></p>
         </div>
@@ -39,8 +39,6 @@ function farmInit() {
         <div class="farm-card-stats">
           <p>TVL<span style="float: right;" id="farm${pid}-tvl">$0.00</span></p>
         </div>
-
-        
 
         <div class="farm-card-earned">
           <div class="farm-card-earned-display"><span style="color: #00E8E7;">GFT</span> EARNED</div>
@@ -58,7 +56,6 @@ function farmInit() {
             </div>
           </div>
         </div>
-
         
         <div class="farm-card-connect">
           <button class="farm-card-connect-btn" style="display: none">Connect Wallet</button>
