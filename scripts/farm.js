@@ -1,10 +1,4 @@
 
-function wait (ms) {
-  return new Promise((resolve) => {
-    console.log(`waiting ${ms} ms..`)
-    setTimeout(() => { resolve() }, ms)
-  })
-}
 
 async function farmInit() {
   for (let i = 0; i < POOLS.length; i++) {
@@ -83,7 +77,7 @@ async function farmInit() {
         $(`.farm-card-stats-${pid}`).show()
         $(`.spinner-${pid}`).hide()
       })
-    }, 100)
+    }, 100 + i * 300)
     
 
     setInterval(function() {
@@ -95,7 +89,7 @@ async function farmInit() {
       pendingGft(pid, function(err, pending) {
         $('#farm'+pid+'-earned').text(formatBalance(pending))
       })
-    }, 3000)
+    }, 3000 + i * 300)
 
     setTimeout(function() {
       document.querySelector("#farm"+pid+"-harvest").addEventListener("click", function(e) {
@@ -138,8 +132,7 @@ async function farmInit() {
           // TODO
           // console.log(allowance)
         })
-    }, 1000)
-    await wait(300)
+    }, 1000 + i * 300)
   }
 }
 
