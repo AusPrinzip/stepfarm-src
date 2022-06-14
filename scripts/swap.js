@@ -309,6 +309,7 @@ function swap () {
       from: selectedAccount
     })
     .then(function(res) {
+      tokenAChanged()
       console.log(res)
     })
 }

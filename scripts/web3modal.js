@@ -228,7 +228,7 @@ async function onDisconnect() {
   // Set the UI back to the initial state
 
   if (window.location.hash == "#swap") {
-    document.querySelector("#prepare").style.display = "block";
+    // document.querySelector("#prepare").style.display = "block";
     document.querySelector("#connected").style.display = "none";
   }
   $('#wallet-dropdown').hide();
