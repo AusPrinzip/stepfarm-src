@@ -5,6 +5,12 @@ html, body {
   font-size:16px;
 }
 
+.price-mobile {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+}
+
 .wallet {
   display: flex;
   font-size: 24px !important;

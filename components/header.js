@@ -16,7 +16,9 @@ class Header extends HTMLElement {
               <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="/#"><img src="images/logo/logo.svg"></img></a>
+            <span class="price-mobile" id="gft-price">1 GFT = ? USDC</span>
           </div>
+
 
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -35,8 +37,7 @@ class Header extends HTMLElement {
             </ul>
             
 
-            <ul class="nav navbar-nav navbar-right navbar-nav-vertical-aligned">
-              <li><a class="navbar-price" id="gft-price" href="#"></a></li>
+            <ul class="nav navbar-nav navbar-right">
               <li><a class="hidden-xs" href="https://discord.gg/gC72KwH4Gp"><img src="images/navbar-icons/discord.svg"></img></a></li>
               <li><a class="hidden-xs" href="#"><img src="images/navbar-icons/medium.svg"></img></a></li>
               <li><a class="hidden-xs" href="https://twitter.com/StepFarm" target="_blank"><img src="images/nav-twitter.svg"></img></a></li>
