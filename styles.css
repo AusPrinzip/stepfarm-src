@@ -120,7 +120,7 @@ html, body {
 
 @media (min-width: 320px) {  
   h1 {font-size:1.3rem; } 
-  p { font-size: 16px; }
+  p { font-size: 14px; }
 
   .nav {
     font-size: 16px;
