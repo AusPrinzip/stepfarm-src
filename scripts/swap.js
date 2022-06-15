@@ -281,6 +281,7 @@ function getQuote () {
 }
 
 function swap () {
+  $('#body-overlay').show()
   let tokenA = $('#display-token-A').text().trim()
   let tokenAAddress = TOKENS[tokenA]
   let tokenAAmount = BigInt($('#input-A').val() * 10**18)
@@ -310,7 +311,12 @@ function swap () {
     })
     .then(function(res) {
       tokenAChanged()
+      $('#body-overlay').hide()
       console.log(res)
+    })
+    .catch((e) => {
+      $('#body-overlay').hide()
+      console.error(e)
     })
 }
 

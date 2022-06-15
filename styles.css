@@ -917,7 +917,6 @@ html, body {
   font-family: Poppins;
   width: 30%;
   min-width: 328px;
-  height: 400px;
   height: auto;
   z-index: 0;
   background: #FCFCFC;
@@ -925,6 +924,25 @@ html, body {
   /* shadow */
   box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
   border-radius: 24px;
+}
+
+#body-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: none;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.overlay-spinner {
+  position: absolute;
+  left: 49%;
+  top: 40%;
+  --sk-color: white;
+  --sk-size: 60px;
 }
 
 #swap-card p {
