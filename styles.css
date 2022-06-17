@@ -121,7 +121,9 @@ html, body {
 @media (min-width: 320px) {  
   h1 {font-size:1.3rem; } 
   p { font-size: 14px; }
-
+  #settings {
+    width: 300px;
+  }
   .nav {
     font-size: 16px;
   }
@@ -268,7 +270,9 @@ html, body {
   .navbar-collapse {
     background-color: #37E4E5;
   }
-
+  #settings {
+    width: 451px;
+  }
   .stats-row {
     margin: 0;
     display: inline-block;
@@ -868,22 +872,16 @@ html, body {
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 50%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button */
 .closeModal {
   color: #aaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
+  width: 40px;
+  height: 40px;
+  background: #EFEFEF;
+  border-radius: 12px;
 }
 
 .close:hover,

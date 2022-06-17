@@ -82,6 +82,33 @@ function swapInit() {
     $("#slippage-3").addClass("active");
   });
 
+  // speed selectors
+  $("#speed-1").click(function () {
+    SPEED = 5
+    
+    $("#speed-1").removeClass("active");
+    $("#speed-2").removeClass("active");
+    $("#speed-3").removeClass("active");
+    if (!CUSTOM_SLIPPAGE) $("#speed-1").addClass("active");
+  });
+
+  $("#speed-2").click(function () {
+    SPEED = 6
+    
+    $("#speed-1").removeClass("active");
+    $("#speed-2").removeClass("active");
+    $("#speed-3").removeClass("active");
+    $("#speed-2").addClass("active");
+  });
+
+  $("#speed-3").click(function () {
+    SPEED = 7
+    
+    $("#speed-1").removeClass("active");
+    $("#speed-2").removeClass("active");
+    $("#speed-3").removeClass("active");
+    $("#speed-3").addClass("active");
+  });
 
   // Settings Modal
 
@@ -99,6 +126,9 @@ function swapInit() {
   window.onclick = function(event) {
     if (event.target == document.getElementById("settingsModal")) {
       document.getElementById("settingsModal").style.display = "none";
+    }
+    if (event.target == document.getElementById("tokenModal")) {
+      document.getElementById("tokenModal").style.display = "none";
     }
   }
 
@@ -125,11 +155,6 @@ function swapInit() {
   });
   document.getElementById("closeTokenModal").onclick = function() {
     document.getElementById("tokenModal").style.display = "none";
-  }
-  window.onclick = function(event) {
-    if (event.target == document.getElementById("tokenModal")) {
-      document.getElementById("tokenModal").style.display = "none";
-    }
   }
 
   // Automatic "get quote" when user changes swap amounts in input fields
@@ -315,7 +340,7 @@ function swap () {
       console.log(res)
     })
     .catch((e) => {
-      $('#body-overlay').hide()
+      $('#body-overlay').show()
       console.error(e)
     })
 }
