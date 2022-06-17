@@ -400,6 +400,7 @@ html, body {
   font-family: Poppins;
   width: 30%;
   min-width: 328px;
+  max-width: 450px;
   height: 300px;
   z-index: 0;
   background: #FCFCFC;
@@ -527,6 +528,7 @@ html, body {
   font-family: Poppins;
   width: 30%;
   min-width: 328px;
+  max-width: 450px;
   height: 400px;
   height: 300px;
   z-index: 0;
@@ -920,6 +922,7 @@ html, body {
   font-family: Poppins;
   width: 30%;
   min-width: 328px;
+  max-width: 450px;
   height: auto;
   z-index: 0;
   background: #FCFCFC;
