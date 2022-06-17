@@ -678,6 +678,7 @@ html, body {
 
 .farm-card {
   display: block;
+  max-width: 350px;
   margin: 2%;
   background: #FCFCFC;
   /* shadow_2 */
@@ -761,6 +762,10 @@ html, body {
   width: 20%;
 }
 
+#farm-cards {
+  display: flex;
+  justify-content: center;
+}
 #farm-card-display {
   display:inline-block;
 }
