@@ -128,6 +128,12 @@ html, body {
     width: 300px;
     margin-top: 10%;
   }
+  #farm-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+  }
   .nav {
     font-size: 16px;
   }
@@ -279,6 +285,11 @@ html, body {
   }
   #tokens {
     width: 450px;
+  }
+  #farm-cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
   }
   .stats-row {
     margin: 0;
@@ -771,10 +782,6 @@ html, body {
   width: 20%;
 }
 
-#farm-cards {
-  display: flex;
-  justify-content: center;
-}
 #farm-card-display {
   display:inline-block;
 }
