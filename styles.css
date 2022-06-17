@@ -124,6 +124,10 @@ html, body {
   #settings {
     width: 300px;
   }
+  #tokens {
+    width: 300px;
+    margin-top: 10%;
+  }
   .nav {
     font-size: 16px;
   }
@@ -272,6 +276,9 @@ html, body {
   }
   #settings {
     width: 451px;
+  }
+  #tokens {
+    width: 450px;
   }
   .stats-row {
     margin: 0;
@@ -864,6 +871,8 @@ html, body {
   width: 35px;
   margin: 5px;
 }
+
+
 /* The Modal (background) */
 .modal {
   font-family: Poppins;
@@ -889,6 +898,10 @@ html, body {
   height: 40px;
   background: #EFEFEF;
   border-radius: 12px;
+}
+
+.closeModal span:hover {
+  filter: brightness(60%);
 }
 
 .close:hover,
