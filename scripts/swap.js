@@ -321,6 +321,24 @@ function swap () {
   let path = [
     tokenAAddress, tokenBAddress
   ]
+
+  // let useGftAsMiddleToken = true;
+
+  // // dont use GFT as middle token if GFT is already in the pair
+  // if (path[0] == TOKENS["GFT"] || path[1] == TOKENS["GFT"])
+  //   useGftAsMiddleToken = false;
+
+  // // dont use GFT as middle token for GMT/GST pair
+  // if (path[0] == TOKENS["GMT"] && path[1] == TOKENS["GST"])
+  //   useGftAsMiddleToken = false;
+  // if (path[0] == TOKENS["GST"] && path[1] == TOKENS["GMT"])
+  //   useGftAsMiddleToken = false;
+  
+  // if (useGftAsMiddleToken) {
+  //   path.push(path[1])
+  //   path[1] = TOKENS["GFT"]
+  // }
+
   let deadline = Math.round(new Date().getTime()/1000) + 3 * ONE_MINUTE
 
   contract
