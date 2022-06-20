@@ -1,5 +1,12 @@
 // design related JS logic
 
+function addEmail() {
+  $.post(STEPFARM_API+"/mailing", { email: email.value })
+  .done(function( data ) {
+    console.log(data)
+  });
+}
+
 function fadeColor () {
   console.log("highlighting")
   $("#start").toggle( "highlight" );
