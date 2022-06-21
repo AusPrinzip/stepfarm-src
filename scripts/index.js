@@ -7,13 +7,22 @@ function addEmail() {
   });
 }
 
+function numberWithCommas(x) {
+    return parseFloat(x).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 function fadeColor () {
   console.log("highlighting")
   $("#start").toggle( "highlight" );
   $("#start").toggle( "highlight" );
 }
 
-function indexInit() {
+async function indexInit() {
+  const { gftPrice, holders, marketcap, supply, sumTvl } = await fetch(`https://api.stepfarm.io/stats`).then(res => res.json())
+  $('#total-tvl').text(`$${numberWithCommas(sumTvl / 10e18)}`)
+  $('#supply').text(numberWithCommas(supply))
+  $('#mcap').text(`$${numberWithCommas(marketcap)}`)
+  $('#holders').text(holders)
 
   $(document).ready(function() {
     const el = $('#start')
