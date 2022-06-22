@@ -1,4 +1,4 @@
-const STEPFARM_API = "http://127.0.0.1:3002";
+const STEPFARM_API = "https://api.stepfarm.io";
 const ONE_MINUTE = 60;
 const ZEROES = '000000000000000000';
 var SLIPPAGE_TOLERANCE = 0.1;
