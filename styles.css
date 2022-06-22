@@ -183,8 +183,8 @@ html, body {
   }
 
   .stats-row {
-    padding: 0 !important;
-    margin-top: 0 !important;
+    padding: 0;
+    margin-top: 0;
     display: inline-block;
     width: 80% !important;
     height: 10vh;
@@ -201,10 +201,10 @@ html, body {
   }
 
   .stat-container {
-    position: absolute !important;
-    display: inline-block !important;
-    width: 40%;
-    left: 20%;
+    position: absolute;
+    display: inline-block;
+    width: 65%;
+    left: 17%;
   }
 
   .distance {
@@ -230,13 +230,11 @@ html, body {
   .statvalue {
     margin-top: 2%;
     font-size: 24px;
-    float: left;
     color: white;
     margin-right: 5%;
   }
 
   .stat {
-    float: right;
     margin-top: 4%;
     font-size: 12px;
   }
