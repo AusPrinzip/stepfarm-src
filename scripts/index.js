@@ -4,6 +4,7 @@ function addEmail() {
   $.post(STEPFARM_API+"/mailing", { email: email.value })
   .done(function( data ) {
     console.log(data)
+    alert(data)
   });
 }
 
