@@ -18,12 +18,15 @@ function fadeColor () {
   $("#start").toggle( "highlight" );
 }
 
-async function indexInit() {
-  const { gftPrice, holders, marketcap, supply, sumTvl } = await fetch(`https://api.stepfarm.io/stats`).then(res => res.json())
-  $('#total-tvl').text(`$${numberWithCommas(sumTvl / 10e18)}`)
-  $('#supply').text(numberWithCommas(supply))
-  $('#mcap').text(`$${numberWithCommas(marketcap)}`)
-  $('#holders').text(holders)
+function indexInit() {
+  fetch(`https://api.stepfarm.io/stats`).then(res => res.json())
+  .then(result => {
+    $('#total-tvl').text(`$${numberWithCommas(result.sumTvl / 10e18)}`)
+    $('#supply').text(numberWithCommas(result.supply))
+    $('#mcap').text(`$${numberWithCommas(result.marketcap)}`)
+    $('#holders').text(result.holders)
+  })
+  .catch(e => alert("API error, contact devs"))
 
   $(document).ready(function() {
     const el = $('#start')
