@@ -1,5 +1,5 @@
 function tokenAChanged() {
-
+  
   $("#approve-swap").show()
   $("#confirm-swap").hide()
 

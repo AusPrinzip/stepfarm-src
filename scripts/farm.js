@@ -1,4 +1,21 @@
 
+function farmConnectInit () {
+  if (selectedAccount)
+    for (let i = 0; i < POOLS.length; i++) {
+      let pid = i
+      getAllowance(POOLS[pid].lpToken, selectedAccount, ADDRESS_MASTERCHEF, function(err, allowance) {
+        // TODO
+        if (allowance > 0) {
+          $("#farm"+pid+"-approve").hide()
+          $(`#farm${pid}-deposit`).show()
+          $(`#farm${pid}-withdraw`).show()
+        } else {
+          $(`#farm${pid}-deposit`).hide()
+          $(`#farm${pid}-withdraw`).hide()
+        }
+      })
+    }
+}
 
 async function farmInit() {
   for (let i = 0; i < POOLS.length; i++) {
@@ -126,12 +143,6 @@ async function farmInit() {
           console.log(err, res)
         })
       })
-    
-      if (selectedAccount)
-        getAllowance(POOLS[pid].lpToken, selectedAccount, ADDRESS_MASTERCHEF, function(err, allowance) {
-          // TODO
-          // console.log(allowance)
-        })
     }, 1000 + i * 300)
   }
 }
