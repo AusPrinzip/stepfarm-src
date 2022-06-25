@@ -1,3 +1,6 @@
+
+const CHAIN_NAME = "Binance Smart Chain Mainnet";
+const PUBLIC_NODE_URL = "https://bsc-dataseed.binance.org/";
 const STEPFARM_API = "https://api.stepfarm.io";
 const ONE_MINUTE = 60;
 const ZEROES = '000000000000000000';

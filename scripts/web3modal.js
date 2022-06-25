@@ -110,7 +110,7 @@ async function fetchAccountData() {
   const chainData = evmChains.getChain(chainId);
   
   // Alert if wrong chain
-  if (chainData.name !== "Binance Smart Chain Mainnet") {
+  if (chainData.name !== CHAIN_NAME) {
     alert("Wrong chain")
   }
 
