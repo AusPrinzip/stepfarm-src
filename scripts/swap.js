@@ -244,6 +244,18 @@ function setFeeTo () {
     })
 }
 
+function setFeeToSetter () {
+  let treasury = prompt("Please enter fee setter address", "0x0000000000000000000000000000000000000000")
+  let web3 = new Web3(provider)
+  let contract = new web3.eth.Contract(ABI_FACTORY, ADDRESS_FACTORY)
+  contract
+    .methods
+    .setFeeToSetter(treasury)
+    .send({
+      from: selectedAccount
+    })
+}
+
 function addLiquidity (tokenA, tokenB, amountA, amountB, cb) {
   let web3 = new Web3(provider)
   let contract = new web3.eth.Contract(ABI_ROUTER, ADDRESS_ROUTER)

@@ -1,10 +1,14 @@
 // dweb3 = new Web3('http://127.0.0.1:8545/')
-dweb3 = new Web3('https://data-seed-prebsc-1-s1.binance.org:8545/')
+dweb3 = new Web3('https://bsc-dataseed.binance.org/')
 
 dweb3.eth.getChainId().then(r => console.log('chain id: '+r))
 
-function formatBalance(bal, decimals = 4) {
-  let first = 18-decimals
+function formatBalance(bal, decimals = 4, token = null) {
+  let tokenDecimals = 18
+  if (token != null)
+    tokenDecimals = TOKENDECIMALS[token]
+  
+  let first = tokenDecimals-decimals
   return Math.round(bal/Math.pow(10,first))/Math.pow(10,decimals)
 }
 

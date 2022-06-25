@@ -13,11 +13,9 @@ class Tokens extends HTMLElement {
           <h2>Select a Token</h2>
           <div class="modal-body">
             <div class="list-group">
-              <button type="button" value="GFT" class="list-group-item token-element"><img src="/images/coins/gft.png"></img>GFT
+              <button type="button" value="GMT" class="list-group-item token-element"><img src="/images/coins/gmt.png"></img>GMT
               </button>
-              <button type="button" value="USDT" class="list-group-item token-element"><img src="/images/coins/usdt.png"></img>USDT
-              </button>
-              <button type="button" value="USDC" class="list-group-item token-element"><img src="/images/coins/usdc.png"></img>USDC
+              <button type="button" value="GST" class="list-group-item token-element"><img src="/images/coins/gst.png"></img>GST
               </button>
             </div>
           </div>

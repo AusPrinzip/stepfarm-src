@@ -59,7 +59,7 @@ function addInit() {
     let token = TOKENS[$('#display-token-A').text().trim()]
     if (!token || token == null) return
     getBalance(token, function(err, bal) {
-      $('#balance-token-A').text(formatBalance(bal))
+      $('#balance-token-A').text(formatBalance(bal,4,$('#display-token-A').text().trim()))
       $('#balance-token-A').attr('data-bal', bal)
     })
   }, 3000)
@@ -68,7 +68,7 @@ function addInit() {
     let token = TOKENS[$('#display-token-B').text().trim()]
     if (!token || token == null) return
     getBalance(token, function(err, bal) {
-      $('#balance-token-B').text(formatBalance(bal))
+      $('#balance-token-B').text(formatBalance(bal,4,$('#display-token-B').text().trim()))
       $('#balance-token-B').attr('data-bal', bal)
     })
   }, 3000)
@@ -86,8 +86,8 @@ function addInit() {
   document.querySelector(".add-card-add-btn").addEventListener("click", function() {
     let tokenA = TOKENS[$('#display-token-A').text().trim()]
     let tokenB = TOKENS[$('#display-token-B').text().trim()]
-    let amountA = $('#input-A').val() * Math.pow(10, 18)
-    let amountB = $('#input-B').val() * Math.pow(10, 18)
+    let amountA = $('#input-A').val() * Math.pow(10, TOKENDECIMALS[$('#display-token-A').text().trim()])
+    let amountB = $('#input-B').val() * Math.pow(10, TOKENDECIMALS[$('#display-token-B').text().trim()])
     addLiquidity(tokenA, tokenB, amountA, amountB, function(err, res) {
       console.log(err, res)
     })
