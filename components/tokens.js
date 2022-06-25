@@ -4,6 +4,12 @@ class Tokens extends HTMLElement {
   }
 
   connectedCallback () {
+    let buttonsHTML = '';
+    for (let token in TOKENS) {
+      // const token = TOKENS[i];
+      buttonsHTML += `<button type="button" value="${token}" class="list-group-item token-element"><img src="/images/coins/${token}.png"></img>${token}
+              </button>`
+    }
     this.innerHTML = `
       <center>
       <div id="tokenModal" class="modal">
@@ -13,10 +19,7 @@ class Tokens extends HTMLElement {
           <h2>Select a Token</h2>
           <div class="modal-body">
             <div class="list-group">
-              <button type="button" value="GMT" class="list-group-item token-element"><img src="/images/coins/gmt.png"></img>GMT
-              </button>
-              <button type="button" value="GST" class="list-group-item token-element"><img src="/images/coins/gst.png"></img>GST
-              </button>
+              ${buttonsHTML}
             </div>
           </div>
         </div>

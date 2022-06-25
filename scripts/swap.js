@@ -30,6 +30,26 @@ function swapConnectInit() {
 
 function swapInit() {
 
+  const tokenA = Object.keys(TOKENS)[0];
+  const tokenB = Object.keys(TOKENS)[1];
+
+  $("#swap-card-container-A").html(
+   `<button class="btn btn-default dropdown-toggle swap-card-token-btn" type="button" id="token-select-A" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      <div id="display-token-A">
+        <img width="20" src="/images/coins/${tokenA}.png"></img>${tokenA}<span class="caret"></span>
+      </div>
+    </button>
+    <input id="input-A" value="0" type="number" style="float:right; width: 70%;" class="swap-card-balance"></input>`
+  )
+  $("#swap-card-container-B").html(
+   `<button class="btn btn-default dropdown-toggle swap-card-token-btn" type="button" id="token-select-B" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      <div id="display-token-B">
+        <img width="20" src="/images/coins/${tokenB}.png"></img>${tokenB}<span class="caret"></span>
+      </div>
+    </button>
+    <input id="input-B" value="0" type="number" style="float:right; width: 70%;" class="swap-card-balance"></input>`
+  )
+
   $('.swap-tokens-btn').hover(function () {
       $(this).find('img').attr('src', function (i, src) {
           return src.replace('images/swap/arrow.svg', 'images/swap/arrows.svg')
