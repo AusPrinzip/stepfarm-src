@@ -38,27 +38,7 @@ let selectedAccount;
 /**
  * Setup the orchestra
  */
-function init() {
-
-  // console.log("Initializing example");
-  // console.log("WalletConnectProvider is", WalletConnectProvider);
-  // console.log("Fortmatic is", Fortmatic);
-  // console.log("window.web3 is", window.web3, "window.ethereum is", window.ethereum);
-
-  // Check that the web page is run in a secure context,
-  // as otherwise MetaMask won't be available
-
-  // if(location.protocol !== 'https:') {
-  //   // https://ethereum.stackexchange.com/a/62217/620
-  //   const alert = document.querySelector("#alert-error-https");
-  //   alert.style.display = "block";
-  //   document.querySelector("#btn-connect").setAttribute("disabled", "disabled")
-  //   return;
-  // }
-
-  // Tell Web3modal what providers we have available.
-  // Built-in web browser provider (only one can exist as a time)
-  // like MetaMask, Brave or Opera is added automatically by Web3modal
+async function init() {    
   const providerOptions = {
     metamask: {
 
@@ -92,18 +72,6 @@ function init() {
         return provider;
       }
     }
-
-    // fortmatic: {
-    //   package: Fortmatic,
-    //   options: {
-    //     // Mikko's TESTNET api key
-    //     key: "pk_test_391E26A3B43A3350"
-    //   }
-    // },
-
-    // torus: {
-    //   package: Torus, // required
-    // }
   };
 
   web3Modal = new Web3Modal({
@@ -112,7 +80,12 @@ function init() {
     disableInjectedProvider: false, // optional. For MetaMask / Brave / Opera.
   });
 
-  // console.log("Web3Modal instance is", web3Modal);
+  if (web3Modal.cachedProvider) {
+    provider = await web3Modal.connect();
+    $('#btn-connect').hide();
+    $('#wallet-dropdown').show();
+    await refreshAccountData();
+  }
 }
 
 
@@ -231,20 +204,10 @@ async function onConnect() {
  * Disconnect wallet button pressed.
  */
 async function onDisconnect() {
-
-  // console.log("Killing the wallet connection", provider);
-
-  // TODO: Which providers have close method?
-  if(provider.close) {
+  if (provider.close)
     await provider.close();
-
-    // If the cached provider is not cleared,
-    // WalletConnect will default to the existing session
-    // and does not allow to re-scan the QR code with a new wallet.
-    // Depending on your use case you may want or want not his behavir.
-    await web3Modal.clearCachedProvider();
-    provider = null;
-  }
+  await web3Modal.clearCachedProvider();
+  provider = null;
 
   selectedAccount = null;
 
