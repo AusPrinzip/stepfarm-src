@@ -7,7 +7,7 @@ class Tokens extends HTMLElement {
     let buttonsHTML = '';
     for (let token in TOKENS) {
       // const token = TOKENS[i];
-      buttonsHTML += `<button type="button" value="${token}" class="list-group-item token-element"><img src="/images/coins/${token}.png"></img>${token}
+      buttonsHTML += `<button type="button" value="${token}" class="list-group-item token-element"><img src="/images/coins/${token.toLowerCase()}.png"></img>${token}
               </button>`
     }
     this.innerHTML = `

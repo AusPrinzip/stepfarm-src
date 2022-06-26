@@ -36,7 +36,7 @@ function swapInit() {
   $("#swap-card-container-A").html(
    `<button class="btn btn-default dropdown-toggle swap-card-token-btn" type="button" id="token-select-A" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
       <div id="display-token-A">
-        <img width="20" src="/images/coins/${tokenA}.png"></img>${tokenA}<span class="caret"></span>
+        <img width="20" src="/images/coins/${tokenA.toLowerCase()}.png"></img>${tokenA}<span class="caret"></span>
       </div>
     </button>
     <input id="input-A" value="0" type="number" style="float:right; width: 70%;" class="swap-card-balance"></input>`
@@ -44,7 +44,7 @@ function swapInit() {
   $("#swap-card-container-B").html(
    `<button class="btn btn-default dropdown-toggle swap-card-token-btn" type="button" id="token-select-B" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
       <div id="display-token-B">
-        <img width="20" src="/images/coins/${tokenB}.png"></img>${tokenB}<span class="caret"></span>
+        <img width="20" src="/images/coins/${tokenB.toLowerCase()}.png"></img>${tokenB}<span class="caret"></span>
       </div>
     </button>
     <input id="input-B" value="0" type="number" style="float:right; width: 70%;" class="swap-card-balance"></input>`
