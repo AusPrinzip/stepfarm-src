@@ -70,22 +70,44 @@ function init() {
         infuraId: "8043bb2cf99347b1bfadfb233c5325c0",
       }
     },
-
-    fortmatic: {
-      package: Fortmatic,
-      options: {
-        // Mikko's TESTNET api key
-        key: "pk_test_391E26A3B43A3350"
+    "custom-binancechainwallet": {
+      display: {
+        logo: "images/logo/binance-chain-wallet.png",
+        name: "Binance Chain Wallet",
+        description: "Connect to your Binance Chain Wallet"
+      },
+      package: true,
+      connector: async () => {
+        let provider = null;
+        if (typeof window.BinanceChain !== 'undefined') {
+          provider = window.BinanceChain;
+          try {
+            await provider.request({ method: 'eth_requestAccounts' })
+          } catch (error) {
+            throw new Error("User Rejected");
+          }
+        } else {
+          throw new Error("No Binance Chain Wallet found");
+        }
+        return provider;
       }
-    },
-
-    torus: {
-      package: Torus, // required
     }
+
+    // fortmatic: {
+    //   package: Fortmatic,
+    //   options: {
+    //     // Mikko's TESTNET api key
+    //     key: "pk_test_391E26A3B43A3350"
+    //   }
+    // },
+
+    // torus: {
+    //   package: Torus, // required
+    // }
   };
 
   web3Modal = new Web3Modal({
-    cacheProvider: false, // optional
+    cacheProvider: true, // optional
     providerOptions, // required
     disableInjectedProvider: false, // optional. For MetaMask / Brave / Opera.
   });
