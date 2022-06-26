@@ -29,9 +29,8 @@ function swapConnectInit() {
 }
 
 function swapInit() {
-
-  const tokenA = Object.keys(TOKENS)[0];
-  const tokenB = Object.keys(TOKENS)[1];
+  let tokenA = Object.keys(TOKENS)[0];
+  let tokenB = Object.keys(TOKENS)[1];
 
   $("#swap-card-container-A").html(
    `<button class="btn btn-default dropdown-toggle swap-card-token-btn" type="button" id="token-select-A" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
