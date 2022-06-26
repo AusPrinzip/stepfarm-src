@@ -13,7 +13,7 @@ function tokenAChanged() {
   
   getBalance(tokenAAddress, function(err, bal) {
     $('#token-balance-A').attr('data-bal', bal)
-    $('#token-balance-A').text(formatBalance(bal))
+    $('#token-balance-A').text(formatBalance(bal, 4, $('#display-token-A').text().trim()))
   })
 
   getAllowance(tokenAAddress, selectedAccount, ADDRESS_ROUTER, function(err, allow) {
@@ -191,7 +191,8 @@ function swapInit() {
   })
 
   $("#maxTrade").click(function() {
-    $("#input-A").val($("#token-balance-A").data('bal') / Math.pow(10,18))
+    let tokenDecimals = TOKENDECIMALS[$('#display-token-A').text().trim()]
+    $("#input-A").val($("#token-balance-A").data('bal') / Math.pow(10,tokenDecimals))
     getQuote();
   })
 
@@ -312,10 +313,11 @@ function getQuote () {
   let tokenB = $('#display-token-B').text().trim()
   console.log($('#input-A').val(), tokenA, tokenB)
   let tokenAAddress = TOKENS[tokenA]
-  let tokenAAmount = BigInt($('#input-A').val() * 10**18)
+  let tokenADecimals = TOKENDECIMALS[tokenA]
+  let tokenAAmount = BigInt($('#input-A').val() * 10**tokenADecimals)
 
-  // let tokenB = $('#tokenB-select').val()
   let tokenBAddress = TOKENS[tokenB]
+  let tokenBDecimals = TOKENDECIMALS[tokenB]
 
   let contract = new dweb3.eth.Contract(ABI_ROUTER, ADDRESS_ROUTER)
   
@@ -330,7 +332,7 @@ function getQuote () {
     .then(function(res) {
       console.log(res)
       let tokenBAmount = BigInt(res[1]).toString()
-      tokenBAmount /= 10**18
+      tokenBAmount /= 10**tokenBDecimals
       $('#input-B').val(tokenBAmount)
     })
     .catch((e) => console.error(e))
@@ -340,11 +342,13 @@ function swap () {
   $('#body-overlay').show()
   let tokenA = $('#display-token-A').text().trim()
   let tokenAAddress = TOKENS[tokenA]
-  let tokenAAmount = BigInt($('#input-A').val() * 10**18)
+  let tokenADecimals = TOKENDECIMALS[tokenA]
+  let tokenAAmount = BigInt($('#input-A').val() * 10**tokenADecimals)
 
   let tokenB = $('#display-token-B').text().trim()
   let tokenBAddress = TOKENS[tokenB]
-  let tokenBAmount = BigInt($('#input-B').val() * 10**18 * (1-SLIPPAGE_TOLERANCE))
+  let tokenBDecimals = TOKENDECIMALS[tokenB]
+  let tokenBAmount = BigInt(Math.floor($('#input-B').val() * 10**tokenBDecimals * (1-SLIPPAGE_TOLERANCE)))
 
   let web3 = new Web3(provider)
   let contract = new web3.eth.Contract(ABI_ROUTER, ADDRESS_ROUTER)
