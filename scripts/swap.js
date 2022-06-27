@@ -29,6 +29,7 @@ function swapConnectInit() {
 }
 
 function swapInit() {
+  swapRateInverted = false;
   let tokenA = Object.keys(TOKENS)[0];
   let tokenB = Object.keys(TOKENS)[1];
 
@@ -196,6 +197,11 @@ function swapInit() {
     getQuote();
   })
 
+  $('#swap-rate-invert').click(function() {
+    swapRateInverted = !swapRateInverted
+    getQuote();
+  })
+
   tokenAChanged()
 
   document.querySelector("#approve-swap").addEventListener("click", function() {
@@ -334,6 +340,18 @@ function getQuote () {
       let tokenBAmount = BigInt(res[1]).toString()
       tokenBAmount /= 10**tokenBDecimals
       $('#input-B').val(tokenBAmount)
+      let html = ''
+      if (swapRateInverted) {
+        html += Math.round((res[0] / res[1]) * 10**4) / 10**4
+        html += ' '+$('#display-token-A').text().trim()
+        html += ' per '+$('#display-token-B').text().trim()
+      } else {
+        html += Math.round((res[1] / res[0]) * 10**4) / 10**4
+        html += ' '+$('#display-token-B').text().trim()
+        html += ' per '+$('#display-token-A').text().trim()
+      }
+      $('#swap-rate').html(html)
+      $('.swap-exchange').show()
     })
     .catch((e) => console.error(e))
 }
