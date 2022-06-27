@@ -80,12 +80,8 @@ async function init() {
     disableInjectedProvider: false, // optional. For MetaMask / Brave / Opera.
   });
 
-  if (web3Modal.cachedProvider) {
-    provider = await web3Modal.connect();
-    $('#btn-connect').hide();
-    $('#wallet-dropdown').show();
-    await refreshAccountData();
-  }
+  if (web3Modal.cachedProvider)
+    onConnect(true)
 }
 
 
@@ -170,8 +166,9 @@ async function refreshAccountData() {
 /**
  * Connect wallet button pressed.
  */
-async function onConnect() {
-  web3Modal.clearCachedProvider(); // IMPORTANT on Chrome BRowser otherwise it will just ignore optional wallets and load metamask right away
+async function onConnect(cached = false) {
+  if (!cached)
+    web3Modal.clearCachedProvider(); // IMPORTANT on Chrome BRowser otherwise it will just ignore optional wallets and load metamask right away
   // console.log("Opening a dialog", web3Modal);
   try {
     provider = await web3Modal.connect();
