@@ -47,7 +47,7 @@ function swapInit() {
         <img width="20" src="/images/coins/${tokenB.toLowerCase()}.png"></img>${tokenB}<span class="caret"></span>
       </div>
     </button>
-    <input id="input-B" value="0" type="number" style="float:right; width: 70%;" class="swap-card-balance"></input>`
+    <input disabled id="input-B" value="0" type="number" style="float:right; width: 70%;" class="swap-card-balance"></input>`
   )
 
   $('.swap-tokens-btn').hover(function () {
