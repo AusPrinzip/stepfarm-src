@@ -229,5 +229,8 @@ window.addEventListener('load', async () => {
   init();
   document.querySelector("#btn-connect").addEventListener("click", onConnect);
   document.querySelector("#btn-disconnect").addEventListener("click", onDisconnect);
+  document.querySelector("#btn-bscscan").addEventListener("click", function() {
+    window.open("https://bscscan.com/address/"+selectedAccount, '_blank').focus();
+  });
 });
 

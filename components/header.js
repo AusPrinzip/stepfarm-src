@@ -45,10 +45,8 @@ class Header extends HTMLElement {
               <li class="dropdown" id="wallet-dropdown" style="display: none;">
                 <div id="wallet" class="connect-wallet-btn wallet"></div>
                 <ul class="dropdown-menu clearfix wallet-dropdown" role="menu">
-                  <li class="wallet-dropdown-el"><a id="btn-disconnect">DISCONNECT</a></li>
-                  <li class="wallet-dropdown-el"><a>OPTION B</a></li>
-                  <li class="wallet-dropdown-el"><a>OPTION C</a></li>
-                  <li class="wallet-dropdown-el"><a>OPTION D</a></li>
+                  <li class="wallet-dropdown-el"><a id="btn-disconnect">Disconnect</a></li>
+                  <li class="wallet-dropdown-el"><a id="btn-bscscan">See on BscScan</a></li>
                 </ul>
                 </li>
             </ul>
