@@ -12,6 +12,7 @@ function farmConnectInit () {
         } else {
           $(`#farm${pid}-deposit`).hide()
           $(`#farm${pid}-withdraw`).hide()
+          $("#farm"+pid+"-approve").show()
         }
       })
     }
@@ -72,8 +73,8 @@ async function farmInit() {
             <h3 id="farm${pid}-staked">0.000</h3>
             <div class="farm-card-actions">
               <button class="farm-card-approve-btn" id="farm${pid}-approve">Approve ${depositAsset}</button>
-              <button class="farm-card-deposit-btn" id="farm${pid}-deposit">Deposit</button>
-              <button class="farm-card-withdraw-btn" id="farm${pid}-withdraw">Withdraw</button>
+              <button class="farm-card-deposit-btn" style="display: none" id="farm${pid}-deposit">Deposit</button>
+              <button class="farm-card-withdraw-btn" style="display: none" id="farm${pid}-withdraw">Withdraw</button>
             </div>
           </div>
         </div>
