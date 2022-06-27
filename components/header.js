@@ -26,6 +26,7 @@ class Header extends HTMLElement {
               <li><a href="/#swap">SWAP</a></li>
               <li><a href="/#farm">FARM</a></li>
               <li><a href="/#liquidity">LIQUIDITY</a></li>
+              <li><a href="https://stepfarm.gitbook.io/stepfarm" target="_blank">DOCS</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle hidden-sm hidden-md hidden-bg hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SOCIAL MEDIA <span class="caret"></span></a>
                 <ul class="dropdown-menu">
