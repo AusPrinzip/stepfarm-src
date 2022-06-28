@@ -139,6 +139,7 @@ async function farmInit() {
       })
     
       document.querySelector("#farm"+pid+"-approve").addEventListener("click", function(e) {
+        if (!selectedAccount) return onConnect()
         let pid = $(this).parent().parent().parent().parent().data('pid')
         approveToken(POOLS[pid].lpToken, ADDRESS_MASTERCHEF, function(err, res) {
           console.log(err, res)
@@ -280,6 +281,7 @@ function leaveStaking() {
 }
 
 function harvestStaking() {
+  if (!selectedAccount) return onConnect()
   let web3 = new Web3(provider)
   let contract = new web3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
   contract

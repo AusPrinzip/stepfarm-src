@@ -51,6 +51,10 @@ function liquidityConnectInit() {
 
 function liquidityInit() {
   if (selectedAccount) liquidityConnectInit()
+  document.querySelector(".farm-liquidity-connect-btn").addEventListener("click", function(e) {
+    if (!selectedAccount) return onConnect()
+    window.location.href='/#add'
+  })
 }
 
 

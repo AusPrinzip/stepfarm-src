@@ -207,6 +207,7 @@ function swapInit() {
   tokenAChanged()
 
   document.querySelector("#approve-swap").addEventListener("click", function() {
+    if (!selectedAccount) return onConnect()
     let tokenA = $('#display-token-A').text().trim()
     let tokenAddress = TOKENS[tokenA]
     approveToken(tokenAddress, ADDRESS_ROUTER, function(err, res) {
