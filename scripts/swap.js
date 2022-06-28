@@ -12,7 +12,7 @@ function tokenAChanged() {
   if (!selectedAccount) return
   
   getBalance(tokenAAddress, function(err, bal) {
-    $('#token-balance-A').attr('data-bal', bal)
+    $('#token-balance-A').data('data-bal', bal)
     $('#token-balance-A').text(formatBalance(bal, 4, $('#display-token-A').text().trim()))
   })
 
@@ -193,7 +193,9 @@ function swapInit() {
 
   $("#maxTrade").click(function() {
     let tokenDecimals = TOKENDECIMALS[$('#display-token-A').text().trim()]
-    $("#input-A").val($("#token-balance-A").data('bal') / Math.pow(10,tokenDecimals))
+    const maxTrade = $("#token-balance-A").data('data-bal') / Math.pow(10,tokenDecimals)
+    console.log(`maxtrade = ${maxTrade}`)
+    $("#input-A").val(maxTrade)
     getQuote();
   })
 
