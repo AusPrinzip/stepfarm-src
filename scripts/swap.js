@@ -194,7 +194,6 @@ function swapInit() {
   $("#maxTrade").click(function() {
     let tokenDecimals = TOKENDECIMALS[$('#display-token-A').text().trim()]
     const maxTrade = $("#token-balance-A").data('data-bal') / Math.pow(10,tokenDecimals)
-    console.log(`maxtrade = ${maxTrade}`)
     $("#input-A").val(maxTrade)
     getQuote();
   })
@@ -323,8 +322,7 @@ function getQuote () {
   console.log($('#input-A').val(), tokenA, tokenB)
   let tokenAAddress = TOKENS[tokenA]
   let tokenADecimals = TOKENDECIMALS[tokenA]
-  let tokenAAmount = BigInt($('#input-A').val() * 10**tokenADecimals)
-
+  let tokenAAmount = BigInt(Math.round($('#input-A').val() * 10**tokenADecimals))
   let tokenBAddress = TOKENS[tokenB]
   let tokenBDecimals = TOKENDECIMALS[tokenB]
 
