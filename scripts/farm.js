@@ -1,5 +1,5 @@
 
-function farmConnectInit () {
+function checkCardsApproval () {
   if (selectedAccount)
     for (let i = 0; i < POOLS.length; i++) {
       let pid = i
@@ -16,6 +16,10 @@ function farmConnectInit () {
         }
       })
     }
+}
+
+function farmConnectInit () {
+  checkCardsApproval()
 }
 
 async function farmInit() {
@@ -147,6 +151,7 @@ async function farmInit() {
       })
     }, 1000 + i * 300)
   }
+  checkCardsApproval()
 }
 
 function getMultiplier() {
