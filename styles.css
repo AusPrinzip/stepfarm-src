@@ -23,6 +23,13 @@ html, body {
   margin-top: 10px;
 }
 
+.farm-modal-available {
+  color: #6F767E;
+  font-family: Poppins;
+  font-size: 14px;
+  float: right;
+}
+
 #farm-modal-action:hover {
   filter: brightness(80%) !important;
 }

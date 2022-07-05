@@ -1,6 +1,5 @@
 
 let farmMaxAmount = null;
-let decimals = null;
 
 function checkCardsApproval () {
   if (selectedAccount)
@@ -127,8 +126,7 @@ async function farmInit() {
     }
 
     document.getElementById("maxTrade").onclick = function () {
-      console.log(decimals)
-      $("#input-A").val(parseFloat(farmMaxAmount / decimals).toFixed(3))
+      $("#input-A").val(parseFloat(farmMaxAmount / 10**18).toFixed(3))
     }
 
     document.getElementById("closeWithdrawModal").onclick = function() {
@@ -146,7 +144,6 @@ async function farmInit() {
 
     document.querySelector("#farm"+pid+"-deposit").addEventListener("click", function(e) {
       let pid = $(this).parent().parent().parent().parent().data('pid');
-      decimals = 10 ** 18;
       document.getElementById("withdrawModal").style.display = "block";
       $('.farm-modal-title').text(`DEPOSIT ${POOLS[pid].name}`)
       $('#token-balance-disp').text(POOLS[pid].name)
@@ -154,11 +151,11 @@ async function farmInit() {
       $('#farm-modal-action').text("DEPOSIT")
       if (pid == 0) {
         getBalance(TOKENS['GFT'], function(err, balance) {
-          console.log(balance / 10**18 * 10**18)
           farmMaxAmount = balance
           balance = parseFloat(balance / 10**18).toFixed(3)
           $('#token-balance-A').text(balance)
           document.getElementById("farm-modal-action").onclick = function () {
+            document.getElementById("withdrawModal").style.display = "none";
             enterStaking()
           }
         })
@@ -168,7 +165,8 @@ async function farmInit() {
           balance = parseFloat(balance / 10**18).toFixed(3)
           $('#token-balance-A').text(balance)
           document.getElementById("farm-modal-action").onclick = function () {
-            deposit()
+            document.getElementById("withdrawModal").style.display = "none";
+            deposit(lpAddress, pid)
           }
         })
       }
@@ -176,7 +174,6 @@ async function farmInit() {
   
     document.querySelector("#farm"+pid+"-withdraw").addEventListener("click", function(e) {
       let pid = $(this).parent().parent().parent().parent().data('pid');
-      decimals = 10**18;
       document.getElementById("withdrawModal").style.display = "block";
       $('.farm-modal-title').text(`WITHDRAW ${POOLS[pid].name}`);
       $('#token-balance-disp').text(POOLS[pid].name)
@@ -187,6 +184,7 @@ async function farmInit() {
           farmMaxAmount = userInfo.amount
           $('#token-balance-A').text(parseFloat(userInfo.amount / 10**18).toFixed(3))
           document.getElementById("farm-modal-action").onclick = function () {
+            document.getElementById("withdrawModal").style.display = "none";
             leaveStaking()
           }
         })
@@ -195,7 +193,8 @@ async function farmInit() {
           farmMaxAmount = userInfo.amount
           $('#token-balance-A').text(parseFloat(userInfo.amount / 10**18).toFixed(3))
           document.getElementById("farm-modal-action").onclick = function () {
-            withdraw()
+            document.getElementById("withdrawModal").style.display = "none";
+            withdraw(pid)
           }
         })
       }
@@ -277,7 +276,8 @@ function setPair() {
 }
 
 function deposit(tokenAddress, pid) {
-  let amount = BigInt($("#input-A").val() * decimals)
+  $('#body-overlay').show()
+  let amount = BigInt($("#input-A").val() * 10**18)
   let web3 = new Web3(provider)
   let contract = new web3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
   contract
@@ -286,10 +286,16 @@ function deposit(tokenAddress, pid) {
     .send({
       from: selectedAccount
     })
+    .then(() => $('#body-overlay').hide())
+    .catch((e) => {
+      console.error(e)
+      $('#body-overlay').hide()
+    })
 }
 
 function withdraw(pid) {
-  let amount = BigInt($("#input-A").val() * decimals)
+  $('#body-overlay').show()
+  let amount = BigInt($("#input-A").val() * 10**18)
   let web3 = new Web3(provider)
   let contract = new web3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
   contract
@@ -298,9 +304,15 @@ function withdraw(pid) {
     .send({
       from: selectedAccount
     })
+    .then(() => $('#body-overlay').hide())
+    .catch((e) => {
+      console.error(e)
+      $('#body-overlay').hide()
+    })
 }
 
 function harvestFarm(pid) {
+  $('#body-overlay').show()
   let web3 = new Web3(provider)
   let contract = new web3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
   contract
@@ -309,10 +321,16 @@ function harvestFarm(pid) {
     .send({
       from: selectedAccount
     })
+    .then(() => $('#body-overlay').hide())
+    .catch((e) => {
+      console.error(e)
+      $('#body-overlay').hide()
+    })
 }
 
 function enterStaking() {
-  let amount = BigInt($("#input-A").val() * decimals)
+  $('#body-overlay').show()
+  let amount = BigInt($("#input-A").val() * 10**18)
   let web3 = new Web3(provider)
   let contract = new web3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
   contract
@@ -321,10 +339,16 @@ function enterStaking() {
     .send({
       from: selectedAccount
     })
+    .then(() => $('#body-overlay').hide())
+    .catch((e) => {
+      console.error(e)
+      $('#body-overlay').hide()
+    })
 }
 
 function leaveStaking() {
-  let amount = BigInt($("#input-A").val() * decimals)
+  $('#body-overlay').show()
+  let amount = BigInt($("#input-A").val() * 10**18)
   let web3 = new Web3(provider)
   let contract = new web3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
   contract
@@ -333,9 +357,15 @@ function leaveStaking() {
     .send({
       from: selectedAccount
     })
+    .then(() => $('#body-overlay').hide())
+    .catch((e) => {
+      console.error(e)
+      $('#body-overlay').hide()
+    })
 }
 
 function harvestStaking() {
+  $('#body-overlay').show()
   if (!selectedAccount) return onConnect()
   let web3 = new Web3(provider)
   let contract = new web3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
@@ -344,6 +374,11 @@ function harvestStaking() {
     .enterStaking(0)
     .send({
       from: selectedAccount
+    })
+    .then(() => $('#body-overlay').hide())
+    .catch((e) => {
+      console.error(e)
+      $('#body-overlay').hide()
     })
 }
 

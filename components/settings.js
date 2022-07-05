@@ -53,7 +53,6 @@ class Settings extends HTMLElement {
         gap: 24px;
         top: 10%;
         position: relative;
-        height: 500px;
         z-index: 3;
         background: #FCFCFC;
 
