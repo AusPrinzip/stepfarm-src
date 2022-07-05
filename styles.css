@@ -8,7 +8,7 @@ html, body {
 #farm-modal-action {
   padding: 0;
   border: none;
-  font-family: Poppins;
+  font-family: Poppins-strong;
   font-size: 14px;
   font-weight: 700;
   background: #00E8E7 !important;
@@ -599,7 +599,7 @@ html, body {
 .liquidity-card-container button {
   padding: 0;
   border: none;
-  font-family: Poppins;
+  font-family: Poppins-strong;
   font-size: 14px;
   font-weight: 700;
   background: #00E8E7;
@@ -1083,7 +1083,7 @@ html, body {
 .swap-confirm-btn {
   padding: 0;
   border: none;
-  font-family: Poppins;
+  font-family: Poppins-strong;
   font-size: 14px;
   font-weight: 700;
   background: #00E8E7;
@@ -1096,8 +1096,7 @@ html, body {
 }
 
 .swap-confirm-btn:hover {
-  background-color: #F4F4F4;
-  color: #9A9FA5;
+  filter: brightness(80%) !important;
 }
 
 .swap-card-header {
