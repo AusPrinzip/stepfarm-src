@@ -275,30 +275,34 @@ html, body {
   #secondblock {
     font-family: Hurme;
     margin-top: 10%;
-    margin-bottom: 40%;
+    margin-bottom: 30%;
     text-align: center;
-    height: 120vh;
+    height: 80vh;
     position: relative;
   }
-
+  /*320*/
   .urban {
+    content: url("images/urban-mobile.png");
     background: grey;
     position: absolute;
     left: 0;
     top: 0;
     z-index: -1;
     width: 100%;
+    height: 100%;
     -webkit-clip-path: polygon(0 1%, 100% 19%, 100% 100%, 0 80%);
     clip-path: polygon(0 1%, 100% 19%, 100% 100%, 0 80%);
   }
 
   .urban-content {
-    top: 30%;
+    top: 20%;
     position: relative;
   }
 
   .map {
     z-index: 0;
+    margin-right: 10%;
+    margin-left: 10%;
   }
 
   .footer-icon {
@@ -407,6 +411,33 @@ html, body {
     z-index: 2;
     left: 6% !important;
     top: -8% !important;
+  }
+
+  #secondblock {
+    font-family: Hurme;
+    margin-top: 10%;
+    margin-bottom: 40%;
+    text-align: center;
+    height: 120vh;
+    position: relative;
+  }
+
+  .urban {
+    content: url("images/urban.png");
+    background: grey;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    -webkit-clip-path: polygon(0 1%, 100% 19%, 100% 100%, 0 80%);
+    clip-path: polygon(0 1%, 100% 19%, 100% 100%, 0 80%);
+  }
+
+  .urban-content {
+    top: 10%;
+    position: relative;
   }
 
   .map {
