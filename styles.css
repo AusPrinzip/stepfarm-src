@@ -518,7 +518,7 @@ html, body {
 .add-card-container button {
   padding: 0;
   border: none;
-  font-family: Poppins;
+  font-family: Poppins-strong;
   font-size: 14px;
   font-weight: 700;
   background: #00E8E7;
@@ -541,6 +541,7 @@ html, body {
 }
 
 .add-card-add-btn {
+  font-family: Poppins-strong;
   display: inline-block;
   margin:0 auto;
   display:block;

@@ -94,7 +94,7 @@ async function farmInit() {
 
     setTimeout(function() {
       getTvl(pid, function(err, tvl) {
-        $('#farm'+pid+'-tvl').text('$'+formatBalance(tvl, 0))
+        $('#farm'+pid+'-tvl').text('$'+ numberWithCommas(formatBalance(tvl, 0)))
         let rewardYear = POOLS[pid].gftPerBlock * BLOCK_PER_DAY * 365 * gftPrice
         let apr = rewardYear / tvl
         apr = Math.round(1000*apr)/100
@@ -108,11 +108,11 @@ async function farmInit() {
     setInterval(function() {
       if (!selectedAccount) return
       userInfo(pid, function(err, userInfo) {
-        let amount = formatBalance(userInfo.amount)
+        let amount = numberWithCommas(formatBalance(userInfo.amount))
         $('#farm'+pid+'-staked').text(amount)
       })
       pendingGft(pid, function(err, pending) {
-        $('#farm'+pid+'-earned').text(formatBalance(pending))
+        $('#farm'+pid+'-earned').text(numberWithCommas(formatBalance(pending)))
       })
     }, 3000 + i * 300)
 
