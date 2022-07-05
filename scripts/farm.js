@@ -1,4 +1,7 @@
 
+let farmMaxAmount = null;
+let decimals = null;
+
 function checkCardsApproval () {
   if (selectedAccount)
     for (let i = 0; i < POOLS.length; i++) {
@@ -113,43 +116,98 @@ async function farmInit() {
       })
     }, 3000 + i * 300)
 
-    setTimeout(function() {
-      document.querySelector("#farm"+pid+"-harvest").addEventListener("click", function(e) {
-        let pid = $(this).parent().parent().parent().data('pid')
-        if (pid == 0) {
-          harvestStaking()
-        } else {
-          harvestFarm(pid)
-        }
-      })
-  
-      document.querySelector("#farm"+pid+"-deposit").addEventListener("click", function(e) {
-        let pid = $(this).parent().parent().parent().parent().data('pid')
-        if (pid == 0) {
-          enterStaking()
-        } else {
-          let lpAddress = $(this).parent().parent().parent().parent().data('address')
-          deposit(lpAddress, pid)
-        }
-      })
-    
-      document.querySelector("#farm"+pid+"-withdraw").addEventListener("click", function(e) {
-        let pid = $(this).parent().parent().parent().parent().data('pid')
-        if (pid == 0) {
-          leaveStaking()
-        } else {
-          withdraw(pid)
-        }
-      })
-    
-      document.querySelector("#farm"+pid+"-approve").addEventListener("click", function(e) {
-        if (!selectedAccount) return onConnect()
-        let pid = $(this).parent().parent().parent().parent().data('pid')
-        approveToken(POOLS[pid].lpToken, ADDRESS_MASTERCHEF, function(err, res) {
-          console.log(err, res)
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == document.getElementById("withdrawModal")) {
+        document.getElementById("withdrawModal").style.display = "none";
+      }
+      if (event.target == document.getElementById("withdrawModal")) {
+        document.getElementById("withdrawModal").style.display = "none";
+      }
+    }
+
+    document.getElementById("maxTrade").onclick = function () {
+      console.log(decimals)
+      $("#input-A").val(parseFloat(farmMaxAmount / decimals).toFixed(3))
+    }
+
+    document.getElementById("closeWithdrawModal").onclick = function() {
+      document.getElementById("withdrawModal").style.display = "none";
+    }
+
+    document.querySelector("#farm"+pid+"-harvest").addEventListener("click", function(e) {
+      let pid = $(this).parent().parent().parent().data('pid')
+      if (pid == 0) {
+        harvestStaking()
+      } else {
+        harvestFarm(pid)
+      }
+    })
+
+    document.querySelector("#farm"+pid+"-deposit").addEventListener("click", function(e) {
+      let pid = $(this).parent().parent().parent().parent().data('pid');
+      decimals = 10 ** 18;
+      document.getElementById("withdrawModal").style.display = "block";
+      $('.farm-modal-title').text(`DEPOSIT ${POOLS[pid].name}`)
+      $('#token-balance-disp').text(POOLS[pid].name)
+      let lpAddress = $(this).parent().parent().parent().parent().data('address')
+      $('#farm-modal-action').text("DEPOSIT")
+      if (pid == 0) {
+        getBalance(TOKENS['GFT'], function(err, balance) {
+          console.log(balance / 10**18 * 10**18)
+          farmMaxAmount = balance
+          balance = parseFloat(balance / 10**18).toFixed(3)
+          $('#token-balance-A').text(balance)
+          document.getElementById("farm-modal-action").onclick = function () {
+            enterStaking()
+          }
         })
+      } else {
+        getBalance(lpAddress, function(err, balance) {
+          farmMaxAmount = balance
+          balance = parseFloat(balance / 10**18).toFixed(3)
+          $('#token-balance-A').text(balance)
+          document.getElementById("farm-modal-action").onclick = function () {
+            deposit()
+          }
+        })
+      }
+    })
+  
+    document.querySelector("#farm"+pid+"-withdraw").addEventListener("click", function(e) {
+      let pid = $(this).parent().parent().parent().parent().data('pid');
+      decimals = 10**18;
+      document.getElementById("withdrawModal").style.display = "block";
+      $('.farm-modal-title').text(`WITHDRAW ${POOLS[pid].name}`);
+      $('#token-balance-disp').text(POOLS[pid].name)
+      let lpAddress = $(this).parent().parent().parent().parent().data('address')
+      $('#farm-modal-action').text("WITHDRAW")
+      if (pid == 0) {
+        userInfo(pid, function(err, userInfo) {
+          farmMaxAmount = userInfo.amount
+          $('#token-balance-A').text(parseFloat(userInfo.amount / 10**18).toFixed(3))
+          document.getElementById("farm-modal-action").onclick = function () {
+            leaveStaking()
+          }
+        })
+      } else {
+        userInfo(pid, function(err, userInfo) {
+          farmMaxAmount = userInfo.amount
+          $('#token-balance-A').text(parseFloat(userInfo.amount / 10**18).toFixed(3))
+          document.getElementById("farm-modal-action").onclick = function () {
+            withdraw()
+          }
+        })
+      }
+    })
+  
+    document.querySelector("#farm"+pid+"-approve").addEventListener("click", function(e) {
+      if (!selectedAccount) return onConnect()
+      let pid = $(this).parent().parent().parent().parent().data('pid')
+      approveToken(POOLS[pid].lpToken, ADDRESS_MASTERCHEF, function(err, res) {
+        console.log(err, res)
       })
-    }, 1000 + i * 300)
+    })
   }
   checkCardsApproval()
 }
@@ -219,31 +277,27 @@ function setPair() {
 }
 
 function deposit(tokenAddress, pid) {
-  getBalance(tokenAddress, function(err, balance) {
-    let amount = prompt("Amount to deposit", balance)
-    let web3 = new Web3(provider)
-    let contract = new web3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
-    contract
-      .methods
-      .deposit(pid, amount)
-      .send({
-        from: selectedAccount
-      })
-  })
+  let amount = BigInt($("#input-A").val() * decimals)
+  let web3 = new Web3(provider)
+  let contract = new web3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
+  contract
+    .methods
+    .deposit(pid, amount)
+    .send({
+      from: selectedAccount
+    })
 }
 
 function withdraw(pid) {
-  userInfo(pid, function(err, userInfo) {
-    let amount = prompt("Amount to withdraw", userInfo.amount)
-    let web3 = new Web3(provider)
-    let contract = new web3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
-    contract
-      .methods
-      .withdraw(pid, amount)
-      .send({
-        from: selectedAccount
-      })
-  })
+  let amount = BigInt($("#input-A").val() * decimals)
+  let web3 = new Web3(provider)
+  let contract = new web3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
+  contract
+    .methods
+    .withdraw(pid, amount)
+    .send({
+      from: selectedAccount
+    })
 }
 
 function harvestFarm(pid) {
@@ -258,31 +312,27 @@ function harvestFarm(pid) {
 }
 
 function enterStaking() {
-  getBalance(TOKENS['GFT'], function(err, balance) {
-    let amount = prompt("Amount to deposit", balance)
-    let web3 = new Web3(provider)
-    let contract = new web3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
-    contract
-      .methods
-      .enterStaking(amount)
-      .send({
-        from: selectedAccount
-      })
-  })
+  let amount = BigInt($("#input-A").val() * decimals)
+  let web3 = new Web3(provider)
+  let contract = new web3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
+  contract
+    .methods
+    .enterStaking(amount)
+    .send({
+      from: selectedAccount
+    })
 }
 
 function leaveStaking() {
-  userInfo(0, function(err, userInfo) {
-    let amount = prompt("Amount to withdraw", userInfo.amount)
-    let web3 = new Web3(provider)
-    let contract = new web3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
-    contract
-      .methods
-      .leaveStaking(amount)
-      .send({
-        from: selectedAccount
-      })
-  })
+  let amount = BigInt($("#input-A").val() * decimals)
+  let web3 = new Web3(provider)
+  let contract = new web3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
+  contract
+    .methods
+    .leaveStaking(amount)
+    .send({
+      from: selectedAccount
+    })
 }
 
 function harvestStaking() {
