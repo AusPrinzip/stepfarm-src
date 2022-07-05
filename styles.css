@@ -284,7 +284,7 @@ html, body {
   /*320*/
   .urban {
     content: url("images/urban-mobile.png");
-    background: grey;
+    background: #999999;
     position: absolute;
     left: 0;
     top: 0;
@@ -425,7 +425,7 @@ html, body {
 
   .urban {
     content: url("images/urban.png");
-    background: grey;
+    background: #999999;
     position: absolute;
     left: 0;
     top: 0;
