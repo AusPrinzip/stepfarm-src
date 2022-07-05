@@ -39,8 +39,8 @@ class Header extends HTMLElement {
             
 
             <ul class="nav navbar-nav navbar-right">
-              <li><a class="hidden-xs" href="https://discord.gg/gC72KwH4Gp"><img src="images/navbar-icons/discord.svg"></img></a></li>
-              <li><a class="hidden-xs" href="#"><img src="images/navbar-icons/medium.svg"></img></a></li>
+              <li><a class="hidden-xs" href="https://discord.gg/gC72KwH4Gp" target="_blank"><img src="images/navbar-icons/discord.svg"></img></a></li>
+              <li><a class="hidden-xs" href="https://medium.com/@stepfarm" target="_blank"><img src="images/navbar-icons/medium.svg"></img></a></li>
               <li><a class="hidden-xs" href="https://twitter.com/StepFarm" target="_blank"><img src="images/nav-twitter.svg"></img></a></li>
               <li><button id="btn-connect" class="connect-wallet-btn">CONNECT WALLET</button></li>
               <li class="dropdown" id="wallet-dropdown" style="display: none;">

@@ -17,7 +17,7 @@ class Footer extends HTMLElement {
           <a href="https://t.me/StepFarmGFT" target="_blank"><img class="" src="images/icons/telegram.svg"></img></a>
         </div>
         <div class="footer-icon medium-container">
-          <a target="_blank"><img class="" src="images/icons/medium.svg"></img></a>
+          <a href="https://medium.com/@stepfarm" target="_blank"><img class="" src="images/icons/medium.svg"></img></a>
         </div>
         <center><img class="" src="images/footer.svg"></img></center>
 
