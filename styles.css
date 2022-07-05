@@ -5,6 +5,7 @@ html, body {
   font-size:16px;
 }
 
+
 #farm-modal-action {
   padding: 0;
   border: none;
@@ -271,14 +272,33 @@ html, body {
     font-size: 12px;
   }
 
-  .circuitcontainer {
-    font-size: 9px !important;
+  #secondblock {
+    font-family: Hurme;
+    margin-top: 10%;
+    margin-bottom: 40%;
+    text-align: center;
+    height: 120vh;
+    position: relative;
   }
 
+  .urban {
+    background: grey;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    -webkit-clip-path: polygon(0 1%, 100% 19%, 100% 100%, 0 80%);
+    clip-path: polygon(0 1%, 100% 19%, 100% 100%, 0 80%);
+  }
+
+  .urban-content {
+    top: 30%;
+    position: relative;
+  }
 
   .map {
-    width: 80% !important;
-    z-index: 0 !important;
+    z-index: 0;
   }
 
   .footer-icon {
@@ -1271,14 +1291,6 @@ html, body {
   right: 20%;
 }
 
-
-#secondblock {
-  font-family: Hurme;
-  margin-top: 10%;
-  margin-bottom: 10%;
-  text-align: center;
-}
-
 .roadmap-firstrow {
   top: 8%;
 }
@@ -1372,15 +1384,6 @@ html, body {
   left: 60% !important;
 }
 
-
-.circuitcontainer {
-  margin-top: 5%;
-  position: relative;
-  text-align: center;
-  color: black;
-  height: 100%;
-}
-
 .august {
   font-size: 20px;
   position: absolute;
@@ -1458,10 +1461,10 @@ html, body {
 }
 
 .square {
-  width: 70% !important;
+  width: 70%;
   background-color: #00E8E7;
   position: relative;
-  left: 16%;
+  left: 15%;
   border-radius: 25px;
 }
 
