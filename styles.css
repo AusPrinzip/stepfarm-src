@@ -416,9 +416,9 @@ html, body {
   #secondblock {
     font-family: Hurme;
     margin-top: 10%;
-    margin-bottom: 40%;
+    margin-bottom: 20%;
     text-align: center;
-    height: 120vh;
+    height: 130vh;
     position: relative;
   }
 
@@ -436,7 +436,7 @@ html, body {
   }
 
   .urban-content {
-    top: 10%;
+    top: 13%;
     position: relative;
   }
 
