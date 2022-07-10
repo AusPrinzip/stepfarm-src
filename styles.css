@@ -5,7 +5,13 @@ html, body {
   font-size:16px;
 }
 
-
+.wallet-icon {
+  margin-left: 7%;
+}
+.wallet-address {
+  margin-top: 2%;
+  font-size: 22px;
+}
 #farm-modal-action {
   padding: 0;
   border: none;
@@ -1002,7 +1008,6 @@ html, body {
 }
 
 .connect-wallet-btn {
-  margin-top: 4%;
   font-size: 12px;
   box-sizing: border-box;
   background-color: #00E8E7;

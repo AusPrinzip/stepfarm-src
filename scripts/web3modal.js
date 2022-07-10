@@ -84,7 +84,12 @@ async function init() {
     onConnect(true)
 }
 
-
+function suggestNetworkChange () {
+  provider.request({
+    method: 'wallet_switchEthereumChain',
+    params: [{ chainId: `0x${Number(56).toString(16)}` }],
+  })
+}
 /**
  * Kick in the UI action after Web3modal dialog has chosen a provider
  */
@@ -99,11 +104,6 @@ async function fetchAccountData() {
   const chainId = await web3.eth.getChainId();
   // Load chain information over an HTTP API
   const chainData = evmChains.getChain(chainId);
-  
-  // Alert if wrong chain
-  if (chainData.name !== CHAIN_NAME) {
-    alert("Wrong chain")
-  }
 
   // Get list of accounts of the connected wallet
   const accounts = await web3.eth.getAccounts();
@@ -113,14 +113,21 @@ async function fetchAccountData() {
   selectedAccount = accounts[0];
 
 
-  $('#wallet').html(`<img src="images/wallet.svg"></img>${selectedAccount.substring(0, 3)}...${selectedAccount.substring(selectedAccount.length - 3, selectedAccount.length)}`);
+  $('#wallet').html(`<img class="wallet-icon" src="images/wallet.svg"></img><div class="wallet-address">${selectedAccount.substring(0, 2)}...${selectedAccount.substring(selectedAccount.length - 4, selectedAccount.length)}</div>`);
+  $('#wallet').css("cursor", "pointer")
+  $(".connect-wallet-btn").css("background", "#37E4E5");
+  $("#wallet").on("click", suggestNetworkChange)
+  // Alert if wrong chain
+  if (chainData.name !== CHAIN_NAME) {
+    alert("Wrong chain")
 
-  // if (window.location.hash == "#swap") {
-  //   console.log(selectedAccount)
-  //   document.querySelector("#network-name").textContent = chainData.name;
-  //   document.querySelector("#selected-account").textContent = selectedAccount;
-  // }
-  
+    $(".connect-wallet-btn").css("background", "#FF4500");
+    $('.wallet-icon').attr('src','images/icons/arrows-rotate-solid.svg');
+    $(".wallet-address").css("margin", "6%")
+    $(".wallet-address").css("font-size", 12)
+    $(".wallet-address").text("Change Network")
+  }
+
   var location = window.location.hash.replace("#", "");
   if (location.length == 0) {
     location = "/";
