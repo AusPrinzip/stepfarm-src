@@ -126,7 +126,7 @@ async function farmInit() {
     }
 
     document.getElementById("maxTrade").onclick = function () {
-      $("#input-A").val(parseFloat(farmMaxAmount / 10**18).toFixed(3))
+      $("#input-A").val(parseFloat(farmMaxAmount / 10**18).toFixed(18))
     }
 
     document.getElementById("closeWithdrawModal").onclick = function() {
@@ -152,7 +152,7 @@ async function farmInit() {
       if (pid == 0) {
         getBalance(TOKENS['GFT'], function(err, balance) {
           farmMaxAmount = balance
-          balance = parseFloat(balance / 10**18).toFixed(3)
+          balance = parseFloat(balance / 10**18).toFixed(18)
           $('#token-balance-A').text(balance)
           document.getElementById("farm-modal-action").onclick = function () {
             document.getElementById("withdrawModal").style.display = "none";
@@ -162,7 +162,7 @@ async function farmInit() {
       } else {
         getBalance(lpAddress, function(err, balance) {
           farmMaxAmount = balance
-          balance = parseFloat(balance / 10**18).toFixed(3)
+          balance = parseFloat(balance / 10**18).toFixed(18)
           $('#token-balance-A').text(balance)
           document.getElementById("farm-modal-action").onclick = function () {
             document.getElementById("withdrawModal").style.display = "none";
@@ -182,7 +182,7 @@ async function farmInit() {
       if (pid == 0) {
         userInfo(pid, function(err, userInfo) {
           farmMaxAmount = userInfo.amount
-          $('#token-balance-A').text(parseFloat(userInfo.amount / 10**18).toFixed(3))
+          $('#token-balance-A').text(parseFloat(userInfo.amount / 10**18).toFixed(18))
           document.getElementById("farm-modal-action").onclick = function () {
             document.getElementById("withdrawModal").style.display = "none";
             leaveStaking()
@@ -191,7 +191,7 @@ async function farmInit() {
       } else {
         userInfo(pid, function(err, userInfo) {
           farmMaxAmount = userInfo.amount
-          $('#token-balance-A').text(parseFloat(userInfo.amount / 10**18).toFixed(3))
+          $('#token-balance-A').text(parseFloat(userInfo.amount / 10**18).toFixed(18))
           document.getElementById("farm-modal-action").onclick = function () {
             document.getElementById("withdrawModal").style.display = "none";
             withdraw(pid)
