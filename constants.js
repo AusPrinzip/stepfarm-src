@@ -30,17 +30,17 @@ const ADDRESS_MASTERCHEF = '0x3e89F83F4B3bEeD5EeC428C0CB7268E615E64Cf5'
 const POOLS = [
   {
     name: "GFT",
-    allocPoints: 233,
+    allocPoints: 333,
     lpToken: "0xC1223c5064D0823417E18c195Ac0e761cc46d2b0",
     pair: ["GFT", "GFT"],
-    multiplier: "23x"
+    multiplier: "x1"
   },
   {
     name: "GMT/GST LP",
     allocPoints: 1000,
     lpToken: "0x1f309d8756e18839c95e502f191aa4c094198fc7",
     pair: ["GMT", "GST"],
-    multiplier: "10x"
+    multiplier: "x3"
   }
 ];
 let totalAlloc = 0

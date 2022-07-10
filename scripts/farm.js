@@ -6,7 +6,6 @@ function checkCardsApproval () {
     for (let i = 0; i < POOLS.length; i++) {
       let pid = i
       getAllowance(POOLS[pid].lpToken, selectedAccount, ADDRESS_MASTERCHEF, function(err, allowance) {
-        // TODO
         if (allowance > 0) {
           $("#farm"+pid+"-approve").hide()
           $(`#farm${pid}-deposit`).show()
@@ -53,30 +52,30 @@ async function farmInit() {
           </div>
         </div>
 
-        <center><div class="sk-chase spinner-${pid}">
+        <!-- <center><div class="sk-chase spinner-${pid}">
           <div class="sk-chase-dot"></div>
           <div class="sk-chase-dot"></div>
           <div class="sk-chase-dot"></div>
           <div class="sk-chase-dot"></div>
           <div class="sk-chase-dot"></div>
           <div class="sk-chase-dot"></div>
-        </div></center>
+        </div></center> -->
 
-        <div class="farm-card-stats farm-card-stats-${pid}" style="display: none;">
+        <div class="farm-card-stats farm-card-stats-${pid}" style="display: block;">
           <p>Earn<span style="float: right;">GFT</span></p>
-          <p>APR<span style="float: right;" id="farm${pid}-apr">29.5%</span></p>
-          <p>TVL<span style="float: right;" id="farm${pid}-tvl">$0.00</span></p>
+          <!-- <p>APR<span style="float: right;" id="farm${pid}-apr">29.5%</span></p>
+          <p>TVL<span style="float: right;" id="farm${pid}-tvl">$0.00</span></p> -->
         </div>
 
         <div class="farm-card-earned">
           <div class="farm-card-earned-display"><span style="color: #00E8E7;">GFT</span> EARNED</div>
           <div class="farm-card-earned-amount">
-            <h3 id="farm${pid}-earned">0.000</h3>
+            <h3 id="farm${pid}-earned">0</h3>
             <button class="farm-card-harvest-btn" id="farm${pid}-harvest">Harvest</button>
           </div>
           <div class="farm-card-staked">
             <span style="color: #00E8E7;">${depositAsset}</span> STAKED
-            <h3 id="farm${pid}-staked">0.000</h3>
+            <h3 id="farm${pid}-staked">0</h3>
             <div class="farm-card-actions">
               <button class="farm-card-approve-btn" id="farm${pid}-approve">Approve ${depositAsset}</button>
               <button class="farm-card-deposit-btn" style="display: none" id="farm${pid}-deposit">Deposit</button>
@@ -93,7 +92,7 @@ async function farmInit() {
 
     setTimeout(function() {
       getTvl(pid, function(err, tvl) {
-        $('#farm'+pid+'-tvl').text('$'+ numberWithCommas(formatBalance(tvl, 0)))
+        $('#farm'+pid+'-tvl').text('$'+ formatBalance(tvl, 0))
         let rewardYear = POOLS[pid].gftPerBlock * BLOCK_PER_DAY * 365 * gftPrice
         let apr = rewardYear / tvl
         apr = Math.round(1000*apr)/100
@@ -107,11 +106,11 @@ async function farmInit() {
     setInterval(function() {
       if (!selectedAccount) return
       userInfo(pid, function(err, userInfo) {
-        let amount = numberWithCommas(formatBalance(userInfo.amount))
+        let amount = formatBalance(userInfo.amount, 18).toFixed(18)
         $('#farm'+pid+'-staked').text(amount)
       })
       pendingGft(pid, function(err, pending) {
-        $('#farm'+pid+'-earned').text(numberWithCommas(formatBalance(pending)))
+        $('#farm'+pid+'-earned').text(formatBalance(pending, 3))
       })
     }, 3000 + i * 300)
 
@@ -205,6 +204,7 @@ async function farmInit() {
       let pid = $(this).parent().parent().parent().parent().data('pid')
       approveToken(POOLS[pid].lpToken, ADDRESS_MASTERCHEF, function(err, res) {
         console.log(err, res)
+        checkCardsApproval()
       })
     })
   }
@@ -449,5 +449,16 @@ function pendingGft(pid, cb) {
     .call()
     .then(function(res) {
       cb(null, res)
+    })
+}
+
+function getStartBlock() {
+  let contract = new dweb3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
+  contract
+    .methods
+    .startBlock()
+    .call()
+    .then(function(res) {
+      console.log(res)
     })
 }

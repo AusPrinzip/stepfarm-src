@@ -54,6 +54,21 @@ function approveToken (tokenAddress, spender, cb) {
     })
 }
 
+function disapproveToken (tokenAddress, spender, cb) {
+  let web3 = new Web3(provider)
+  let contract = new web3.eth.Contract(ABI_ERC20, tokenAddress)
+  let amount = '0'
+  contract
+    .methods
+    .approve(spender, amount)
+    .send({
+      from: selectedAccount
+    })
+    .then(function(res) {
+      cb(null, res)
+    })
+}
+
 function getBalance(tokenAddress, cb) {
   let contract = new dweb3.eth.Contract(ABI_ERC20, tokenAddress)
   contract
