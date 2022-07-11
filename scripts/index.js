@@ -44,17 +44,25 @@ function indexInit() {
 
   })
   .catch(e => alert("API error, contact devs"))
-
   $(document).ready(function() {
-    const el = $('#start')
-    el.mouseover(() => {
-      $(".start-description").fadeIn("fast")
-      el.css("fill","black")
-    })
-    el.mouseout(() => {
-      el.css("fill","#00E8E7")
-      $(".start-description").fadeOut("fast")
-    })
+    const ROADMAP_ELEMENTS = ["start", "1"]
+    const ROADMAP_DESCRIPTIONS = [
+       "We have many features to discover, but everything is secret until the right time! Follow the path and find out regularly what will be the next feature on our roadmap. StepFarm gives wings to your yield!",
+       "Staking / Farming"
+    ]
+    for (let i = 0; i < ROADMAP_ELEMENTS.length; i++) {
+      const stage = ROADMAP_ELEMENTS[i];
+      $(`.roadmap-description-${stage}`).text(ROADMAP_DESCRIPTIONS[i])
+      const el = $(`.district-${stage}`)
+      el.mouseover(() => {
+        $(`.roadmap-description-${stage}`).fadeIn("fast")
+        el.css("fill","black")
+      })
+      el.mouseout(() => {
+        $(`.roadmap-description-${stage}`).fadeOut("fast")
+        el.css("fill","#00E8E7")
+      })
+    }
 
     const start = document.querySelector(`#start`);
     new Waypoint( {
