@@ -30,9 +30,10 @@ class Header extends HTMLElement {
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle hidden-sm hidden-md hidden-bg hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SOCIAL MEDIA <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a class="" href="#"><img src="images/nav-facebook.svg"></img>Facebook</a></li>
-                  <li><a class="" href="https://twitter.com/StepFarm" target="_blank"><img src="images/nav-twitter.svg"></img>Twitter</a></li>
-                  <li><a class="" href="#"><img src="images/nav-instagram.svg"></img>Instagram</a></li>
+                  <li><a class="" href="https://twitter.com/StepFarm"><img src="images/icons/twitter.svg"></img>Twitter</a></li>
+                  <li><a class="" href="https://t.me/StepFarmGFT" target="_blank"><img src="images/icons/telegram.svg"></img>Telegram</a></li>
+                  <li><a class="" href="https://discord.gg/gC72KwH4Gp" target="_blank"><img src="images/icons/discord.svg"></img>Discord</a></li>
+                  <li><a class="" href="https://medium.com/@stepfarm" target="_blank"><img src="images/icons/medium.svg"></img>Medium</a></li>
                 </ul>
               </li>
             </ul>
