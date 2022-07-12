@@ -47,12 +47,12 @@ function indexInit() {
   $(document).ready(function() {
     const ROADMAP_ELEMENTS = ["start", "1"]
     const ROADMAP_DESCRIPTIONS = [
-       "We have many features to discover, but everything is secret until the right time! Follow the path and find out regularly what will be the next feature on our roadmap. StepFarm gives wings to your yield!",
-       "Staking / Farming"
+       "<p>We have many features to discover, but everything is secret until the right time! Follow the path and find out regularly what will be the next feature on our roadmap. StepFarm gives wings to your yield!</p>",
+       "<p>STAKING & <br> FARMING</p>"
     ]
     for (let i = 0; i < ROADMAP_ELEMENTS.length; i++) {
       const stage = ROADMAP_ELEMENTS[i];
-      $(`.roadmap-description-${stage}`).text(ROADMAP_DESCRIPTIONS[i])
+      $(`.roadmap-description-${stage}`).html(ROADMAP_DESCRIPTIONS[i])
       const el = $(`.district-${stage}`)
       el.mouseover(() => {
         $(`.roadmap-description-${stage}`).fadeIn("fast")

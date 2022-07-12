@@ -339,12 +339,14 @@ html, body {
   .roadmap-description {
     display: none;
     position: absolute;
-    left: 5%;
+    left: 15%;
     top: 20%;
-    width: 70%;
+    width: 50%;
     height: auto;
     background-color: #00E8E7;
     border-radius: 25px;
+    border-style: solid;
+    border-color: black;
     z-index: 0;
     margin: 10%;
     color:  black;
