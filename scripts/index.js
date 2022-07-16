@@ -43,7 +43,7 @@ function indexInit() {
     }
 
   })
-  .catch(e => alert("API error, contact devs"))
+  .catch(e => console.log("API error, contact devs"))
   $(document).ready(function() {
     const ROADMAP_ELEMENTS = ["start", "1"]
     const ROADMAP_DESCRIPTIONS = [

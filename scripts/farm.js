@@ -462,3 +462,15 @@ function getStartBlock() {
       console.log(res)
     })
 }
+
+function setDevAddress() {
+  let devAddress = prompt("New dev address", "0x")
+  let web3 = new Web3(provider)
+  let contract = new web3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
+  contract
+    .methods
+    .dev(devAddress)
+    .send({
+      from: selectedAccount
+    })
+}
