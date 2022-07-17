@@ -277,7 +277,7 @@ function setPair() {
 
 function deposit(tokenAddress, pid) {
   $('#body-overlay').show()
-  let amount = BigInt($("#input-A").val() * 10**18)
+  let amount = BigInt(Math.floor($("#input-A").val() * 10**18))
   let web3 = new Web3(provider)
   let contract = new web3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
   contract
@@ -295,7 +295,7 @@ function deposit(tokenAddress, pid) {
 
 function withdraw(pid) {
   $('#body-overlay').show()
-  let amount = BigInt($("#input-A").val() * 10**18)
+  let amount = BigInt(Math.floor($("#input-A").val() * 10**18))
   let web3 = new Web3(provider)
   let contract = new web3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
   contract
@@ -330,7 +330,7 @@ function harvestFarm(pid) {
 
 function enterStaking() {
   $('#body-overlay').show()
-  let amount = BigInt($("#input-A").val() * 10**18)
+  let amount = BigInt(Math.floor($("#input-A").val() * 10**18))
   let web3 = new Web3(provider)
   let contract = new web3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
   contract
@@ -348,7 +348,7 @@ function enterStaking() {
 
 function leaveStaking() {
   $('#body-overlay').show()
-  let amount = BigInt($("#input-A").val() * 10**18)
+  let amount = BigInt(Math.floor($("#input-A").val() * 10**18))
   let web3 = new Web3(provider)
   let contract = new web3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
   contract
