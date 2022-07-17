@@ -41,6 +41,20 @@ const POOLS = [
     lpToken: "0x1f309d8756e18839c95e502f191aa4c094198fc7",
     pair: ["GMT", "GST"],
     multiplier: "x3"
+  },
+  {
+    name: "GMT/GFT LP",
+    allocPoints: 1000,
+    lpToken: "0x8f2d5a8de8e28f2f7480d72538e758468ed1c4c9",
+    pair: ["GMT", "GFT"],
+    multiplier: "x3"
+  },
+  {
+    name: "GST/GFT LP",
+    allocPoints: 1000,
+    lpToken: "0x37de1aa7901a6b3256a21d0605140d8a4d1cfd87",
+    pair: ["GST", "GFT"],
+    multiplier: "x3"
   }
 ];
 let totalAlloc = 0
