@@ -5,7 +5,6 @@ gmtPrice = 0
 let url = "https://api.coingecko.com/api/v3/simple/price?ids=stepn&vs_currencies=usd"
 $.get(url, function( data ) {
   gmtPrice = data["stepn"]["usd"]
-  console.log(gmtPrice)
 
   setInterval(function() {
     getGftPrice()

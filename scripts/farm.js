@@ -63,8 +63,8 @@ async function farmInit() {
 
         <div class="farm-card-stats farm-card-stats-${pid}" style="display: block;">
           <p>Earn<span style="float: right;">GFT</span></p>
-          <!-- <p>APR<span style="float: right;" id="farm${pid}-apr">29.5%</span></p>
-          <p>TVL<span style="float: right;" id="farm${pid}-tvl">$0.00</span></p> -->
+          <p>APR<span style="float: right;" id="farm${pid}-apr">%</span></p>
+          <p>TVL<span style="float: right;" id="farm${pid}-tvl">$0.00</span></p>
         </div>
 
         <div class="farm-card-earned">
@@ -434,6 +434,18 @@ function getTvl(pid, cb) {
       if (POOLS[pid].pair[1] === 'GFT') {
         getBalanceOf(TOKENS["GFT"], lpToken, function(err, half) {
           cb(null, gftPrice*half*2*percentage)
+        })
+        return
+      }
+      if (POOLS[pid].pair[0] === 'GMT') {
+        getBalanceOf(TOKENS["GMT"], lpToken, function(err, half) {
+          cb(null, Math.pow(10,10)*gmtPrice*half*2*percentage)
+        })
+        return
+      }
+      if (POOLS[pid].pair[1] === 'GMT') {
+        getBalanceOf(TOKENS["GMT"], lpToken, function(err, half) {
+          cb(null, Math.pow(10,10)*gmtPrice*half*2*percentage)
         })
         return
       }
