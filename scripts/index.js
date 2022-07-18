@@ -8,8 +8,8 @@ function addEmail() {
   });
 }
 
-function numberWithCommas(x) {
-    return parseFloat(x).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+function numberWithCommas(x, y = 2) {
+    return parseFloat(x).toFixed(y).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 function fadeColor () {
@@ -21,9 +21,8 @@ function fadeColor () {
 function indexInit() {
   fetch(`https://api.stepfarm.io/stats`).then(res => res.json())
   .then(result => {
-
-    $('#total-tvl').text(`$${numberWithCommas(result.sumTvl / 10e18)}`)
-    $('#supply').text(numberWithCommas(result.supply))
+    $('#total-tvl').text(`$${numberWithCommas(result.sumTvl / Math.pow(10,18))}`)
+    $('#supply').text(numberWithCommas(result.supply, 0))
     $('#mcap').text(`$${numberWithCommas(result.marketcap)}`)
     $('#holders').text(result.holders)
 
