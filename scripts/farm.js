@@ -150,9 +150,7 @@ async function farmInit() {
       if (pid == 0) {
         getBalance(TOKENS['GFT'], function(err, balance) {
           let stringBalance = balance.toString()
-          farmMaxAmount = stringBalance.substr(0, stringBalance.length-18)
-            + '.'
-            + stringBalance.substr(stringBalance.length-18)
+          farmMaxAmount = formatBalance(balance, 18).toFixed(18)
           $('#token-balance-A').text(farmMaxAmount)
           document.getElementById("farm-modal-action").onclick = function () {
             document.getElementById("withdrawModal").style.display = "none";
@@ -161,10 +159,7 @@ async function farmInit() {
         })
       } else {
         getBalance(lpAddress, function(err, balance) {
-          let stringBalance = balance.toString()
-          farmMaxAmount = stringBalance.substr(0, stringBalance.length-18)
-            + '.'
-            + stringBalance.substr(stringBalance.length-18)
+          farmMaxAmount = formatBalance(balance, 18).toFixed(18)
           $('#token-balance-A').text(farmMaxAmount)
           document.getElementById("farm-modal-action").onclick = function () {
             document.getElementById("withdrawModal").style.display = "none";
@@ -184,9 +179,7 @@ async function farmInit() {
       if (pid == 0) {
         userInfo(pid, function(err, userInfo) {
          let stringBalance = userInfo.amount.toString()
-          farmMaxAmount = stringBalance.substr(0, stringBalance.length-18)
-            + '.'
-            + stringBalance.substr(stringBalance.length-18)
+          farmMaxAmount = formatBalance(balance, 18).toFixed(18)
           $('#token-balance-A').text(farmMaxAmount)
           document.getElementById("farm-modal-action").onclick = function () {
             document.getElementById("withdrawModal").style.display = "none";
@@ -196,9 +189,7 @@ async function farmInit() {
       } else {
         userInfo(pid, function(err, userInfo) {
           let stringBalance = userInfo.amount.toString()
-          farmMaxAmount = stringBalance.substr(0, stringBalance.length-18)
-            + '.'
-            + stringBalance.substr(stringBalance.length-18)
+          farmMaxAmount = formatBalance(balance, 18).toFixed(18)
           $('#token-balance-A').text(farmMaxAmount)
           document.getElementById("farm-modal-action").onclick = function () {
             document.getElementById("withdrawModal").style.display = "none";
@@ -286,7 +277,7 @@ function setPair() {
 
 function deposit(tokenAddress, pid) {
   $('#body-overlay').show()
-  let amount = BigIntConstructor($("#input-A").val())
+  let amount = BigIntConstructor($("#input-A").text())
   let web3 = new Web3(provider)
   let contract = new web3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
   contract
@@ -304,7 +295,7 @@ function deposit(tokenAddress, pid) {
 
 function withdraw(pid) {
   $('#body-overlay').show()
-  let amount = BigIntConstructor($("#input-A").val())
+  let amount = BigIntConstructor($("#input-A").text())
   let web3 = new Web3(provider)
   let contract = new web3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
   contract
