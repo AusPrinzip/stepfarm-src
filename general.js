@@ -44,6 +44,7 @@ $.getJSON("abi/MasterChef.json", function(json) {
 })
 
 function approveToken (tokenAddress, spender, cb) {
+  $('#body-overlay').show()
   let web3 = new Web3(provider)
   let contract = new web3.eth.Contract(ABI_ERC20, tokenAddress)
   // Max approve = 2^256 - 1
@@ -55,7 +56,12 @@ function approveToken (tokenAddress, spender, cb) {
       from: selectedAccount
     })
     .then(function(res) {
+      $('#body-overlay').hide()
       cb(null, res)
+    })
+    .catch((e) => {
+      $('#body-overlay').hide()
+      console.error(e)
     })
 }
 
