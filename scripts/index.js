@@ -1,5 +1,7 @@
 // design related JS logic
-
+ gftPrice = 0;
+ gmtPrice = 0;
+ 
 function addEmail() {
   $.post(STEPFARM_API+"/mailing", { email: email.value })
   .done(function( data ) {
@@ -21,6 +23,9 @@ function fadeColor () {
 function indexInit() {
   fetch(`https://api.stepfarm.io/stats`).then(res => res.json())
   .then(result => {
+    gftPrice = result.gftPrice;
+    gmtPrice = result.gmtPrice;
+    $('#gft-price').text('1 GFT = '+gftPrice+' USDC');
     $('#total-tvl').text(`$${numberWithCommas(result.sumTvl / Math.pow(10,18))}`)
     $('#supply').text(numberWithCommas(result.supply, 0))
     $('#mcap').text(`$${numberWithCommas(result.marketcap)}`)
