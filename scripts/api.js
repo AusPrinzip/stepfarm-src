@@ -5,6 +5,7 @@ supply = 0;
 marketcap = 0;
 holders = 0;
 sumTvl = 0;
+tvl = [];
 
 fetchApi()
 
@@ -21,12 +22,14 @@ function fetchApi () {
   console.log('Fetching from api..')
   fetch(`https://api.stepfarm.io/stats`).then(res => res.json())
   .then(result => {
+  	console.log(result)
     gftPrice = result.gftPrice;
     gmtPrice = result.gmtPrice;
     supply = result.supply;
     marketcap = result.marketcap;
     holders = result.holders;
     sumTvl = result.sumTvl;
+    tvl = result.tvl;
     renderStats()
     const counters = 4;
     const firstCounter = document.querySelector('.counter1')
