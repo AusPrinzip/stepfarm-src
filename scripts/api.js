@@ -31,6 +31,7 @@ function fetchApi () {
     sumTvl = result.sumTvl;
     tvl = result.tvl;
     renderStats()
+    renderFarmStats()
   })
   .catch((e) => {
   	console.error(e)

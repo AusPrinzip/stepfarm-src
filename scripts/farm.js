@@ -1,6 +1,20 @@
 
 let farmMaxAmount = null;
 
+function renderFarmStats () {
+  for (let i = 0; i < POOLS.length; i++) {
+    const _tvl = tvl[i]
+    let pid = i
+    $('#farm'+pid+'-tvl').text('$'+ formatBalance(_tvl, 0))
+    let rewardYear = POOLS[pid].gftPerBlock * BLOCK_PER_DAY * 365 * gftPrice
+    let apr = rewardYear / _tvl
+    apr = Math.round(1000*apr)/100
+    $('#farm'+pid+'-apr').text(apr+'%')
+    $(`.farm-card-stats-${pid}`).show()
+    $(`.spinner-${pid}`).hide()
+  }
+}
+
 function checkCardsApproval () {
   if (selectedAccount)
     for (let i = 0; i < POOLS.length; i++) {
@@ -92,13 +106,7 @@ async function farmInit() {
     );
 
     setTimeout(function() {
-      $('#farm'+pid+'-tvl').text('$'+ formatBalance(_tvl, 0))
-      let rewardYear = POOLS[pid].gftPerBlock * BLOCK_PER_DAY * 365 * gftPrice
-      let apr = rewardYear / _tvl
-      apr = Math.round(1000*apr)/100
-      $('#farm'+pid+'-apr').text(apr+'%')
-      $(`.farm-card-stats-${pid}`).show()
-      $(`.spinner-${pid}`).hide()
+      renderFarmStats()
     }, 100 + i * 300)
     
 
