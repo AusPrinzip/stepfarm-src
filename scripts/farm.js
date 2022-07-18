@@ -285,7 +285,8 @@ function setPair() {
 
 function deposit(tokenAddress, pid) {
   $('#body-overlay').show()
-  let amount = BigIntConstructor($("#input-A").text())
+  let amount = BigIntConstructor($("#input-A").val())
+  console.log($("#input-A").val())
   let web3 = new Web3(provider)
   let contract = new web3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
   contract
@@ -303,7 +304,7 @@ function deposit(tokenAddress, pid) {
 
 function withdraw(pid) {
   $('#body-overlay').show()
-  let amount = BigIntConstructor($("#input-A").text())
+  let amount = BigIntConstructor($("#input-A").val())
   let web3 = new Web3(provider)
   let contract = new web3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
   contract
