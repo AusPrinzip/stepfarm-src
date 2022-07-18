@@ -22,7 +22,7 @@ function fetchApi () {
   console.log('Fetching from api..')
   fetch(`https://api.stepfarm.io/stats`).then(res => res.json())
   .then(result => {
-  	console.log(result)
+  	// console.log(result)
     gftPrice = result.gftPrice;
     gmtPrice = result.gmtPrice;
     supply = result.supply;
@@ -31,21 +31,9 @@ function fetchApi () {
     sumTvl = result.sumTvl;
     tvl = result.tvl;
     renderStats()
-    const counters = 4;
-    const firstCounter = document.querySelector('.counter1')
-    for (let i = 1; i <= counters; i++) {
-      const el = document.querySelector(`.counter${i}`);
-      const counterUp = window.counterUp.default;
-      new Waypoint( {
-          element: firstCounter,
-          handler: function() { 
-              counterUp(el, { duration: 3000, delay: 16 }) 
-              this.destroy()
-          },
-          offset: '80%',
-      })
-    }
-
   })
-  .catch(e => console.log("API error, contact devs"))
+  .catch((e) => {
+  	console.error(e)
+  	console.log("API error, contact devs")
+  })
 }
