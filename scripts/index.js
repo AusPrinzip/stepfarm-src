@@ -19,21 +19,8 @@ function fadeColor () {
 
 function indexInit() {
   $(document).ready(function() {
-    renderStats()
-    const counters = 4;
-    const firstCounter = document.querySelector('.counter1')
-    for (let i = 1; i <= counters; i++) {
-      const el = document.querySelector(`.counter${i}`);
-      const counterUp = window.counterUp.default;
-      new Waypoint( {
-          element: firstCounter,
-          handler: function() { 
-              counterUp(el, { duration: 3000, delay: 16 }) 
-              this.destroy()
-          },
-          offset: '80%',
-      })
-    }
+    fetchApi()
+
     const ROADMAP_ELEMENTS = ["start", "1"]
     const ROADMAP_DESCRIPTIONS = [
        "<p>We have many features to discover, but everything is secret until the right time! Follow the path and find out regularly what will be the next feature on our roadmap. StepFarm gives wings to your yield!</p>",
