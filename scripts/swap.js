@@ -412,7 +412,7 @@ function swap () {
       console.log(res)
     })
     .catch((e) => {
-      $('#body-overlay').show()
+      $('#body-overlay').hide()
       console.error(e)
     })
 }
