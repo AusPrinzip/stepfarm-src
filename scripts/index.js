@@ -19,6 +19,7 @@ function fadeColor () {
 
 function indexInit() {
   $(document).ready(function() {
+    renderStats()
     const ROADMAP_ELEMENTS = ["start", "1"]
     const ROADMAP_DESCRIPTIONS = [
        "<p>We have many features to discover, but everything is secret until the right time! Follow the path and find out regularly what will be the next feature on our roadmap. StepFarm gives wings to your yield!</p>",
