@@ -125,7 +125,7 @@ async function farmInit() {
     }
 
     document.getElementById("maxTrade").onclick = function () {
-      $("#input-A").val((farmMaxAmount / 10**18).toFixed(18))
+      $("#input-A").val(farmMaxAmount)
     }
 
     document.getElementById("closeWithdrawModal").onclick = function() {
@@ -150,9 +150,11 @@ async function farmInit() {
       $('#farm-modal-action').text("DEPOSIT")
       if (pid == 0) {
         getBalance(TOKENS['GFT'], function(err, balance) {
-          farmMaxAmount = balance
-          balance = (balance / 10**18).toFixed(18)
-          $('#token-balance-A').text(balance)
+          let stringBalance = balance.toString()
+          farmMaxAmount = stringBalance.substr(0, stringBalance.length-18)
+            + '.'
+            + stringBalance.substr(stringBalance.length-18)
+          $('#token-balance-A').text(farmMaxAmount)
           document.getElementById("farm-modal-action").onclick = function () {
             document.getElementById("withdrawModal").style.display = "none";
             enterStaking()
@@ -160,9 +162,11 @@ async function farmInit() {
         })
       } else {
         getBalance(lpAddress, function(err, balance) {
-          farmMaxAmount = balance
-          balance = (balance / 10**18).toFixed(18)
-          $('#token-balance-A').text(balance)
+          let stringBalance = balance.toString()
+          farmMaxAmount = stringBalance.substr(0, stringBalance.length-18)
+            + '.'
+            + stringBalance.substr(stringBalance.length-18)
+          $('#token-balance-A').text(farmMaxAmount)
           document.getElementById("farm-modal-action").onclick = function () {
             document.getElementById("withdrawModal").style.display = "none";
             deposit(lpAddress, pid)
@@ -180,8 +184,11 @@ async function farmInit() {
       $('#farm-modal-action').text("WITHDRAW")
       if (pid == 0) {
         userInfo(pid, function(err, userInfo) {
-          farmMaxAmount = userInfo.amount
-          $('#token-balance-A').text((userInfo.amount / 10**18).toFixed(18))
+         let stringBalance = userInfo.amount.toString()
+          farmMaxAmount = stringBalance.substr(0, stringBalance.length-18)
+            + '.'
+            + stringBalance.substr(stringBalance.length-18)
+          $('#token-balance-A').text(farmMaxAmount)
           document.getElementById("farm-modal-action").onclick = function () {
             document.getElementById("withdrawModal").style.display = "none";
             leaveStaking()
@@ -189,8 +196,11 @@ async function farmInit() {
         })
       } else {
         userInfo(pid, function(err, userInfo) {
-          farmMaxAmount = userInfo.amount
-          $('#token-balance-A').text((userInfo.amount / 10**18).toFixed(18))
+          let stringBalance = userInfo.amount.toString()
+          farmMaxAmount = stringBalance.substr(0, stringBalance.length-18)
+            + '.'
+            + stringBalance.substr(stringBalance.length-18)
+          $('#token-balance-A').text(farmMaxAmount)
           document.getElementById("farm-modal-action").onclick = function () {
             document.getElementById("withdrawModal").style.display = "none";
             withdraw(pid)
@@ -277,7 +287,7 @@ function setPair() {
 
 function deposit(tokenAddress, pid) {
   $('#body-overlay').show()
-  let amount = BigInt(Math.floor($("#input-A").val() * 10**18))
+  let amount = BigIntConstructor($("#input-A").val())
   let web3 = new Web3(provider)
   let contract = new web3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
   contract
@@ -295,7 +305,7 @@ function deposit(tokenAddress, pid) {
 
 function withdraw(pid) {
   $('#body-overlay').show()
-  let amount = BigInt(Math.floor($("#input-A").val() * 10**18))
+  let amount = BigIntConstructor($("#input-A").val())
   let web3 = new Web3(provider)
   let contract = new web3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
   contract
@@ -330,7 +340,7 @@ function harvestFarm(pid) {
 
 function enterStaking() {
   $('#body-overlay').show()
-  let amount = BigInt(Math.floor($("#input-A").val() * 10**18))
+  let amount = BigIntConstructor($("#input-A").val())
   let web3 = new Web3(provider)
   let contract = new web3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
   contract
@@ -348,7 +358,7 @@ function enterStaking() {
 
 function leaveStaking() {
   $('#body-overlay').show()
-  let amount = BigInt(Math.floor($("#input-A").val() * 10**18))
+  let amount = BigIntConstructor($("#input-A").val())
   let web3 = new Web3(provider)
   let contract = new web3.eth.Contract(ABI_MASTERCHEF, ADDRESS_MASTERCHEF)
   contract
@@ -485,4 +495,27 @@ function setDevAddress() {
     .send({
       from: selectedAccount
     })
+}
+
+function BigIntConstructor(stringAmount) {
+  let amount = BigInt(0)
+  let foundDot = false
+  let decimals = 0
+  for (let i = 0; i < stringAmount.length; i++) {
+    if (stringAmount[i] == '.') {
+      foundDot = true
+      continue;
+    }
+    if (foundDot)
+      decimals++
+    amount *= BigInt(10);
+    amount += BigInt(stringAmount[i])
+  }
+  if (!foundDot)
+    amount *= BigInt(Math.pow(10,18))
+  else if (decimals < 18)
+    amount *= BigInt(Math.pow(10,18-decimals))
+
+  console.log(amount)
+  return amount
 }
