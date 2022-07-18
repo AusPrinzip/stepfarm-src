@@ -1,6 +1,7 @@
 
 function addInit() {
   reserves = null
+  rate = null
   // check pair reserves
   setInterval(function() {
     let tokens = []
@@ -24,10 +25,14 @@ function addInit() {
           res[1] = tmp
         }
         reserves = res
-        $('#rate-amount-B').text(formatBalance(
-          1000000000000000000 * reserves[1] / reserves[0],
-          6
-        ))
+        
+        let decimalsA = TOKENDECIMALS[$('#display-token-A').text().trim()]
+        let decimalsB = TOKENDECIMALS[$('#display-token-B').text().trim()]
+        rate = Math.pow(10, decimalsA) * reserves[1] / (Math.pow(10, decimalsB) * reserves[0])
+        $('#rate-amount-B').text(formatNumber(rate))
+
+        if ($('#input-A').val() > 0)
+          getMatchingAmount()
       })
     })
 
@@ -160,8 +165,9 @@ function getPair (tokens, cb) {
 
 function getMatchingAmount() {
   if (!reserves) return
+  if (!rate) return
   let amountA = Number($('#input-A').val())
-  let amountB = amountA * reserves[1] / reserves[0]
+  let amountB = amountA * rate
   $('#input-B').val(amountB)
 }
 

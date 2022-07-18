@@ -12,6 +12,12 @@ function formatBalance(bal, decimals = 4, token = null) {
   return Math.round(bal/Math.pow(10,first))/Math.pow(10,decimals)
 }
 
+function formatNumber(bal, decimals = 6) {
+  return Math.round(
+    bal * Math.pow(10,decimals)
+  ) / Math.pow(10,decimals)
+}
+
 ABI_ERC20 = null
 $.getJSON("abi/PancakeERC20.json", function(json) {
   ABI_ERC20 = json.abi
