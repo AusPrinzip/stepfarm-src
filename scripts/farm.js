@@ -158,7 +158,9 @@ async function farmInit() {
       if (pid == 0) {
         getBalance(TOKENS['GFT'], function(err, balance) {
           let stringBalance = balance.toString()
-          farmMaxAmount = formatBalance(balance, 18).toFixed(18)
+          farmMaxAmount = stringBalance.substr(0, stringBalance.length-18)
+            + '.'
+            + stringBalance.substr(stringBalance.length-18)
           $('#token-balance-A').text(farmMaxAmount)
           document.getElementById("farm-modal-action").onclick = function () {
             document.getElementById("withdrawModal").style.display = "none";
@@ -167,7 +169,9 @@ async function farmInit() {
         })
       } else {
         getBalance(lpAddress, function(err, balance) {
-          farmMaxAmount = formatBalance(balance, 18).toFixed(18)
+          farmMaxAmount = stringBalance.substr(0, stringBalance.length-18)
+            + '.'
+            + stringBalance.substr(stringBalance.length-18)
           $('#token-balance-A').text(farmMaxAmount)
           document.getElementById("farm-modal-action").onclick = function () {
             document.getElementById("withdrawModal").style.display = "none";
@@ -187,7 +191,9 @@ async function farmInit() {
       if (pid == 0) {
         userInfo(pid, function(err, userInfo) {
          let stringBalance = userInfo.amount.toString()
-          farmMaxAmount = formatBalance(balance, 18).toFixed(18)
+          farmMaxAmount = stringBalance.substr(0, stringBalance.length-18)
+            + '.'
+            + stringBalance.substr(stringBalance.length-18)
           $('#token-balance-A').text(farmMaxAmount)
           document.getElementById("farm-modal-action").onclick = function () {
             document.getElementById("withdrawModal").style.display = "none";
@@ -197,7 +203,9 @@ async function farmInit() {
       } else {
         userInfo(pid, function(err, userInfo) {
           let stringBalance = userInfo.amount.toString()
-          farmMaxAmount = formatBalance(balance, 18).toFixed(18)
+          farmMaxAmount = stringBalance.substr(0, stringBalance.length-18)
+            + '.'
+            + stringBalance.substr(stringBalance.length-18)
           $('#token-balance-A').text(farmMaxAmount)
           document.getElementById("farm-modal-action").onclick = function () {
             document.getElementById("withdrawModal").style.display = "none";
