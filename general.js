@@ -36,7 +36,6 @@ $.getJSON("abi/PancakeRouter.json", function(json) {
 ABI_PAIR = null
 $.getJSON("abi/PancakePair.json", function(json) {
   ABI_PAIR = json.abi
-  getGftPrice()
 })
 
 ABI_MASTERCHEF = null
