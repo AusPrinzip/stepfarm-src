@@ -20,10 +20,10 @@ const routes = {
         title: "Contact Us",
         description: "This is the contact page",
     },
-    farm: {
-        template: "/pages/farm.html",
-        title: "Yield Farming",
-        description: "This is the yield farming page"
+    earn: {
+        template: "/pages/earn.html",
+        title: "Staking & Yield Farming",
+        description: "This is the staking & yield farming page"
     },
     liquidity: {
         template: "/pages/liquidity.html",
@@ -66,7 +66,7 @@ const locationHandler = async () => {
         case 'swap':
             swapInit()
             break;
-        case 'farm':
+        case 'earn':
             farmInit()
             break;
         case 'add':

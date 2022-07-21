@@ -24,7 +24,7 @@ class Header extends HTMLElement {
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-collapse-vertical-aligned">
               <li><a href="/#swap">SWAP</a></li>
-              <li><a href="/#farm">FARM</a></li>
+              <li><a href="/#earn">EARN</a></li>
               <li><a href="/#liquidity">LIQUIDITY</a></li>
               <li><a href="https://stepfarm.gitbook.io/stepfarm" target="_blank">DOCS</a></li>
               <li>

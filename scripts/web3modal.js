@@ -139,7 +139,7 @@ async function fetchAccountData() {
     case 'swap':
         swapConnectInit()
         break;
-    case 'farm':
+    case 'earn':
         farmConnectInit()
         break;
     case 'add':
