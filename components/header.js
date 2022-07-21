@@ -32,7 +32,7 @@ class Header extends HTMLElement {
                 <ul class="dropdown-menu">
                   <li><a class="" href="https://twitter.com/StepFarm" target="_blank"><img src="images/icons/twitter.svg"></img>Twitter</a></li>
                   <li><a class="" href="https://t.me/StepFarmGFT" target="_blank"><img src="images/icons/telegram.svg"></img>Telegram</a></li>
-                  <li><a class="" href="https://discord.gg/gC72KwH4Gp" target="_blank"><img src="images/icons/discord.svg"></img>Discord</a></li>
+                  <li><a class="" href="https://discord.com/invite/dk26tk8m5y" target="_blank"><img src="images/icons/discord.svg"></img>Discord</a></li>
                   <li><a class="" href="https://medium.com/@stepfarm" target="_blank"><img src="images/icons/medium.svg"></img>Medium</a></li>
                 </ul>
               </li>
@@ -40,7 +40,7 @@ class Header extends HTMLElement {
             
 
             <ul class="nav navbar-nav navbar-right">
-              <li><a class="hidden-xs" href="https://discord.gg/gC72KwH4Gp" target="_blank"><img src="images/navbar-icons/discord.svg"></img></a></li>
+              <li><a class="hidden-xs" href="https://discord.com/invite/dk26tk8m5y" target="_blank"><img src="images/navbar-icons/discord.svg"></img></a></li>
               <li><a class="hidden-xs" href="https://medium.com/@stepfarm" target="_blank"><img src="images/navbar-icons/medium.svg"></img></a></li>
               <li><a class="hidden-xs" href="https://twitter.com/StepFarm" target="_blank"><img src="images/nav-twitter.svg"></img></a></li>
               <li><button id="btn-connect" class="connect-wallet-btn">CONNECT WALLET</button></li>
