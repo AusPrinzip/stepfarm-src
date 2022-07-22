@@ -1,9 +1,28 @@
-var {minify} = require("uglify-js");
+
+var {obfuscate} = require('javascript-obfuscator');
+const config = {
+  compact: true,
+  controlFlowFlattening: true,
+  controlFlowFlatteningThreshold: 1,
+  numbersToExpressions: true,
+  simplify: true,
+  stringArrayShuffle: true,
+  splitStrings: true,
+  stringArrayThreshold: 1
+};
 const fs = require("fs");
 const fse = require('fs-extra');
 var path = require('path');
 // In newer Node.js versions where process is already global this isn't necessary.
 var process = require("process");
+
+var dir = path.resolve("../../", "stepfarm_obf")
+
+if (!fs.existsSync(dir)){
+    fs.mkdirSync(dir);
+} else {
+  console.log("stepfarm_obf dir already exists")
+}
 
 var moveFrom = path.resolve(__dirname, "../", "scripts");
 var moveTo = path.resolve(__dirname, "../", "scripts_obfuscated", "out.js")
@@ -20,8 +39,9 @@ files.forEach(file => {
   }
 })
 
-// console.log(code)
-const obfuscated = minify(code).code
+// console.log(typeof code)
+const obfuscated = obfuscate(code, config)._obfuscatedCode
+// console.log(obfuscated)
 fs.writeFileSync(moveTo, obfuscated)
 
 
@@ -29,7 +49,7 @@ fs.writeFileSync(moveTo, obfuscated)
 
 let srcDir = path.resolve(__dirname, "../", "scripts_obfuscated");
 let destDir = path.resolve(__dirname, "../..", "stepfarm_obf", "scripts_obfuscated");
-                              
+// return console.log(srcDir, destDir)
 // To copy a folder or file  
 fse.copySync(srcDir, destDir, { overwrite: true }, function (err) {
   if (err) {                
@@ -41,9 +61,9 @@ fse.copySync(srcDir, destDir, { overwrite: true }, function (err) {
 
 srcDir = path.resolve(__dirname, "../..", "stepfarm");
 destDir = path.resolve(__dirname, "../..", "stepfarm_obf");
-                              
+// return console.log(srcDir, destDir)        
 // To copy a folder or file  
-fse.copySync(srcDir, destDir, { overwrite: false }, function (err) {
+fse.copySync("../", "../../stepfarm_obf", { overwrite: false }, function (err) {
   if (err) {                
     console.error(err);       
   } else {
