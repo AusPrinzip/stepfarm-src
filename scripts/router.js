@@ -34,6 +34,11 @@ const routes = {
         template: "/pages/add.html",
         title: "Add Liquidity | Step Farm",
         description: "This is the page where you can provide liquidity"
+    },
+    lottery: {
+        template: "/pages/lottery.html",
+        title: "Lottery | Step Farm",
+        description: "This is the Lottery page"
     }
 };
 
@@ -74,6 +79,9 @@ const locationHandler = async () => {
             break;
         case 'liquidity':
             liquidityInit()
+            break;
+        case 'lottery':
+            lotteryInit();
             break;
         default:
             console.log('Unknown route: '+location)

@@ -16,8 +16,8 @@ var path = require('path');
 // In newer Node.js versions where process is already global this isn't necessary.
 var process = require("process");
 
-var dir = path.resolve("../../", "stepfarm_obf")
-
+var dir = path.resolve(__dirname, "../../", "stepfarm_obf")
+console.log(dir)
 if (!fs.existsSync(dir)){
     fs.mkdirSync(dir);
 } else {

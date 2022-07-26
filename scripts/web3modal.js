@@ -147,6 +147,8 @@ async function fetchAccountData() {
     case 'liquidity':
         liquidityConnectInit()
         break;
+    case 'lottery':
+        break;
     default:
         console.log('Unknown route: '+location)
   }

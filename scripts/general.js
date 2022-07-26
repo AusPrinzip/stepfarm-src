@@ -43,6 +43,11 @@ $.getJSON("abi/MasterChef.json", function(json) {
   ABI_MASTERCHEF = json.abi
 })
 
+ABI_LOTTERY = null
+$.getJSON("abi/PancakeLottery.json", function(json) {
+  ABI_LOTTERY = json.abi
+})
+
 function approveToken (tokenAddress, spender, cb) {
   $('#body-overlay').show()
   let web3 = new Web3(provider)

@@ -417,14 +417,14 @@ function swap () {
     })
 }
 
-function getPair() {
-  let index = prompt("Please enter index", "0")
-  let contract = new dweb3.eth.Contract(ABI_FACTORY, ADDRESS_FACTORY)
-  contract
-    .methods
-    .allPairs(index)
-    .call()
-    .then(function(res) {
-      console.log(res)
-    })
-}
+// function getPair() {
+//   let index = prompt("Please enter index", "0")
+//   let contract = new dweb3.eth.Contract(ABI_FACTORY, ADDRESS_FACTORY)
+//   contract
+//     .methods
+//     .allPairs(index)
+//     .call()
+//     .then(function(res) {
+//       console.log(res)
+//     })
+// }
