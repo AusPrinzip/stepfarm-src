@@ -7,7 +7,7 @@ console.log(_priceTicketInCake)
 let _rewardsBreakdown = ["200", "300", "500", "1500", "2500", "5000"];
 let _treasuryFee = "2000";
 const contractAddress = "0x82F8Ca6eCBb337bFA3919b6a66BFA9bEE9fE50AF"
-const statuses = ["Pending", "Open", "Close", "Clamable"]
+const statuses = ["Pending", "Open", "Close", "Claimable"]
 setTimeout(async () => {
   const lotteryId = await getLotteryId()
   document.getElementById('lottery-id').innerHTML = `#${lotteryId}`
