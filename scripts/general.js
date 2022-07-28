@@ -18,6 +18,11 @@ function formatNumber(bal, decimals = 6) {
   ) / Math.pow(10,decimals)
 }
 
+ABI_STEPNNFT = null
+$.getJSON("abi/STEPNNFT.json", function(json) {
+  ABI_STEPNNFT = json.abi
+})
+
 ABI_ERC20 = null
 $.getJSON("abi/PancakeERC20.json", function(json) {
   ABI_ERC20 = json.abi
