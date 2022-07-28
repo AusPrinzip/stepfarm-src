@@ -1,15 +1,15 @@
-// RandomNumberGenerator deployed to: 0xa71d9d5cE2a45C8c889CB3F514A2E2b3cabB0850
-// STEPNNFT deployed to: 0xe2d631696C62A43008D189fFCBFd4f1800669eB0
-// PancakeSwapLottery deployed to: 0x783921B2Bf78628E68d8A7463e150cA262C347E1
+// RandomNumberGenerator deployed to: 0x56721f2BAb1DE62545FF8393efAEaA670745CE9D
+// STEPNNFT deployed to: 0x0720eAE0bDF8B6B495E84442A32fF5a22134609b
+// PancakeSwapLottery deployed to: 0xcDC5fAf71DbC8DDAA001291A67dBCd5895BCB7bE
 
 let _discountDivisor = "2000";
 let _priceTicketInCake = BigInt(5 * 10**15)
 console.log(_priceTicketInCake)
 let _rewardsBreakdown = ["200", "300", "500", "1500", "2500", "5000"];
 let _treasuryFee = "2000";
-const RandomNumberGeneratorAddress = "0xa71d9d5cE2a45C8c889CB3F514A2E2b3cabB0850";
-const STEPNNFTAddress = "0xe2d631696C62A43008D189fFCBFd4f1800669eB0";
-const PancakeSwapLotteryAddress = "0x783921B2Bf78628E68d8A7463e150cA262C347E1";
+const RandomNumberGeneratorAddress = "0x56721f2BAb1DE62545FF8393efAEaA670745CE9D";
+const STEPNNFTAddress = "0x0720eAE0bDF8B6B495E84442A32fF5a22134609b";
+const PancakeSwapLotteryAddress = "0xcDC5fAf71DbC8DDAA001291A67dBCd5895BCB7bE";
 const statuses = ["Pending", "Open", "Close", "Claimable"];
 let lotteryId
 let lotteryData
@@ -23,18 +23,24 @@ setTimeout(async () => {
   } catch(e) {
      return console.error(e)
   }
-  document.getElementById("status").innerHTML = statuses[res.status]
-  document.getElementById("amountCollectedInCake").innerHTML = res.amountCollectedInCake
-  document.getElementById("endTime").innerHTML = new Date(res.endTime * 1000).toISOString()
-  document.getElementById("priceTicketInCake").innerHTML = res.priceTicketInCake
-  document.getElementById("startTime").innerHTML = new Date(res.startTime * 1000).toISOString()
-  document.getElementById("treasuryFee").innerHTML = res.treasuryFee
-  document.getElementById("cakePerBracket").innerHTML = res.cakePerBracket
-  document.getElementById("discountDivisor").innerHTML = res.discountDivisor
-  document.getElementById("finalNumber").innerHTML = res.finalNumber
+  console.log(lotteryData)
+  document.getElementById("status").innerHTML = statuses[lotteryData.status]
+  document.getElementById("amountCollectedInCake").innerHTML = lotteryData.amountCollectedInCake
+  document.getElementById("endTime").innerHTML = new Date(lotteryData.endTime * 1000).toISOString()
+  document.getElementById("priceTicketInCake").innerHTML = lotteryData.priceTicketInCake
+  document.getElementById("startTime").innerHTML = new Date(lotteryData.startTime * 1000).toISOString()
+  document.getElementById("discount").innerHTML = lotteryData.discountDivisor
+  document.getElementById("finalNumber").innerHTML = lotteryData.finalNumber
+  document.getElementById("lottery-buttons").style.display = "block";
 }, 2000)
 
 function lotteryInit() {
+    document.getElementById("lottery-set").onclick = function () {
+        setTokenId().then(res => console.log(res))
+    },
+    document.getElementById("lottery-transfer").onclick = function () {
+        transferNFT().then(res => console.log(res))
+    },
     document.getElementById("lottery-link").onclick = function () {
         transferLINK().then(res => console.log(res))
     }
@@ -54,6 +60,39 @@ function lotteryInit() {
     document.getElementById("lottery-draw").onclick = function () {
         drawFinalNumberAndMakeLotteryClaimable().then(console.log)
     }
+}
+
+function setTokenId () {
+  console.log('setTokenId')
+  let web3 = new Web3(provider)
+  const contract = new web3.eth.Contract(ABI_LOTTERY, PancakeSwapLotteryAddress);
+  const tokenId = prompt("Please input tokenId")
+  return contract.methods.setTokenId(tokenId).send({ from: selectedAccount })
+}
+
+async function scanEvents () {
+  let web3 = new Web3(provider)
+  const currentBlockNumber = await web3.eth.getBlockNumber()
+  console.log(`Current block #: ${currentBlockNumber}`)
+  const myContract = new web3.eth.Contract(ABI_ERC721, STEPNNFTAddress);
+  myContract.getPastEvents("allEvents", { fromBlock: currentBlockNumber - 4000, toBlock: 'latest' }).then(res => console.log(res))
+}
+
+function getNFTbalance () {
+  let web3 = new Web3(provider)
+  // Get ERC20 Token contract instance
+  let contract = new web3.eth.Contract(ABI_STEPNNFT, STEPNNFTAddress);
+  // call transfer function
+  return contract.methods.balanceOf(selectedAccount).call()
+}
+
+function transferNFT () {
+  let web3 = new Web3(provider)
+  // Get ERC20 Token contract instance
+  let contract = new web3.eth.Contract(ABI_ERC721, STEPNNFTAddress);
+  // call transfer function
+  const tokenId = prompt("please enter tokenId")
+  return contract.methods.transferFrom(selectedAccount, PancakeSwapLotteryAddress, tokenId).send({ from: selectedAccount})
 }
 
 function transferLINK () {
@@ -79,7 +118,7 @@ function getLotteryId () {
 function drawFinalNumberAndMakeLotteryClaimable() {
   let web3 = new Web3(provider)
   const contract = new web3.eth.Contract(ABI_LOTTERY, PancakeSwapLotteryAddress)
-  return contract.methods.drawFinalNumberAndMakeLotteryClaimable(lotteryId, false).send({
+  return contract.methods.drawFinalNumberAndMakeLotteryClaimable(lotteryId).send({
     from: selectedAccount
   })
   .then(console.log)
@@ -133,7 +172,7 @@ const _ticketsBought = [
 function buyTickets () {
   let web3 = new Web3(provider)
   const contract = new web3.eth.Contract(ABI_LOTTERY, PancakeSwapLotteryAddress)
-  return contract.methods.buyTickets(lotteryId, _ticketsBought).send({
+  return contract.methods.buyTickets(lotteryId, 80).send({
     from: selectedAccount
   })
 }

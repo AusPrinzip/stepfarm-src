@@ -102,6 +102,7 @@ async function fetchAccountData() {
 
   // Get connected chain id from Ethereum node
   const chainId = await web3.eth.getChainId();
+
   // Load chain information over an HTTP API
   const chainData = evmChains.getChain(chainId);
 

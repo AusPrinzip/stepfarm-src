@@ -28,6 +28,11 @@ $.getJSON("abi/PancakeERC20.json", function(json) {
   ABI_ERC20 = json.abi
 })
 
+ABI_ERC721 = null
+$.getJSON("abi/PancakeERC20.json", function(json) {
+  ABI_ERC721 = json.abi
+})
+
 ABI_FACTORY = null
 $.getJSON("abi/PancakeFactory.json", function(json) {
   ABI_FACTORY = json.abi

@@ -1,30 +1,33 @@
 
 <html lang="en">
-<center><h1>Lottery <span id="lottery-id">#?</span></h1></center>
-<center><div class="btn-group" role="group" aria-label="...">
-  <button id="lottery-link" type="button" class="btn btn-default">loadLINK</button>
-  <button id="lottery-mint" type="button" class="btn btn-default">mintNFT</button>
-  <button id="lottery-start" type="button" class="btn btn-default">Start</button>
-  <button id="lottery-buy" type="button" class="btn btn-default">Buy</button>
-  <button id="lottery-stop" type="button" class="btn btn-default">Stop</button>
-  <button id="lottery-draw" type="button" class="btn btn-default">DrawFinal</button>
-</div></center>
+<center><h1>Lottery <span id="lottery-id">#?</span> | Status: <span id="status"></span></h1></center>
+
+
 
 <div class="container-fluid">
+
+    <div class="btn-group row" role="group" aria-label="..." id="lottery-buttons" style="display: none;">
+      <button id="lottery-link" type="button" class="btn btn-default col-md-4">loadLINK</button>
+      <button id="lottery-mint" type="button" class="btn btn-default col-md-4">mintNFT</button>
+      <button id="lottery-transfer" type="button" class="btn btn-default col-md-4">transferNFT</button>
+      <button id="lottery-set" type="button" class="btn btn-default col-md-4">setTokenId</button>
+      <button id="lottery-start" type="button" class="btn btn-default col-md-4">Start</button>
+      <button id="lottery-buy" type="button" class="btn btn-default col-md-4">Buy</button>
+      <button id="lottery-stop" type="button" class="btn btn-default col-md-4">Close</button>
+      <button id="lottery-draw" type="button" class="btn btn-default col-md-4">DrawFinal</button>
+    </div>
+
     <div class="row">
-      <div class="col-md-4">amountCollectedInCake: <span id="amountCollectedInCake" ></span></div>
-      <div class="col-md-4">gftPerBracket: <span id="cakePerBracket"></span></div>
-      <div class="col-md-4">discountDivisor: <span id="discountDivisor"></span></div>
+      <div class="col-md-6">amountCollectedInCake: <span id="amountCollectedInCake" ></span></div>
+      <div class="col-md-6">discountDivisor: <span id="discount"></span></div>
     </div>
     <div class="row">
-      <div class="col-md-4">startTime: <span id="startTime"></span></div>
-      <div class="col-md-4">endTime: <span id="endTime"></span></div>
-      <div class="col-md-4">status: <span id="status"></span></div>
+      <div class="col-md-6">startTime: <span id="startTime"></span></div>
+      <div class="col-md-6">endTime: <span id="endTime"></span></div>
     </div>
     <div class="row">
-      <div class="col-md-4">treasuryFee: <span id="treasuryFee"></span></div>
-      <div class="col-md-4">finalNumber: <span id="finalNumber">????</span></div>
-      <div class="col-md-4">priceTicketInGFT: <span id="priceTicketInCake"></span></div>
+      <div class="col-md-6">finalNumber: <span id="finalNumber">????</span></div>
+      <div class="col-md-6">priceTicketInGFT: <span id="priceTicketInCake"></span></div>
     </div>
 </div>
 </html>
