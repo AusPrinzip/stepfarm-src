@@ -72,7 +72,7 @@ function approveToken (tokenAddress, spender, cb) {
     })
     .then(function(res) {
       $('#body-overlay').hide()
-      cb(null, res)
+      if (cb) cb(null, res)
     })
     .catch((e) => {
       $('#body-overlay').hide()
