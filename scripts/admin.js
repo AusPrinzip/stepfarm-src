@@ -1,33 +1,15 @@
-// RandomNumberGenerator deployed to: 0x11F98F7A636B67fC6f4078aF02536B4E979B1eBE
-// STEPNNFT deployed to: 0x39344eF6322290561eDd86033C81f921159FFed3
-// PancakeSwapLottery deployed to: 0x1acF805CEa704D2A01864b2ecA5B4302C9F7a95E
-
-let _discountDivisor = "2000";
-let _priceTicketInCake = BigInt(5 * 10**15)
-// console.log(_priceTicketInCake)
-
-const RandomNumberGeneratorAddress = "0x11F98F7A636B67fC6f4078aF02536B4E979B1eBE";
-const STEPNNFTAddress = "0x39344eF6322290561eDd86033C81f921159FFed3";
-const PancakeSwapLotteryAddress = "0x1acF805CEa704D2A01864b2ecA5B4302C9F7a95E";
 
 
 
-const statuses = ["Pending", "Open", "Close", "Claimable"];
-let lotteryId
-let lotteryData
-let boughtTickets = [];
-
-
-
-async function lotteryRendering () {
-
+async function adminRendering () {
+  
   checkAllowance().then(res => {
     if (res == 0) approveGFT()
   })
   try  {
     lotteryId = await getLotteryId();
     console.log(`LotteryId is: ${lotteryId}`)
-    // document.getElementById('lottery-id').innerHTML = `#${lotteryId}`
+    document.getElementById('lottery-id').innerHTML = `#${lotteryId}`
     lotteryData = await viewLottery(lotteryId);
     // calculateBulkPrice(80).then(console.log)
     boughtTickets = await viewUserInfoForLotteryId();
@@ -36,53 +18,57 @@ async function lotteryRendering () {
   } catch(e) {
      return console.error(e)
   }
-
+  console.log(lotteryData)
   if (lotteryData.status == 1) {
-    $('.StyledBuyTicketButton').html("Buy Tickets")
+    $('.StyledBuyTicketButton').innerHTML = "Buy Tickets"
   }
-  // document.getElementById("status").innerHTML = statuses[lotteryData.status]
-  // document.getElementById("amountCollectedInGFT").innerHTML = Math.round(lotteryData.amountCollectedInGFT / 10**18)
-  // document.getElementById("endTime").innerHTML = new Date(lotteryData.endTime * 1000).toISOString()
-  // document.getElementById("priceTicketInGFT").innerHTML = Math.round(lotteryData.priceTicketInGFT / 10**18)
-  // document.getElementById("startTime").innerHTML = new Date(lotteryData.startTime * 1000).toISOString()
-  // document.getElementById("discount").innerHTML = lotteryData.discountDivisor
-  // document.getElementById("finalNumber").innerHTML = lotteryData.finalNumber
-  // document.getElementById("lottery-buttons").style.display = "block";
+  document.getElementById("status").innerHTML = statuses[lotteryData.status]
+  document.getElementById("amountCollectedInGFT").innerHTML = Math.round(lotteryData.amountCollectedInGFT / 10**18)
+  document.getElementById("endTime").innerHTML = new Date(lotteryData.endTime * 1000).toISOString()
+  document.getElementById("priceTicketInGFT").innerHTML = Math.round(lotteryData.priceTicketInGFT / 10**18)
+  document.getElementById("startTime").innerHTML = new Date(lotteryData.startTime * 1000).toISOString()
+  document.getElementById("discount").innerHTML = lotteryData.discountDivisor
+  document.getElementById("finalNumber").innerHTML = lotteryData.finalNumber
+  document.getElementById("lottery-buttons").style.display = "block";
 }
 
-function lotteryConnectInit() {
-  lotteryRendering()
+function adminConnectInit() {
+  adminRendering()
 }
 
-function lotteryInit() {
-    // document.getElementById("lottery-set").onclick = function () {
-    //     setTokenId().then(res => console.log(res))
-    // }
-    // document.getElementById("lottery-transfer").onclick = function () {
-    //     transferNFT().then(res => console.log(res))
-    // }
-    // document.getElementById("lottery-link").onclick = function () {
-    //     transferLINK().then(res => console.log(res))
-    // }
-    // document.getElementById("lottery-mint").onclick = function () {
-    //     mintNFT(selectedAccount, Math.round(Math.random() * 1000)).then(console.log)
-    // }
-    // document.getElementById("lottery-start").onclick = function () {
-    //     startLottery().then(console.log)
-    //     .catch(e => console.error(e))
-    // }
-    // document.getElementById("lottery-buy").onclick = function () {
-    //     buyTickets().then((res) => {
-    //       console.log(res)
-    //       refreshTicketList()
-    //     })
-    // }
-    // document.getElementById("lottery-stop").onclick = function () {
-    //     closeLottery().then(console.log)
-    // }
-    // document.getElementById("lottery-draw").onclick = function () {
-    //     drawFinalNumberAndMakeLotteryClaimable().then(console.log)
-    // }
+function adminInit() {
+    $('.links').append(`<a target="_blank" href="https://testnet.bscscan.com/address/${RandomNumberGeneratorAddress}">Link RandomNumberGeneratorAddress</a></br>`)
+    $('.links').append(`<a target="_blank" href="https://testnet.bscscan.com/address/${STEPNNFTAddress}">Link STEPNNFTAddress</a></br>`)
+    $('.links').append(`<a target="_blank" href="https://testnet.bscscan.com/address/${PancakeSwapLotteryAddress}">Link PancakeSwapLotteryAddress</a>`)
+
+    document.getElementById("lottery-set").onclick = function () {
+        setTokenId().then(res => console.log(res))
+    }
+    document.getElementById("lottery-transfer").onclick = function () {
+        transferNFT().then(res => console.log(res))
+    }
+    document.getElementById("lottery-link").onclick = function () {
+        transferLINK().then(res => console.log(res))
+    }
+    document.getElementById("lottery-mint").onclick = function () {
+        mintNFT(selectedAccount, Math.round(Math.random() * 1000)).then(console.log)
+    }
+    document.getElementById("lottery-start").onclick = function () {
+        startLottery().then(console.log)
+        .catch(e => console.error(e))
+    }
+    document.getElementById("lottery-buy").onclick = function () {
+        buyTickets().then((res) => {
+          console.log(res)
+          refreshTicketList()
+        })
+    }
+    document.getElementById("lottery-stop").onclick = function () {
+        closeLottery().then(console.log)
+    }
+    document.getElementById("lottery-draw").onclick = function () {
+        drawFinalNumberAndMakeLotteryClaimable().then(console.log)
+    }
 }
 
 function refreshTicketList () {
@@ -98,7 +84,7 @@ async function claimTickets (lotteryId, purchaseId) {
   let web3 = new Web3(provider);
   const contract = new web3.eth.Contract(ABI_LOTTERY, PancakeSwapLotteryAddress);
   const result = await contract.methods.claimTickets(lotteryId, purchaseId).send({ from: selectedAccount });
-  lotteryRendering()
+  adminRendering()
   console.log(result)
   const won = result.events.TicketsClaim.returnValues[4];
   if (won) {
@@ -228,10 +214,6 @@ async function startLottery() {
     from: selectedAccount
   }).then(console.log)
 }
-
-const _ticketsBought = [
-    "1234561"
-];
 
 function buyTickets () {
   let web3 = new Web3(provider)

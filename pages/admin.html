@@ -1,18 +1,19 @@
 
-<html lang="en">
-<center><h1>Lottery <span id="lottery-id">#?</span> | Status: <span id="status"></span></h1></center>
 
 <div class="container-fluid">
+    <center><h1>Lottery <span id="lottery-id">#?</span> | Status: <span id="status"></span></h1></center>
 
-    <div class="btn-group row" role="group" aria-label="..." id="lottery-buttons" style="display: none;">
-      <button id="lottery-link" type="button" class="btn btn-default col-md-2">loadLINK</button>
-      <button id="lottery-mint" type="button" class="btn btn-default col-md-2">mintNFT</button>
-      <button id="lottery-transfer" type="button" class="btn btn-default col-md-2">transferNFT</button>
-      <button id="lottery-set" type="button" class="btn btn-default col-md-2">setTokenId</button>
-      <button id="lottery-start" type="button" class="btn btn-default col-md-2">Start</button>
-      <button id="lottery-buy" type="button" class="btn btn-default col-md-2">Buy</button>
-      <button id="lottery-stop" type="button" class="btn btn-default col-md-2">Close</button>
-      <button id="lottery-draw" type="button" class="btn btn-default col-md-2">DrawFinal</button>
+    <div class="links"></div>
+
+    <div class="row btn-group" role="group" aria-label="..." id="lottery-buttons" style="display: none;">
+      <button id="lottery-link" type="button" class="btn btn-default ">loadLINK</button>
+      <button id="lottery-mint" type="button" class="btn btn-default ">mintNFT</button>
+      <button id="lottery-transfer" type="button" class="btn btn-default ">transferNFT</button>
+      <button id="lottery-set" type="button" class="btn btn-default ">setTokenId</button>
+      <button id="lottery-start" type="button" class="btn btn-default ">Start</button>
+      <button id="lottery-buy" type="button" class="btn btn-default ">Buy</button>
+      <button id="lottery-stop" type="button" class="btn btn-default ">Close</button>
+      <button id="lottery-draw" type="button" class="btn btn-default ">DrawFinal</button>
     </div>
 
     <div class="row">
@@ -27,14 +28,12 @@
       <div class="col-md-6">finalNumber: <span id="finalNumber">????</span></div>
       <div class="col-md-6">priceTicketInGFT: <span id="priceTicketInGFT"></span></div>
     </div>
-</div>
 
-  <div class="container-fluid">
     <center><h1>My tickets</h1></center>
     <div id="ticket-list">
         <ul class="list-group">
 
         </ul>
     </div>
-  </div>
-</html>
+</div>
+

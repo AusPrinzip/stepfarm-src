@@ -96,7 +96,7 @@ const locationHandler = async () => {
             break;
         case 'admin':
             $('#footer').hide();
-            // adminInit();
+            adminInit();
             break;
         default:
             console.log('Unknown route: '+location)
