@@ -39,6 +39,11 @@ const routes = {
         template: "/pages/lottery.html",
         title: "Lottery | Step Farm",
         description: "This is the Lottery page"
+    },
+    admin: {
+        template: "/pages/admin.html",
+        title: "Admin Pannel | Step Farm",
+        description: "This is the Admin pannel page"
     }
 };
 
@@ -66,22 +71,32 @@ const locationHandler = async () => {
     // trigger functions for each page
     switch (location) {
         case '/':
+            $('#footer').show();
             indexInit()
             break;
         case 'swap':
+            $('#footer').show();
             swapInit()
             break;
         case 'earn':
+            $('#footer').show();
             farmInit()
             break;
         case 'add':
+            $('#footer').show();
             addInit()
             break;
         case 'liquidity':
+            $('#footer').show();
             liquidityInit()
             break;
         case 'lottery':
+            $('#footer').hide();
             lotteryInit();
+            break;
+        case 'admin':
+            $('#footer').hide();
+            // adminInit();
             break;
         default:
             console.log('Unknown route: '+location)

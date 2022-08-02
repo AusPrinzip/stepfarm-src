@@ -5,6 +5,124 @@ html, body {
   font-size:16px;
 }
 
+.Box {
+  background: linear-gradient(rgb(118, 69, 217) 0%, #37E4E5 100%);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.Box img {
+  position: absolute;
+}
+
+
+.PrizeTotalBalance {
+  background: black;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.StyledBuyTicketButton {
+  color:  white;
+  font-family: Poppins-strong;
+  background: linear-gradient(180deg, #159d9e 0%, #37E4E5 100%);
+  width: 200px;
+  height: 50px;
+  z-index: 4;
+}
+
+.ButtonWrapper {
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-4deg);
+  z-index: 2;
+}
+
+.TicketSvgWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(-4deg);
+}
+
+.Decorations {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(/images/lottery/bg-star.svg) center 0px no-repeat;
+    z-index: 0;
+} 
+
+.lottery-container {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+@keyframes floatingStarsLeft {
+  from {
+    transform: translate(0,  0px);
+  }
+  50% {
+    transform: translate(10px, 10px);
+  }
+  to {
+    transform: translate(0, -0px);
+  }  
+}
+
+@keyframes floatingStarsRight {
+  from {
+    transform: translate(0,  0px);
+  }
+  50% {
+    transform: translate(10px, 10px);
+  }
+  to {
+    transform: translate(0, -0px);
+  }  
+}
+
+@keyframes floatingTicketLeft {
+  from {
+    transform: translate(0,  0px);
+  }
+  50% {
+    transform: translate(10px, 10px);
+  }
+  to {
+    transform: translate(0, -0px);
+  }  
+}
+
+@keyframes floatingTicketRight {
+  from {
+    transform: translate(0,  0px);
+  }
+  50% {
+    transform: translate(10px, 15px);
+  }
+  to {
+    transform: translate(0, -0px);
+  }  
+}
+
+@keyframes mainTicketAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(6deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }  
+}
+
 .wallet-icon {
   margin-left: 7%;
 }
@@ -158,6 +276,39 @@ html, body {
 }
 
 @media (min-width: 320px) {  
+  .TicketContainer {
+    left: 20%;
+    top: 50%;
+  }
+  .Box :nth-child(1) {
+    left: 3%;
+    top: 42%;
+    animation: floatingStarsLeft 3s ease-in-out infinite;
+    animation-delay: 0.25s;
+  }
+  .Box :nth-child(2) {
+    left: 9%;
+    top: 23%;
+    animation: floatingStarsLeft 3.5s ease-in-out infinite;
+    animation-delay: 0.5s;
+    }
+  .Box :nth-child(3) {
+    right: 2%;
+    top: 24%;
+    animation: floatingStarsRight 4s ease-in-out infinite;
+    animation-delay: 0.75s;
+    }
+  .Box :nth-child(4) {
+    left: 8%;
+    top: 67%;
+    animation: floatingTicketLeft 6s ease-in-out infinite;
+    animation-delay: 0.2s;
+  }
+  .Box :nth-child(5) {
+    right: 8%;
+    top: 67%;
+    animation: floatingTicketRight 6s ease-in-out infinite;
+  }
   h1 {font-size:1.3rem; } 
   p { font-size: 14px; }
   #settings {
@@ -504,6 +655,46 @@ html, body {
   .statvalue {font-size: 28px !important;}
   .map {
     width: 50% !important;
+  }
+  .Box :nth-child(1) {
+    left: 19%;
+    top: 42%;
+    animation: floatingStarsLeft 3s ease-in-out infinite;
+    animation-delay: 0.25s;
+  }
+  .Box :nth-child(2) {
+    left: 25%;
+    top: 23%;
+    animation: floatingStarsLeft 3.5s ease-in-out infinite;
+    animation-delay: 0.5s;
+    }
+  .Box :nth-child(3) {
+    right: 19%;
+    top: 24%;
+    animation: floatingStarsRight 4s ease-in-out infinite;
+    animation-delay: 0.75s;
+    }
+  .Box :nth-child(4) {
+    left: 24%;
+    top: 67%;
+    animation: floatingTicketLeft 6s ease-in-out infinite;
+    animation-delay: 0.2s;
+  }
+  .Box :nth-child(5) {
+    right: 24%;
+    top: 67%;
+    animation: floatingTicketRight 6s ease-in-out infinite;
+  }
+
+  .TicketContainer {
+    position: absolute;
+    width: 240px;
+    height: 94px;
+    left:  40%;
+    bottom: 30%;
+    alignItems: center;
+    justifyContent: center;
+    animation: mainTicketAnimation 3s ease-in-out infinite;
   }
 }
  

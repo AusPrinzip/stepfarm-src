@@ -148,7 +148,7 @@ async function fetchAccountData() {
     case 'liquidity':
         liquidityConnectInit()
         break;
-    case 'lottery':
+    case 'admin':
         lotteryConnectInit()
         break;
     default:

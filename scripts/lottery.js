@@ -18,6 +18,7 @@ let boughtTickets = [];
 
 
 async function start () {
+
   checkAllowance().then(res => {
     if (res == 0) approveGFT()
   })
@@ -49,7 +50,7 @@ function lotteryConnectInit() {
 }
 
 function lotteryInit() {
-  // setTimeout(async () => { start() }, 2000)
+    $('#footer').hide();
     document.getElementById("lottery-set").onclick = function () {
         setTokenId().then(res => console.log(res))
     }
