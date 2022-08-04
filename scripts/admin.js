@@ -9,12 +9,10 @@ async function adminRendering () {
   try  {
     lotteryId = await getLotteryId();
     console.log(`LotteryId is: ${lotteryId}`)
-    document.getElementById('lottery-id').innerHTML = `#${lotteryId}`
+    document.getElementById('admin-id').innerHTML = `#${lotteryId}`
     lotteryData = await viewLottery(lotteryId);
     // calculateBulkPrice(80).then(console.log)
     boughtTickets = await viewUserInfoForLotteryId();
-    // console.log(boughtTickets)
-    refreshTicketList();
   } catch(e) {
      return console.error(e)
   }
@@ -29,7 +27,7 @@ async function adminRendering () {
   document.getElementById("startTime").innerHTML = new Date(lotteryData.startTime * 1000).toISOString()
   document.getElementById("discount").innerHTML = lotteryData.discountDivisor
   document.getElementById("finalNumber").innerHTML = lotteryData.finalNumber
-  document.getElementById("lottery-buttons").style.display = "block";
+  document.getElementById("admin-buttons").style.display = "block";
 }
 
 function adminConnectInit() {
@@ -41,42 +39,29 @@ function adminInit() {
     $('.links').append(`<a target="_blank" href="https://testnet.bscscan.com/address/${STEPNNFTAddress}">Link STEPNNFTAddress</a></br>`)
     $('.links').append(`<a target="_blank" href="https://testnet.bscscan.com/address/${PancakeSwapLotteryAddress}">Link PancakeSwapLotteryAddress</a>`)
 
-    document.getElementById("lottery-set").onclick = function () {
+    document.getElementById("admin-set").onclick = function () {
         setTokenId().then(res => console.log(res))
     }
-    document.getElementById("lottery-transfer").onclick = function () {
+    document.getElementById("admin-transfer").onclick = function () {
         transferNFT().then(res => console.log(res))
     }
-    document.getElementById("lottery-link").onclick = function () {
+    document.getElementById("admin-link").onclick = function () {
         transferLINK().then(res => console.log(res))
     }
-    document.getElementById("lottery-mint").onclick = function () {
+    document.getElementById("admin-mint").onclick = function () {
         mintNFT(selectedAccount, Math.round(Math.random() * 1000)).then(console.log)
     }
-    document.getElementById("lottery-start").onclick = function () {
+    document.getElementById("admin-start").onclick = function () {
         startLottery().then(console.log)
         .catch(e => console.error(e))
     }
-    document.getElementById("lottery-buy").onclick = function () {
-        buyTickets().then((res) => {
-          console.log(res)
-          refreshTicketList()
-        })
-    }
-    document.getElementById("lottery-stop").onclick = function () {
+
+    document.getElementById("admin-stop").onclick = function () {
         closeLottery().then(console.log)
     }
-    document.getElementById("lottery-draw").onclick = function () {
+    document.getElementById("admin-draw").onclick = function () {
         drawFinalNumberAndMakeLotteryClaimable().then(console.log)
     }
-}
-
-function refreshTicketList () {
-  const numberOfTickets = boughtTickets[0].length;
-  $("#ticket-list ul").empty();
-  for (let i = 0; i < numberOfTickets; i++) {
-    if (!boughtTickets[2][i]) $("#ticket-list ul").append(`<li class="list-group-item">maxNumber: ${boughtTickets[0][i]} | numberOfTickets: ${boughtTickets[1][i]} <button onclick="claimTickets(${lotteryId}, ${i})">Claim</button></li>`);
-  }
 }
 
 async function claimTickets (lotteryId, purchaseId) {

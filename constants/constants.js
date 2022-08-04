@@ -1,3 +1,6 @@
+const RandomNumberGeneratorAddress = "";
+const STEPNNFTAddress = "";
+const PancakeSwapLotteryAddress = "";
 
 const LINK_ADDRESS = "0x404460c6a5ede2d891e8297795264fde62adbb75";
 const CHAIN_NAME = "Binance Smart Chain Mainnet";

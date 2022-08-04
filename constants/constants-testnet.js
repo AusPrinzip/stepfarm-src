@@ -1,3 +1,6 @@
+const RandomNumberGeneratorAddress = "0xD7C5bF70b0e888Fc936bDd83ffe27029fF63A191";
+const STEPNNFTAddress = "0xA5663FBc01d5D5FFFA922124032eE6F8ff08F90B";
+const PancakeSwapLotteryAddress = "0xFF6F32012DeaCD4262f963E4Ac978a21b7C165D4";
 
 const LINK_ADDRESS = "0x84b9b910527ad5c03a9ca831909e21e236ea7b06";
 const CHAIN_NAME = "Binance Smart Chain Testnet";
